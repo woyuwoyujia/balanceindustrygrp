@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products - Balance Industry</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+    <div class="logo">Balance Industry</div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+    </header>
+
+    <main>
+       <section class="page-header products-header"> <!-- 在这里添加 products-header 类 -->
+    <div class="container">
+        <p>Pioneering innovative and sustainable chemical solutions for a better tomorrow</p>
+    </div>
+</section>
+
+        <section id="product-list" class="section">
+            <div class="container">
+
+                <div class="product-item">
+                    <div class="product-tds-layout">
+    <div class="product-tds-main">
+        <h3 class="product-title">PVC RESIN K-58</h3>
+        <div class="product-tds-specs-image">
+            <img src="https://github.com/woyuwoyujia/balanceindustrygrp/blob/main/images/specs-k58.jpeg?raw=true" alt="Technical Specifications">
+        </div>
+        <div class="product-tds-applications">
+            <h4>Applications:</h4>
+            <ul>
+                <li>Injection molding: pipe fittings, rigid PVC parts</li>
+                <li>Sheet extrusion: Rigid films, compact and foamed rigid sheets</li>
+                <li>Calendaring: Rigid films and sheets</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="product-tds-gallery">
+        <img src="https://github.com/woyuwoyujia/balanceindustrygrp/blob/main/images/K58-1.jpg?raw=true
+" alt="Image 1">
+        <img src="https://github.com/woyuwoyujia/balanceindustrygrp/blob/main/images/K58-2.jpg?raw=true
+" alt="Image 2">
+        <img src="https://github.com/woyuwoyujia/balanceindustrygrp/blob/main/images/K58-3.jpg?raw=true
+" alt="Image 3">
+        <img src="https://github.com/woyuwoyujia/balanceindustrygrp/blob/main/images/K58-4.jpg?raw=true
+" alt="Image 4">
+    </div>
+</div>
+
+<script>
+    function changeImage(newImageSrc) {
+        const mainImage = document.getElementById('main-product-image');
+        mainImage.src = newImageSrc;
+
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        thumbnails.forEach(thumb => {
+            thumb.classList.remove('active');
+            if (mainImage.src.endsWith(newImageSrc)) {
+                if(thumb.src.endsWith(newImageSrc)) {
+                    thumb.classList.add('active');
+                }
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const firstThumbnail = document.querySelector('.thumbnail-images .thumbnail');
+        if(firstThumbnail) {
+            firstThumbnail.classList.add('active');
+        }
+    });
+</script>
+
+                <div class="product-tds-layout reverse-layout">
+    <div class="product-tds-gallery">
+        <img src="https://github.com/woyuwoyujia/balanceindustrygrp/blob/main/images/K67-1.jpg?raw=true" alt="PVC Resin K67 Image 1">
+        <img src="https://github.com/woyuwoyujia/balanceindustrygrp/blob/main/images/K67-2.jpg?raw=true" alt="PVC Resin K67 Image 2">
+        <img src="https://github.com/woyuwoyujia/balanceindustrygrp/blob/main/images/K67-3.jpg?raw=true" alt="PVC Resin K67 Image 3">
+        <img src="https://github.com/woyuwoyujia/balanceindustrygrp/blob/main/images/K67-4.jpg?raw=true" alt="PVC Resin K67 Image 4">
+    </div>
+
+    <div class="product-tds-main">
+        <h3 class="product-title">PVC RESIN K-67</h3>
+        <div class="product-tds-specs-image">
+            <img src="https://github.com/woyuwoyujia/balanceindustrygrp/blob/main/images/specs-k67.jpeg?raw=true" alt="Technical Specifications for PVC Resin K67">
+        </div>
+        <div class="product-tds-applications">
+            <h4>Applications:</h4>
+            <ul>
+                <li>Rigid pipes,Corrugated tubes and conduits.</li>
+                <li>Windows & doors.</li>
+                <li>Other rigid profiles.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+                <div class="product-tds-layout">
+    <div class="product-tds-main">
+        <h3 class="product-title">PVC Resin K-70</h3>
+        <div class="product-tds-specs-image">
+            <img src="https://github.com/woyuwoyujia/balanceindustrygrp/blob/main/images/specs-K70.jpeg?raw=true" alt="Technical Specifications for PVC Resin K-70">
+        </div>
+        <div class="product-tds-applications">
+            <h4>Applications:</h4>
+            <ul>
+                <li><normal>Extrusion:</normal> Wire insulation and cable jacketing, Flexible films and sheets, Flexible profiles, Hoses</li>
+                <li><normal>Injection molding:</normal> Shoe soles, Flexible PVC parts Calendering,Flexible films and sheets</li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="product-tds-gallery">
+        <img src="https://github.com/woyuwoyujia/balanceindustrygrp/blob/main/images/K70-1.jpg?raw=true" alt="PVC Resin K70 Image 1">
+        <img src="https://github.com/woyuwoyujia/balanceindustrygrp/blob/main/images/K70-2.jpg?raw=true" alt="PVC Resin K70 Image 2">
+        <img src="https://github.com/woyuwoyujia/balanceindustrygrp/blob/main/images/K70-3.jpg?raw=true" alt="PVC Resin K70 Image 3">
+        <img src="https://github.com/woyuwoyujia/balanceindustrygrp/blob/main/images/K70-4.jpg?raw=true" alt="PVC Resin K70 Image 4">
+    </div>
+</div>
+        </div> <div class="more-products-bar">
+        <h3>More Products</h3>
+        <a href="contact.html" class="contact-icon-link" aria-label="Contact us for more products">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+
+
+    </div> </section>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Balance Industry. All rights reserved.</p>
+    </footer>
+</body>
+</html>

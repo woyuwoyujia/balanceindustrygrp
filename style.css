@@ -1,0 +1,557 @@
+/* --- Balance Industry Brand Style --- */
+/* --- Author: Gemini --- */
+
+/* 1. Global Styles & Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap');
+
+:root {
+    --primary-blue: #0D2C54;
+    --accent-green: #28A745;
+    --neutral-text: #333333;
+    --background-light: #F8F9FA;
+    --background-white: #FFFFFF;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-light);
+    color: var(--neutral-text);
+}
+
+/* 2. Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: var(--background-white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.navbar .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    padding: 0 1rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--neutral-text);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-green);
+}
+
+/* 3. Hero Section */
+.hero {
+    background: linear-gradient(rgba(13, 44, 84, 0.7), rgba(13, 44, 84, 0.7)), url('https://images.unsplash.com/photo-1567427018141-0584cfcbf1b8?w=1920') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--background-white);
+}
+
+.hero .content h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero .content p {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+
+/* 4. Footer Styles */
+footer {
+    background: var(--primary-blue);
+    color: var(--background-light);
+    text-align: center;
+    padding: 1.5rem 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* --- 5. Generic Page & Content Styles --- */
+.section {
+    padding: 4rem 2rem;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.section-subtitle {
+    font-size: 2.2rem;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-blue);
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.text-center-container {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* Page Header for subpages */
+.page-header {
+    background-image: linear-gradient(rgba(13, 44, 84, 0.6), rgba(13, 44, 84, 0.6)), url('https://github.com/woyuwoyujia/balanceindustrygrp/blob/main/images/about-us-banner.jpg?raw=true'); /* About Us 页面背景图 */
+    background-size: cover;
+    background-position: top;
+    color: var(--background-white);
+    padding: 6rem 2rem;
+    text-align: center;
+    margin-top: 60px;
+}
+
+/* Products 页面特定的背景图 */
+.products-header {
+    background-image: linear-gradient(rgba(13, 44, 84, 0.6), rgba(13, 44, 84, 0.6)), url('https://github.com/woyuwoyujia/balanceindustrygrp/blob/main/images/products-banner.jpg?raw=true'); /* Products 页面背景图 */
+background-position: top;
+}
+
+/* --- 6. About Page - Content Grid --- */
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    /* align-items: stretch; */ /* "stretch" 是默认值，所以我们可以直接移除 align-items 这一行 */
+}
+
+.image-content img {
+    width: 100%;
+    height: 100%; /* 让图片高度充满被拉伸的容器 */
+    object-fit: cover; /* 确保图片在填充时保持自身比例，不变形 */
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+/* --- 7. About Page - Policy Section --- */
+.policy-section {
+    background-color: var(--background-white);
+}
+
+.policy-quote {
+    border-left: 5px solid var(--accent-green);
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: var(--background-light);
+    border-radius: 0 8px 8px 0;
+}
+
+.policy-quote p {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--neutral-text);
+    margin: 0;
+    line-height: 1.8;
+    text-align: left;
+}
+
+/* --- 8. About Page - Commitment Section --- */
+.commitment-section {
+    background-color: var(--background-light);
+}
+
+.commitment-list {
+    list-style-type: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 2rem auto 0;
+    text-align: left;
+}
+
+.commitment-list li {
+    background: var(--background-white);
+    margin-bottom: 1rem;
+    padding: 1.5rem 1.5rem 1.5rem 4rem;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.commitment-list li::before {
+    content: '✔';
+    position: absolute;
+    left: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-green);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* --- 9. Background Pattern for Text Content --- */
+.text-content {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23e0e0e0' fill-opacity='0.2' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.99 7.5V30T0 22.5zM28 15v7.5L15 30V22.5z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    padding: 2rem;
+    border-radius: 8px;
+    background-color: var(--background-white);
+    border: 1px solid #e9ecef;
+}
+
+.text-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.text-content p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* --- 10. CORRECTED Responsive adjustments --- */
+@media (max-width: 768px) { /* <-- 这里是关键的修改！从992px改为了768px */
+    .content-grid {
+        grid-template-columns: 1fr; /* 在小屏幕上变为单列布局 */
+    }
+
+    .image-content {
+        order: -1; /* 在小屏幕上，将图片移到文字上方 */
+        margin-bottom: 2rem;
+    }
+}
+
+/* --- 11. Page Header Subtitle Styling --- */
+/* 这是为副标题设计的专属样式 */
+/* 修改这里，让文字单排显示 */
+.page-header p {
+    font-family: 'Roboto', sans-serif;    /* 使用更柔和的Roboto字体 */
+    font-size: 1.6rem;                    /* 增大字体，使其更有分量 */
+    font-weight: 300;                     /* 使用更细的字重，显得更优雅、现代 */
+    color: rgba(255, 255, 255, 0.9);      /* 使用带90%透明度的白色，而不是纯白，视觉上更柔和 */
+    max-width: 100%;                      /* 设置最大宽度为100% */
+    white-space: nowrap;                  /* 防止文本换行 */
+    overflow: hidden;                     /* 隐藏溢出文本 */
+    text-overflow: ellipsis;              /* 用省略号表示被截断的文本（可选，如果想截断的话） */
+    margin: 0 auto;                       /* 确保在容器内水平居中 */
+    line-height: 1.6;                     /* 设置合适的行高，以防文字换行后挤在一起 */
+    letter-spacing: 1px;                  /* 增加一点点字间距，提升整体质感 */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* 添加一个细微的文字阴影，让文字从背景中“浮”起来，增强可读性 */
+    display: inline-block;              /* 使其成为inline-block以应用宽度和水平居中 */
+}
+
+
+/* --- 12. Unify Content Text Styles --- */
+
+/* 为“公司简介”下的段落设置统一样式 */
+.text-content p {
+    font-size: 1.1rem;  /* 统一样式：设置标准字号 */
+    line-height: 1.7;   /* 统一样式：设置标准行高 */
+    margin-bottom: 1.5rem;
+}
+
+.text-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* 为“质量方针”下的段落设置统一样式 */
+.policy-quote p {
+    font-size: 1.1rem;    /* 统一样式：与上方保持一致 */
+    line-height: 1.7;     /* 统一样式：与上方保持一致 */
+    font-style: normal; /* 移除之前的斜体样式 */
+    margin: 0;
+}
+
+/* 为“公司承诺”下的列表项设置统一样式 */
+.commitment-list li {
+    font-size: 1.1rem; /* 统一样式：与上方保持一致 */
+    line-height: 1.7;  /* 统一样式：与上方保持一致 */
+}
+/* --- 13. Final Product Layout Styles (Corrected) --- */
+.product-tds-layout {
+    display: grid;
+    align-items: center; /* 尝试让两栏垂直居中对齐 */
+    gap: 2.5rem;
+    padding: 3rem 0;
+    border-bottom: 1px solid #e9ecef;
+    /* 默认布局：左宽右窄 */
+    grid-template-columns: 1.8fr 1fr;
+}
+
+/* 镜像布局：左窄右宽 */
+.product-tds-layout.reverse-layout {
+    grid-template-columns: 1fr 1.8fr;
+align-items: start;
+}
+
+.product-tds-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-tds-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* --- 以下为无需修改的子元素样式 --- */
+.product-tds-main .product-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: var(--primary-blue);
+    margin: 0 0 1.5rem 0;
+    text-align: center;
+}
+.product-tds-specs-image img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+.product-tds-applications { margin-top: 1rem; }
+.product-tds-applications h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--accent-green);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+.product-tds-applications ul {
+    list-style-position: inside;
+    padding-left: 0;
+    margin: 0;
+}
+.product-tds-applications ul li {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+.product-tds-gallery img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+
+/* 响应式布局 */
+@media (max-width: 992px) {
+    .product-tds-layout,
+    .product-tds-layout.reverse-layout {
+        grid-template-columns: 1fr;
+    }
+}
+/* --- Final Product Layout Styles (Targeted Fix) --- */
+
+/* 创建一个两栏的网格布局容器 */
+.product-tds-layout {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr; /* 左栏宽，右栏窄 */
+    gap: 2.5rem;
+    padding: 3rem 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* 关键修改1：让左栏内容垂直居中 */
+.product-tds-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 让内部所有项目在垂直方向上居中 */
+}
+
+/* 关键修改2：让右栏的四张图片以2x2正方形排列 */
+.product-tds-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+    align-self: start; /* 恢复为顶部对齐，为margin-top做准备 */
+}
+
+.product-tds-gallery img {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* 强制图片为1:1的正方形 */
+    object-fit: cover;   /* 让图片填满正方形且不变形 */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* 以下是左栏内部元素的样式，确保它们格式正确 */
+.product-tds-main .product-title,
+.product-tds-main .product-tds-applications h4 {
+    margin-bottom: 1rem;
+}
+
+.product-tds-main .product-tds-specs-image {
+    margin: 1.5rem 0;
+}
+/* --- 18. Reverse Layout Modifier (Grid Method) --- */
+/* 这个规则专门用于实现镜像布局 */
+.reverse-layout .product-tds-main {
+    grid-column: 2; /* 关键：让主内容区显示在第2列 */
+    grid-row: 1;    /* 关键：让主内容区显示在第1行 */
+}
+
+.reverse-layout .product-tds-gallery {
+    grid-column: 1; /* 关键：让图库显示在第1列 */
+    grid-row: 1;    /* 关键：让图库显示在第1行 */
+}
+/* --- 19. Fine-tune Gallery Vertical Positions --- */
+
+/* 控制第一个产品（右侧）图库的垂直位置 */
+.product-tds-layout:not(.reverse-layout) .product-tds-gallery {
+    margin-top: 6rem; /* <-- 这是您用来调整第一个产品图库的参数 */
+}
+
+/* 控制第二个产品（左侧）图库的垂直位置 */
+.product-tds-layout.reverse-layout .product-tds-gallery {
+    margin-top: 6rem; /* <-- 这是您用来调整第二个产品图库的参数 */
+}
+/* --- 统一的页面横幅样式 (最终版) --- */
+/* 这段代码将为 About Us 和 Products 页面的横幅设置统一的渐变色背景 */
+
+.page-header {
+    background-color: transparent; /* 清除可能存在的旧的单色背景 */
+    background-image: linear-gradient(135deg, #0D2C54, #28A745); /* 设置新的渐变色背景 */
+}
+/* --- More Products Bar Styles --- */
+.more-products-bar {
+    background-color: var(--background-light);
+    padding: 2rem 3rem;
+    margin-top: 5rem; /* 与上一个产品模块的间距 */
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e9ecef;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.more-products-bar h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-blue);
+    margin: 0;
+    margin-right: 2rem;
+    font-size: 1.5rem;
+}
+
+.more-products-bar .contact-icon-link {
+    background-color: var(--accent-green);
+    color: var(--background-white);
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}
+
+.more-products-bar .contact-icon-link:hover {
+    background-color: #218838;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(40, 167, 69, 0.4);
+}
+/* --- Contact Page Styles --- */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* 左栏信息，右栏表单（更宽） */
+    gap: 3rem;
+    background: var(--background-white);
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+}
+
+.contact-info h3, .contact-form h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-blue);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.info-item i {
+    color: var(--accent-green);
+    font-size: 1.5rem;
+    margin-right: 1.5rem;
+    width: 25px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box; /* 确保padding不会撑大宽度 */
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 5px rgba(13, 44, 84, 0.3);
+}
+
+.contact-form .btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+
+/* 联系页面的响应式布局 */
+@media (max-width: 992px) {
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+}
