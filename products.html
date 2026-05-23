@@ -26,7 +26,6 @@
       --font-display:'Barlow Condensed','Arial Narrow',sans-serif;
       --font-body:'Inter','Helvetica Neue',sans-serif;
       --tr:200ms cubic-bezier(0.16,1,0.3,1);
-      --tr-slow:400ms cubic-bezier(0.16,1,0.3,1);
       --color-primary:#0D2C54;--color-accent:#C8860A;--color-accent-hover:#a36c08;
       --content-wide:1280px;
     }
@@ -106,16 +105,13 @@
 
     /* ── PRODUCT SECTIONS ── */
     .product-section{padding:clamp(5rem,8vw,7rem) 0;position:relative}
-
-    /* 渐进背景：01 → 02 → 03 → 04 */
     .product-section.bg-01{background:var(--bg-01)}
     .product-section.bg-02{background:var(--bg-02)}
     .product-section.bg-03{background:var(--bg-03)}
 
     /* 左侧金色竖线 */
-    .product-section::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,transparent,var(--gold) 30%,var(--gold) 70%,transparent);opacity:0;transition:opacity .6s}
+    .product-section::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,transparent,var(--gold) 30%,var(--gold) 70%,transparent);opacity:0;transition:opacity .6s;z-index:2}
     .product-section.visible-line::before{opacity:1}
-    /* 炭黑区块的左线用亮金 */
     .product-section--carbon::before{background:linear-gradient(to bottom,transparent,var(--gold-light) 30%,var(--gold-light) 70%,transparent)}
 
     .product-inner{max-width:1200px;margin:0 auto;padding:0 2rem 0 3rem}
@@ -149,11 +145,9 @@
 
     /* spec card */
     .spec-card{border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-md)}
-    /* 每个区块的卡片背景跟随区块背景，用白色+边框 */
     .bg-01 .spec-card{background:#fff;border:1px solid var(--border)}
     .bg-02 .spec-card{background:#fff;border:1px solid rgba(13,44,84,0.11)}
     .bg-03 .spec-card{background:#fff;border:1px solid rgba(13,44,84,0.13)}
-
     .spec-card-tabs{display:flex;border-bottom:1px solid var(--border)}
     .bg-01 .spec-card-tabs,.bg-02 .spec-card-tabs{background:var(--bg-02)}
     .bg-03 .spec-card-tabs{background:var(--off-white2)}
@@ -182,22 +176,25 @@
     .spec-card-footer-link{font-size:.76rem;font-weight:600;color:var(--gold);display:flex;align-items:center;gap:.3rem;transition:color var(--tr)}
     .spec-card-footer-link:hover{color:var(--gold-hover)}
 
-    /* ── CARBON BLACK — 过渡桥 + 深色区块 ── */
-    /* 桥段：03区块底部不做处理，炭黑区块顶部用伪元素做渐变过渡 */
+    /* ══ CARBON BLACK — 直接从 bg-03 渐变到深蓝，无桥段 div ══ */
     .product-section--carbon{
-      background:linear-gradient(175deg,var(--navy-deep) 0%,#0a2040 50%,var(--navy-deep) 100%);
+      background:linear-gradient(
+        to bottom,
+        #e8ecf4 0%,
+        #c8d0de 10%,
+        #8a9bb5 20%,
+        #3d5a80 32%,
+        #1a3a62 44%,
+        #0f2a4e 55%,
+        var(--navy-deep) 68%,
+        var(--navy-deep) 100%
+      );
       overflow:hidden;
-      /* 顶部过渡桥：从 bg-03 (#e8ecf4) → 透明，叠在深蓝背景上 */
       padding-top:0;
     }
-    .carbon-bridge{
-      height:80px;
-      background:linear-gradient(to bottom, var(--bg-03), transparent);
-      position:relative;
-      z-index:1;
-    }
+    /* 内容区从渐变完成处开始，给顶部足够空间让渐变可见 */
     .carbon-content{
-      padding:clamp(2rem,4vw,3.5rem) 0 clamp(5rem,8vw,7rem);
+      padding:clamp(5rem,8vw,7rem) 0;
     }
 
     /* 粒子动画 */
@@ -211,7 +208,7 @@
     .carbon-particles span:nth-child(6){width:2px;height:2px;left:40%;top:80%;animation-duration:24s;animation-delay:-10s}
     .carbon-particles span:nth-child(7){width:5px;height:5px;left:60%;top:50%;animation-duration:19s;animation-delay:-3s;background:rgba(200,134,10,0.08)}
     .carbon-particles span:nth-child(8){width:2px;height:2px;left:15%;top:85%;animation-duration:21s;animation-delay:-7s}
-    @keyframes float{0%{transform:translateY(0) translateX(0) rotate(0)}33%{transform:translateY(-40px) translateX(20px) rotate(120deg)}66%{transform:translateY(-20px) translateX(-15px) rotate(240deg)}100%{transform:translateY(0) translateX(0) rotate(360deg)}}
+    @keyframes float{0%{transform:translateY(0) translateX(0)}50%{transform:translateY(-30px) translateX(15px)}100%{transform:translateY(0) translateX(0)}}
 
     /* carbon text overrides */
     .product-section--carbon .product-num{color:rgba(255,255,255,0.07)}
@@ -225,7 +222,6 @@
     .product-section--carbon .product-header{border-bottom-color:rgba(255,255,255,0.1)}
     .product-section--carbon .btn-outline{border-color:rgba(255,255,255,0.3);color:rgba(255,255,255,0.85)}
     .product-section--carbon .btn-outline:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.5);color:#fff}
-    /* carbon spec card */
     .product-section--carbon .spec-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);box-shadow:0 8px 40px rgba(0,0,0,0.3)}
     .product-section--carbon .spec-card-tabs{background:rgba(255,255,255,0.03);border-bottom-color:rgba(255,255,255,0.08)}
     .product-section--carbon .spec-card-tab{color:rgba(255,255,255,0.38)}
@@ -596,9 +592,8 @@
 </section>
 
 <!-- ══ 04 ACETYLENE CARBON BLACK ══ -->
+<!-- 无 carbon-bridge div，背景直接从 #e8ecf4 渐变到深蓝 -->
 <section class="product-section product-section--carbon" id="carbon-black">
-  <!-- 过渡桥：从 bg-03 颜色渐变到透明，再露出深蓝背景 -->
-  <div class="carbon-bridge" aria-hidden="true"></div>
   <div class="carbon-particles" aria-hidden="true">
     <span></span><span></span><span></span><span></span>
     <span></span><span></span><span></span><span></span>
@@ -739,7 +734,6 @@
 </footer>
 
 <script>
-// Mobile menu
 (function(){
   var burger=document.getElementById('burger'),menu=document.getElementById('mobile-menu');
   burger.addEventListener('click',function(){
@@ -756,7 +750,6 @@
   });
 })();
 
-// Spec card tabs
 document.querySelectorAll('.spec-card-tab').forEach(function(tab){
   tab.addEventListener('click',function(){
     var card=tab.getAttribute('data-card');
@@ -768,18 +761,14 @@ document.querySelectorAll('.spec-card-tab').forEach(function(tab){
   });
 });
 
-// Scroll reveal
 (function(){
   var els=document.querySelectorAll('.reveal');
   var obs=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
-    });
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
   },{threshold:0.12});
   els.forEach(function(el){obs.observe(el)});
 })();
 
-// Left accent line
 (function(){
   var sections=document.querySelectorAll('.product-section[id]');
   var obs=new IntersectionObserver(function(entries){
@@ -788,7 +777,6 @@ document.querySelectorAll('.spec-card-tab').forEach(function(tab){
   sections.forEach(function(s){obs.observe(s)});
 })();
 
-// Anchor nav active
 (function(){
   var links=document.querySelectorAll('.anchor-nav-inner a');
   var sections=document.querySelectorAll('.product-section[id]');
@@ -804,7 +792,6 @@ document.querySelectorAll('.spec-card-tab').forEach(function(tab){
   sections.forEach(function(s){obs.observe(s)});
 })();
 
-// Theme toggle
 (function(){
   var t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;
   var d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
