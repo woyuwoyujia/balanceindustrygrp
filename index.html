@@ -232,23 +232,26 @@
     .cta-btn { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #ffffff; background: var(--color-primary); padding: var(--space-4) var(--space-8); border-radius: var(--radius-md); white-space: nowrap; flex-shrink: 0; }
     .cta-btn:hover { opacity: 0.85; }
 
-    /* ── FOOTER ── */
-    .footer { background: #0a1e3c; padding-block: var(--space-10) var(--space-8); border-top: 1px solid oklch(from #ffffff l c h / 0.06); }
-    .footer-inner { max-width: var(--content-wide); margin-inline: auto; padding-inline: var(--space-6); }
-    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: var(--space-8); margin-bottom: var(--space-10); }
-    .footer-brand p { font-size: var(--text-sm); color: oklch(from #ffffff l c h / 0.45); max-width: 30ch; margin-top: var(--space-3); line-height: 1.65; }
-    .footer-col h4 { font-family: var(--font-display); font-size: var(--text-sm); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(from #ffffff l c h / 0.35); margin-bottom: var(--space-4); }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); }
-    .footer-col a { font-size: var(--text-sm); color: oklch(from #ffffff l c h / 0.55); }
-    .footer-col a:hover { color: #ffffff; }
-    .footer-bottom { padding-top: var(--space-6); border-top: 1px solid oklch(from #ffffff l c h / 0.06); display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); }
-    .footer-copy { font-size: var(--text-xs); color: oklch(from #ffffff l c h / 0.30); }
-    .footer-contact { font-size: var(--text-xs); color: oklch(from #ffffff l c h / 0.45); }
-    .footer-contact a { color: var(--color-accent); }
-    .footer-contact a:hover { color: oklch(from var(--color-accent) l c h / 0.8); }
+    /* FOOTER */
+.footer { background: #0a1e3c; padding-block: var(--space-10) var(--space-8); border-top: 1px solid oklch(from #ffffff l c h / 0.06); }
+.footer-inner { max-width: var(--content-wide); margin-inline: auto; padding-inline: var(--space-6); }
+.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: var(--space-8); margin-bottom: var(--space-10); }
+.footer-brand p { font-size: var(--text-sm); color: oklch(from #ffffff l c h / 0.45); max-width: 30ch; margin-top: var(--space-3); line-height: 1.65; }
+.footer-col h4 { font-family: var(--font-display); font-size: var(--text-sm); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(from #ffffff l c h / 0.35); margin-bottom: var(--space-4); }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); }
+.footer-links a { font-size: var(--text-sm); color: oklch(from #ffffff l c h / 0.55); transition: color var(--transition); }
+.footer-links a:hover { color: #ffffff; }
 .footer-contact-item { display: flex; gap: 0.65rem; align-items: flex-start; margin-bottom: 0.85rem; }
 .footer-contact-item svg { flex-shrink: 0; margin-top: 2px; color: #C8860A; opacity: 0.8; }
 .footer-contact-item span { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+.footer-divider { border: none; border-top: 1px solid oklch(from #ffffff l c h / 0.06); margin-bottom: var(--space-6); }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); }
+.footer-copy { font-size: var(--text-xs); color: oklch(from #ffffff l c h / 0.30); }
+.footer-bottom-links { display: flex; gap: var(--space-6); }
+.footer-bottom-links a { font-size: var(--text-xs); color: oklch(from #ffffff l c h / 0.30); transition: color var(--transition); }
+.footer-bottom-links a:hover { color: oklch(from #ffffff l c h / 0.65); }
+@media (max-width: 1024px) { .footer-top { grid-template-columns: 1fr 1fr; gap: var(--space-6); } }
+@media (max-width: 768px) { .footer-top { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; text-align: center; } }
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
       .hero-inner { grid-template-columns: 1fr; gap: var(--space-10); }
@@ -518,12 +521,12 @@
 </main>
 
 
-<!-- ══ FOOTER ══ -->
+<!-- FOOTER -->
 <footer class="footer" role="contentinfo">
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="index.html" class="nav-logo" style="filter: brightness(0.8)">
+        <a href="index.html" class="nav-logo" style="filter: brightness(0.8); margin-bottom: 0.75rem; display:inline-flex;">
           <svg width="30" height="30" viewBox="0 0 36 36" fill="none" aria-hidden="true">
             <rect width="36" height="36" rx="6" fill="rgba(255,255,255,0.06)"/>
             <rect x="8" y="8" width="5" height="20" rx="1.5" fill="#ffffff"/>
@@ -540,7 +543,7 @@
       </div>
       <div class="footer-col">
         <h4>Products</h4>
-        <ul role="list">
+        <ul class="footer-links">
           <li><a href="products.html">PVC Resin</a></li>
           <li><a href="products.html">PVC Paste Resin</a></li>
           <li><a href="products.html">Plasticizers</a></li>
@@ -549,13 +552,38 @@
       </div>
       <div class="footer-col">
         <h4>Company</h4>
-        <ul role="list">
+        <ul class="footer-links">
           <li><a href="about.html">About Us</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="contact.html">Request a Quote</a></li>
         </ul>
       </div>
       <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-item">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5"/></svg>
+          <span><a href="mailto:export@balanceindustrygrp.com" style="color:inherit">export@balanceindustrygrp.com</a></span>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+          <span><a href="https://wa.me/8618037158172" style="color:inherit">+86 180 3715 8172</a></span>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>NO. 6, Suoling Road, Zhengzhou, China</span>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 Balance Industry Group Co., Limited. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
   <h4>Contact</h4>
   <div class="footer-contact-item">
     <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5"/></svg>
