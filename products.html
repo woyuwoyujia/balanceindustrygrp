@@ -1,194 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Products — Balance Industry Group</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --navy:#0D2C54;--navy-deep:#091e3a;--navy-mid:#163d6e;
-      --gold:#C8860A;--gold-hover:#a86d06;--gold-light:#e8a020;
-      --white:#ffffff;--off-white:#f5f6f8;
-      --text-main:#1a2234;--text-muted:#5a6a82;
-      --border:rgba(13,44,84,0.12);
-      --shadow-sm:0 2px 8px rgba(13,44,84,0.07);
-      --shadow-md:0 6px 24px rgba(13,44,84,0.10);
-      --radius-sm:6px;--radius-md:10px;--radius-lg:16px;
+      --navy:#0D2C54;--navy-deep:#091e3a;--navy-mid:#163d6e;--navy-light:#1a4a80;
+      --gold:#C8860A;--gold-hover:#a86d06;--gold-light:#e8a020;--gold-pale:rgba(200,134,10,0.12);
+      --white:#ffffff;--off-white:#f5f6f8;--off-white2:#eef0f4;
+      --text-main:#1a2234;--text-muted:#5a6a82;--text-faint:#8a9ab5;
+      --border:rgba(13,44,84,0.1);--border-mid:rgba(13,44,84,0.18);
+      --shadow-xs:0 1px 4px rgba(13,44,84,0.06);
+      --shadow-sm:0 2px 12px rgba(13,44,84,0.08);
+      --shadow-md:0 8px 32px rgba(13,44,84,0.11);
+      --shadow-lg:0 20px 60px rgba(13,44,84,0.14);
+      --radius-sm:6px;--radius-md:10px;--radius-lg:16px;--radius-xl:22px;
       --font-display:'Barlow Condensed','Arial Narrow',sans-serif;
       --font-body:'Inter','Helvetica Neue',sans-serif;
-      --tr:180ms cubic-bezier(0.16,1,0.3,1);
-      --text-xs:clamp(0.75rem,0.7rem + 0.25vw,0.875rem);
-      --text-sm:clamp(0.875rem,0.8rem + 0.35vw,1rem);
-      --text-base:clamp(1rem,0.95rem + 0.25vw,1.125rem);
-      --radius-nav:0.375rem;
+      --tr:200ms cubic-bezier(0.16,1,0.3,1);
+      --tr-slow:400ms cubic-bezier(0.16,1,0.3,1);
       --color-primary:#0D2C54;--color-accent:#C8860A;--color-accent-hover:#a36c08;
       --content-wide:1280px;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;scroll-padding-top:80px}
-    body{font-family:var(--font-body);font-size:16px;color:var(--text-main);background:var(--white);line-height:1.6}
-    img{display:block;max-width:100%;height:auto}
+    body{font-family:var(--font-body);font-size:16px;color:var(--text-main);background:var(--white);line-height:1.6;overflow-x:hidden}
+    img{display:block;max-width:100%}
     a{text-decoration:none;color:inherit}
     button{cursor:pointer;border:none;background:none;font:inherit}
 
     /* ── NAV ── */
-    .nav{position:sticky;top:0;z-index:100;background:var(--color-primary);border-bottom:1px solid rgba(255,255,255,0.08)}
-    .nav-inner{max-width:var(--content-wide);margin-inline:auto;padding-inline:1.5rem;height:60px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1rem}
+    .nav{position:sticky;top:0;z-index:100;background:var(--color-primary);border-bottom:1px solid rgba(255,255,255,0.07)}
+    .nav::after{content:'';position:absolute;inset:0 0 -1px 0;background:linear-gradient(90deg,rgba(200,134,10,0.18) 0%,transparent 40%);pointer-events:none}
+    .nav-inner{max-width:var(--content-wide);margin-inline:auto;padding-inline:2rem;height:62px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1rem;position:relative;z-index:1}
     .nav-logo{display:flex;align-items:center;gap:.75rem;flex-shrink:0}
-    .nav-logo-mark{width:36px;height:36px;flex-shrink:0}
+    .nav-logo-mark{width:38px;height:38px;flex-shrink:0}
     .nav-logo-text{display:flex;flex-direction:column;line-height:1.15}
-    .nav-logo-name{font-family:var(--font-display);font-size:var(--text-sm);font-weight:700;letter-spacing:0.04em;color:#fff;text-transform:uppercase}
-    .nav-logo-sub{font-size:var(--text-xs);color:rgba(255,255,255,0.55);letter-spacing:0.02em}
-    .nav-links{display:flex;align-items:center;justify-content:center;gap:.25rem;list-style:none}
-    .nav-links a{font-size:var(--text-sm);font-weight:500;color:rgba(255,255,255,0.75);padding:.5rem .75rem;border-radius:var(--radius-nav);letter-spacing:0.02em;transition:color var(--tr),background var(--tr)}
+    .nav-logo-name{font-family:var(--font-display);font-size:.95rem;font-weight:700;letter-spacing:0.05em;color:#fff;text-transform:uppercase}
+    .nav-logo-sub{font-size:.72rem;color:rgba(255,255,255,0.48);letter-spacing:0.03em}
+    .nav-links{display:flex;align-items:center;justify-content:center;gap:.2rem;list-style:none}
+    .nav-links a{font-size:.875rem;font-weight:500;color:rgba(255,255,255,0.7);padding:.45rem .8rem;border-radius:.35rem;letter-spacing:0.02em;transition:color var(--tr),background var(--tr)}
     .nav-links a:hover{color:#fff;background:rgba(255,255,255,0.08)}
     .nav-links a.active{color:#fff}
     .nav-actions{display:flex;align-items:center;gap:.5rem}
-    .nav-contact-btn{font-size:var(--text-xs);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-primary);background:var(--color-accent);padding:.5rem 1rem;border-radius:var(--radius-nav);white-space:nowrap;transition:background var(--tr)}
-    .nav-contact-btn:hover{background:var(--color-accent-hover)}
-    .theme-toggle{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-nav);color:rgba(255,255,255,0.6);transition:color var(--tr),background var(--tr)}
+    .nav-contact-btn{font-size:.75rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--navy-deep);background:var(--color-accent);padding:.45rem 1.1rem;border-radius:.35rem;white-space:nowrap;transition:background var(--tr),transform var(--tr)}
+    .nav-contact-btn:hover{background:var(--color-accent-hover);transform:translateY(-1px)}
+    .theme-toggle{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:.35rem;color:rgba(255,255,255,0.55);transition:color var(--tr),background var(--tr)}
     .theme-toggle:hover{background:rgba(255,255,255,0.08);color:#fff}
-    .nav-burger{display:none;flex-direction:column;gap:5px;width:36px;height:36px;align-items:center;justify-content:center;border-radius:var(--radius-nav);color:rgba(255,255,255,0.8)}
-    .nav-burger span{display:block;width:20px;height:2px;background:currentColor;border-radius:2px}
-    .mobile-menu{display:none;background:var(--color-primary);padding:1rem 1.5rem 1.5rem;border-top:1px solid rgba(255,255,255,0.08)}
+    .nav-burger{display:none;flex-direction:column;gap:5px;width:36px;height:36px;align-items:center;justify-content:center;border-radius:.35rem;color:rgba(255,255,255,0.8)}
+    .nav-burger span{display:block;width:20px;height:2px;background:currentColor;border-radius:2px;transition:transform var(--tr),opacity var(--tr)}
+    .mobile-menu{display:none;background:var(--color-primary);padding:1rem 2rem 1.5rem;border-top:1px solid rgba(255,255,255,0.07)}
     .mobile-menu.open{display:block}
-    .mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:.25rem}
-    .mobile-menu a{display:block;font-size:var(--text-base);font-weight:500;color:rgba(255,255,255,0.8);padding:.75rem;border-radius:var(--radius-nav);transition:color var(--tr),background var(--tr)}
+    .mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:.2rem}
+    .mobile-menu a{display:block;font-size:1rem;font-weight:500;color:rgba(255,255,255,0.8);padding:.75rem;border-radius:.35rem;transition:color var(--tr),background var(--tr)}
     .mobile-menu a:hover{background:rgba(255,255,255,0.08);color:#fff}
-    .mobile-menu-contact{margin-top:1rem;display:block;text-align:center;font-size:var(--text-sm);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-primary);background:var(--color-accent);padding:.75rem 1rem;border-radius:var(--radius-nav)}
+    .mobile-menu-contact{margin-top:1rem;display:block;text-align:center;font-size:.875rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--navy-deep);background:var(--color-accent);padding:.75rem;border-radius:.35rem}
     @media(max-width:768px){.nav-links,.nav-contact-btn{display:none}.nav-burger{display:flex}.nav-inner{grid-template-columns:auto auto}}
 
     /* ── PAGE HERO ── */
-    .page-hero{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 60%,var(--navy-mid) 100%);padding:80px 0 64px;position:relative;overflow:hidden}
-    .page-hero::after{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(200,134,10,0.08) 0%,transparent 70%);pointer-events:none}
-    .page-hero-inner{max-width:1200px;margin:0 auto;padding:0 2rem}
-    .breadcrumb{font-size:0.78rem;color:rgba(255,255,255,0.4);margin-bottom:1rem}
-    .breadcrumb a{color:rgba(255,255,255,0.4);transition:color var(--tr)}
+    .page-hero{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 55%,var(--navy-mid) 100%);padding:90px 0 72px;position:relative;overflow:hidden}
+    .hero-bg-lines{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+    .hero-bg-lines svg{position:absolute;right:0;top:0;width:55%;height:100%;opacity:0.055}
+    .hero-glow{position:absolute;top:-120px;right:-120px;width:500px;height:500px;background:radial-gradient(circle,rgba(200,134,10,0.12) 0%,transparent 65%);pointer-events:none}
+    .page-hero-inner{max-width:1200px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+    .breadcrumb{font-size:.76rem;color:rgba(255,255,255,0.38);margin-bottom:1.1rem;display:flex;align-items:center;gap:.4rem}
+    .breadcrumb a{color:rgba(255,255,255,0.38);transition:color var(--tr)}
     .breadcrumb a:hover{color:var(--gold)}
+    .breadcrumb-sep{opacity:.4}
     .breadcrumb span{color:var(--gold)}
-    .page-hero-title{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:800;color:#fff;line-height:1.05;margin-bottom:0.75rem}
-    .page-hero-desc{font-size:1rem;color:rgba(255,255,255,0.6);max-width:520px;line-height:1.7}
+    .hero-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem;display:flex;align-items:center;gap:.6rem}
+    .hero-eyebrow::before{content:'';display:block;width:28px;height:2px;background:var(--gold);border-radius:2px}
+    .page-hero-title{font-family:var(--font-display);font-size:clamp(2.4rem,5vw,4rem);font-weight:800;color:#fff;line-height:1.0;margin-bottom:1rem;letter-spacing:-.01em}
+    .page-hero-title em{font-style:normal;color:var(--gold-light)}
+    .page-hero-desc{font-size:1rem;color:rgba(255,255,255,0.58);max-width:500px;line-height:1.75;margin-bottom:2rem}
+    .hero-stats{display:flex;gap:2.5rem;flex-wrap:wrap}
+    .hero-stat-num{font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:#fff;line-height:1}
+    .hero-stat-num span{color:var(--gold)}
+    .hero-stat-label{font-size:.72rem;color:rgba(255,255,255,0.45);letter-spacing:.04em;text-transform:uppercase;margin-top:.2rem}
 
     /* ── ANCHOR NAV ── */
-    .anchor-nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:60px;z-index:90}
+    .anchor-nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:62px;z-index:90;box-shadow:var(--shadow-xs)}
     .anchor-nav-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;overflow-x:auto;scrollbar-width:none}
     .anchor-nav-inner::-webkit-scrollbar{display:none}
-    .anchor-nav-inner a{font-size:0.82rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--text-muted);padding:1rem 1.25rem;white-space:nowrap;border-bottom:2px solid transparent;transition:color var(--tr),border-color var(--tr)}
+    .anchor-nav-inner a{font-size:.78rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-faint);padding:.95rem 1.2rem;white-space:nowrap;border-bottom:2px solid transparent;transition:color var(--tr),border-color var(--tr);display:flex;align-items:center;gap:.5rem}
+    .anchor-nav-inner a .anav-num{font-family:var(--font-display);font-size:.68rem;font-weight:700;padding:.1rem .4rem;border-radius:4px;background:var(--off-white2);color:var(--text-faint);transition:background var(--tr),color var(--tr)}
     .anchor-nav-inner a:hover{color:var(--navy)}
+    .anchor-nav-inner a:hover .anav-num{background:rgba(13,44,84,0.08);color:var(--navy)}
     .anchor-nav-inner a.active{color:var(--gold);border-bottom-color:var(--gold)}
+    .anchor-nav-inner a.active .anav-num{background:var(--gold-pale);color:var(--gold)}
+
+    /* ── SCROLL REVEAL ── */
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .6s cubic-bezier(0.16,1,0.3,1),transform .6s cubic-bezier(0.16,1,0.3,1)}
+    .reveal.visible{opacity:1;transform:none}
+    .reveal-delay-1{transition-delay:.1s}
+    .reveal-delay-2{transition-delay:.2s}
+    .reveal-delay-3{transition-delay:.3s}
 
     /* ── PRODUCT SECTIONS ── */
-    /* 明确用 class 控制交替背景，不用 nth-child，避免污染炭黑区块 */
-    .product-section{padding:clamp(4rem,7vw,6rem) 0;border-top:1px solid var(--border)}
-    .product-section:first-of-type{border-top:none}
+    .product-section{padding:clamp(5rem,8vw,7rem) 0;position:relative}
     .product-section.bg-alt{background:var(--off-white)}
+    /* left accent line */
+    .product-section::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,transparent,var(--gold) 30%,var(--gold) 70%,transparent);opacity:0;transition:opacity .6s}
+    .product-section.visible-line::before{opacity:1}
+    .product-inner{max-width:1200px;margin:0 auto;padding:0 2rem 0 3rem}
 
-    .product-inner{max-width:1200px;margin:0 auto;padding:0 2rem}
-    .product-header{display:flex;align-items:flex-start;gap:1.5rem;margin-bottom:2.5rem}
-    .product-num{font-family:var(--font-display);font-size:3.5rem;font-weight:800;color:var(--border);line-height:1;flex-shrink:0;min-width:3ch}
-    .product-label{font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem}
-    .product-title{font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;color:var(--navy);line-height:1.1;margin-bottom:0.5rem}
-    .product-subtitle{font-size:0.875rem;color:var(--text-muted);letter-spacing:0.04em}
+    /* ghost product label */
+    .section-ghost{position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);font-family:var(--font-display);font-size:clamp(6rem,10vw,11rem);font-weight:800;color:transparent;-webkit-text-stroke:1px rgba(13,44,84,0.05);line-height:1;pointer-events:none;user-select:none;white-space:nowrap;letter-spacing:-.02em}
+    .product-section--carbon .section-ghost{-webkit-text-stroke-color:rgba(255,255,255,0.05)}
+
+    /* header row */
+    .product-header{display:grid;grid-template-columns:auto 1fr auto;align-items:start;gap:1.5rem;margin-bottom:2.75rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+    .product-section--carbon .product-header{border-bottom-color:rgba(255,255,255,0.1)}
+    /* vertical number */
+    .product-num-wrap{display:flex;flex-direction:column;align-items:center;gap:.35rem;padding-top:.15rem}
+    .product-num{font-family:var(--font-display);font-size:2.8rem;font-weight:800;color:rgba(13,44,84,0.12);line-height:1;letter-spacing:-.02em}
+    .product-num-line{width:1px;height:32px;background:linear-gradient(to bottom,var(--gold),transparent)}
+    /* title block */
+    .product-title-block{}
+    .product-label{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem;display:flex;align-items:center;gap:.5rem}
+    .product-label::before{content:'';display:block;width:16px;height:1.5px;background:var(--gold);border-radius:2px}
+    .product-title{font-family:var(--font-display);font-size:clamp(2rem,3.5vw,2.9rem);font-weight:700;color:var(--navy);line-height:1.05;margin-bottom:.4rem;letter-spacing:-.01em}
+    .product-subtitle{font-size:.82rem;color:var(--text-faint);letter-spacing:.06em}
+    /* grade pills in header */
+    .grade-pills{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.6rem}
+    .grade-pill{font-size:.72rem;font-weight:600;padding:.2rem .65rem;border-radius:4px;background:rgba(13,44,84,0.06);color:var(--navy);border:1px solid var(--border);letter-spacing:.04em;font-family:var(--font-display)}
+
+    /* body grid */
     .product-body{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-    .product-desc{font-size:0.9375rem;color:var(--text-muted);line-height:1.8}
-    .product-desc p+p{margin-top:1rem}
-    .product-apps{margin-top:1.5rem}
-    .product-apps-title{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);margin-bottom:0.75rem}
-    .app-tags{display:flex;flex-wrap:wrap;gap:0.5rem}
-    .app-tag{font-size:0.78rem;font-weight:500;padding:0.3rem 0.75rem;border-radius:100px;background:rgba(13,44,84,0.06);color:var(--navy);border:1px solid var(--border)}
-    .product-actions{display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:2rem}
-    .btn-primary{display:inline-flex;align-items:center;gap:0.5rem;background:var(--gold);color:#fff;font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.7rem 1.5rem;border-radius:var(--radius-sm);transition:background var(--tr)}
-    .btn-primary:hover{background:var(--gold-hover)}
-    .btn-outline{display:inline-flex;align-items:center;gap:0.5rem;border:1.5px solid var(--navy);color:var(--navy);font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.7rem 1.5rem;border-radius:var(--radius-sm);transition:background var(--tr),color var(--tr)}
-    .btn-outline:hover{background:var(--navy);color:#fff}
 
-    /* ── SPEC CARD (light sections) ── */
-    .spec-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)}
-    .spec-card-header{background:var(--navy);padding:1rem 1.5rem;display:flex;align-items:center;gap:0.75rem}
-    .spec-card-header svg{color:var(--gold);flex-shrink:0}
-    .spec-card-title{font-family:var(--font-display);font-size:1rem;font-weight:700;color:#fff;letter-spacing:0.04em;text-transform:uppercase}
+    /* left col */
+    .product-desc{font-size:.9375rem;color:var(--text-muted);line-height:1.82}
+    .product-desc p+p{margin-top:1rem}
+    .product-actions{display:flex;gap:.65rem;flex-wrap:wrap;margin-top:1.75rem}
+    .btn-primary{display:inline-flex;align-items:center;gap:.45rem;background:var(--gold);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.7rem 1.4rem;border-radius:var(--radius-sm);transition:background var(--tr),transform var(--tr),box-shadow var(--tr)}
+    .btn-primary:hover{background:var(--gold-hover);transform:translateY(-1px);box-shadow:0 4px 16px rgba(200,134,10,0.35)}
+    .btn-outline{display:inline-flex;align-items:center;gap:.45rem;border:1.5px solid var(--border-mid);color:var(--navy);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.7rem 1.4rem;border-radius:var(--radius-sm);transition:background var(--tr),color var(--tr),border-color var(--tr)}
+    .btn-outline:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+    /* right col — tabbed card */
+    .spec-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-md)}
+    .spec-card-tabs{display:flex;border-bottom:1px solid var(--border);background:var(--off-white)}
+    .spec-card-tab{flex:1;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);padding:.85rem 1rem;text-align:center;cursor:pointer;border:none;background:none;font-family:var(--font-body);border-bottom:2px solid transparent;margin-bottom:-1px;transition:color var(--tr),border-color var(--tr),background var(--tr)}
+    .spec-card-tab:hover{color:var(--navy);background:rgba(13,44,84,0.03)}
+    .spec-card-tab.active{color:var(--navy);border-bottom-color:var(--gold);background:var(--white)}
+    .spec-panel{display:none}
+    .spec-panel.active{display:block}
+    /* spec table */
     .spec-table{width:100%;border-collapse:collapse}
-    .spec-table th{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);background:var(--off-white);padding:0.6rem 1rem;text-align:left;border-bottom:1px solid var(--border)}
-    .spec-table td{font-size:0.85rem;padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .spec-table th{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);background:var(--off-white2);padding:.55rem 1.25rem;text-align:left;border-bottom:1px solid var(--border)}
+    .spec-table td{font-size:.84rem;padding:.65rem 1.25rem;border-bottom:1px solid var(--border);vertical-align:top}
     .spec-table tr:last-child td{border-bottom:none}
-    .spec-table tr:hover td{background:rgba(13,44,84,0.025)}
+    .spec-table tr:hover td{background:rgba(13,44,84,0.018)}
     .spec-name{font-weight:600;color:var(--text-main)}
     .spec-value{color:var(--text-muted)}
-    .spec-badge{display:inline-block;font-size:0.68rem;font-weight:700;padding:0.15rem 0.5rem;border-radius:4px;background:rgba(200,134,10,0.12);color:var(--gold);border:1px solid rgba(200,134,10,0.25)}
+    .spec-badge{display:inline-block;font-size:.66rem;font-weight:700;padding:.12rem .45rem;border-radius:4px;background:var(--gold-pale);color:var(--gold);border:1px solid rgba(200,134,10,0.22)}
+    /* apps panel */
+    .apps-panel-inner{padding:1.5rem 1.25rem}
+    .apps-grid{display:flex;flex-wrap:wrap;gap:.45rem}
+    .app-tag{font-size:.78rem;font-weight:500;padding:.3rem .75rem;border-radius:100px;background:rgba(13,44,84,0.05);color:var(--navy);border:1px solid var(--border);transition:background var(--tr),color var(--tr)}
+    .app-tag:hover{background:var(--navy);color:#fff}
+    /* card footer */
+    .spec-card-footer{padding:1rem 1.25rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--off-white)}
+    .spec-card-footer-note{font-size:.76rem;color:var(--text-faint)}
+    .spec-card-footer-link{font-size:.76rem;font-weight:600;color:var(--gold);display:flex;align-items:center;gap:.3rem;transition:color var(--tr)}
+    .spec-card-footer-link:hover{color:var(--gold-hover)}
 
-    /* ── CARBON BLACK SECTION — 完全独立的深色区块 ── */
-    .product-section--carbon{
-      background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 100%);
-      border-top:none;
-    }
+    /* ── CARBON BLACK SECTION ── */
+    .product-section--carbon{background:var(--navy-deep);overflow:hidden}
+    .product-section--carbon::before{background:linear-gradient(to bottom,transparent,var(--gold-light) 30%,var(--gold-light) 70%,transparent)}
+    /* animated particle field */
+    .carbon-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+    .carbon-particles span{position:absolute;border-radius:50%;background:rgba(200,134,10,0.15);animation:float linear infinite}
+    .carbon-particles span:nth-child(1){width:3px;height:3px;left:10%;top:20%;animation-duration:18s;animation-delay:0s}
+    .carbon-particles span:nth-child(2){width:2px;height:2px;left:25%;top:60%;animation-duration:22s;animation-delay:-4s}
+    .carbon-particles span:nth-child(3){width:4px;height:4px;left:50%;top:30%;animation-duration:16s;animation-delay:-8s}
+    .carbon-particles span:nth-child(4){width:2px;height:2px;left:70%;top:70%;animation-duration:20s;animation-delay:-2s}
+    .carbon-particles span:nth-child(5){width:3px;height:3px;left:85%;top:15%;animation-duration:14s;animation-delay:-6s}
+    .carbon-particles span:nth-child(6){width:2px;height:2px;left:40%;top:80%;animation-duration:24s;animation-delay:-10s}
+    .carbon-particles span:nth-child(7){width:5px;height:5px;left:60%;top:50%;animation-duration:19s;animation-delay:-3s;background:rgba(200,134,10,0.08)}
+    .carbon-particles span:nth-child(8){width:2px;height:2px;left:15%;top:85%;animation-duration:21s;animation-delay:-7s}
+    @keyframes float{0%{transform:translateY(0) translateX(0) rotate(0)}33%{transform:translateY(-40px) translateX(20px) rotate(120deg)}66%{transform:translateY(-20px) translateX(-15px) rotate(240deg)}100%{transform:translateY(0) translateX(0) rotate(360deg)}}
+    /* carbon text overrides */
     .product-section--carbon .product-num{color:rgba(255,255,255,0.07)}
+    .product-section--carbon .product-num-line{background:linear-gradient(to bottom,var(--gold-light),transparent)}
     .product-section--carbon .product-label{color:var(--gold-light)}
+    .product-section--carbon .product-label::before{background:var(--gold-light)}
     .product-section--carbon .product-title{color:#fff}
-    .product-section--carbon .product-subtitle{color:rgba(255,255,255,0.5)}
-    .product-section--carbon .product-desc{color:rgba(255,255,255,0.65)}
-    .product-section--carbon .product-apps-title{color:rgba(255,255,255,0.85)}
-    .product-section--carbon .app-tag{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.8);border-color:rgba(255,255,255,0.12)}
-    .product-section--carbon .btn-outline{border-color:rgba(255,255,255,0.4);color:#fff}
-    .product-section--carbon .btn-outline:hover{background:rgba(255,255,255,0.1)}
-    /* spec card — 深色覆盖，全部用 !important 确保不被其他规则干扰 */
-    .product-section--carbon .spec-card{
-      background:rgba(255,255,255,0.05) !important;
-      border:1px solid rgba(255,255,255,0.12) !important;
-      box-shadow:none !important;
-    }
-    .product-section--carbon .spec-card-header{
-      background:rgba(255,255,255,0.08) !important;
-    }
-    .product-section--carbon .spec-table th{
-      background:rgba(255,255,255,0.04) !important;
-      color:rgba(255,255,255,0.45) !important;
-      border-bottom:1px solid rgba(255,255,255,0.1) !important;
-    }
-    .product-section--carbon .spec-table td{
-      border-bottom:1px solid rgba(255,255,255,0.08) !important;
-      color:var(--text-muted);
-    }
-    .product-section--carbon .spec-table tr:last-child td{border-bottom:none !important}
-    .product-section--carbon .spec-table tr:hover td{background:rgba(255,255,255,0.03) !important}
-    .product-section--carbon .spec-name{color:rgba(255,255,255,0.92) !important}
-    .product-section--carbon .spec-value{color:rgba(255,255,255,0.52) !important}
+    .product-section--carbon .product-subtitle{color:rgba(255,255,255,0.42)}
+    .product-section--carbon .grade-pill{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.75);border-color:rgba(255,255,255,0.12)}
+    .product-section--carbon .product-desc{color:rgba(255,255,255,0.62)}
+    .product-section--carbon .btn-outline{border-color:rgba(255,255,255,0.3);color:rgba(255,255,255,0.85)}
+    .product-section--carbon .btn-outline:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.5);color:#fff}
+    /* carbon spec card */
+    .product-section--carbon .spec-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);box-shadow:0 8px 40px rgba(0,0,0,0.3)}
+    .product-section--carbon .spec-card-tabs{background:rgba(255,255,255,0.03);border-bottom-color:rgba(255,255,255,0.08)}
+    .product-section--carbon .spec-card-tab{color:rgba(255,255,255,0.38)}
+    .product-section--carbon .spec-card-tab:hover{color:rgba(255,255,255,0.75);background:rgba(255,255,255,0.04)}
+    .product-section--carbon .spec-card-tab.active{color:#fff;border-bottom-color:var(--gold-light);background:rgba(255,255,255,0.06)}
+    .product-section--carbon .spec-table th{background:rgba(255,255,255,0.03);color:rgba(255,255,255,0.38);border-bottom-color:rgba(255,255,255,0.08)}
+    .product-section--carbon .spec-table td{border-bottom-color:rgba(255,255,255,0.07)}
+    .product-section--carbon .spec-table tr:hover td{background:rgba(255,255,255,0.03)}
+    .product-section--carbon .spec-name{color:rgba(255,255,255,0.9)}
+    .product-section--carbon .spec-value{color:rgba(255,255,255,0.48)}
+    .product-section--carbon .app-tag{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.75);border-color:rgba(255,255,255,0.1)}
+    .product-section--carbon .app-tag:hover{background:rgba(255,255,255,0.14);color:#fff}
+    .product-section--carbon .apps-panel-inner{}
+    .product-section--carbon .spec-card-footer{background:rgba(255,255,255,0.03);border-top-color:rgba(255,255,255,0.08)}
+    .product-section--carbon .spec-card-footer-note{color:rgba(255,255,255,0.3)}
+    .product-section--carbon .spec-card-footer-link{color:var(--gold-light)}
 
     /* ── CTA ── */
-    .cta-section{background:linear-gradient(135deg,var(--gold) 0%,#a86d06 100%);padding:clamp(3rem,5vw,5rem) 0}
-    .cta-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
-    .cta-text h2{font-family:var(--font-display);font-size:clamp(1.6rem,2.5vw,2.4rem);font-weight:800;color:#fff;line-height:1.1;margin-bottom:0.5rem}
-    .cta-text p{font-size:1rem;color:rgba(255,255,255,0.82)}
-    .btn-cta-white{display:inline-flex;align-items:center;gap:0.5rem;background:#fff;color:var(--gold);font-size:0.875rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:1rem 2rem;border-radius:var(--radius-sm);white-space:nowrap;transition:background var(--tr);box-shadow:0 4px 20px rgba(0,0,0,0.15)}
-    .btn-cta-white:hover{background:#fafafa}
+    .cta-section{background:linear-gradient(135deg,var(--gold) 0%,#9a6508 100%);padding:clamp(3.5rem,6vw,5.5rem) 0;position:relative;overflow:hidden}
+    .cta-section::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+    .cta-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;position:relative;z-index:1}
+    .cta-text h2{font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;color:#fff;line-height:1.05;margin-bottom:.5rem}
+    .cta-text p{font-size:.9375rem;color:rgba(255,255,255,0.8)}
+    .btn-cta-white{display:inline-flex;align-items:center;gap:.5rem;background:#fff;color:var(--gold);font-size:.875rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:1rem 2rem;border-radius:var(--radius-sm);white-space:nowrap;transition:background var(--tr),transform var(--tr),box-shadow var(--tr);box-shadow:0 4px 24px rgba(0,0,0,0.18)}
+    .btn-cta-white:hover{background:#fdfaf5;transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.22)}
 
     /* ── FOOTER ── */
-    .footer{background:var(--navy-deep);padding:4rem 0 2rem}
+    .footer{background:var(--navy-deep);padding:4.5rem 0 2rem}
     .footer-inner{max-width:1200px;margin:0 auto;padding:0 2rem}
     .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:3rem;margin-bottom:3rem}
-    .footer-brand-name{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:#fff;letter-spacing:0.04em;margin-bottom:0.25rem}
+    .footer-brand-name{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:#fff;letter-spacing:.04em;margin-bottom:.25rem}
     .footer-brand-name span{color:var(--gold)}
-    .footer-brand-sub{font-size:0.68rem;color:rgba(255,255,255,0.35);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem}
-    .footer-desc{font-size:0.85rem;color:rgba(255,255,255,0.45);line-height:1.7;max-width:280px}
-    .footer-col-title{font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem}
+    .footer-brand-sub{font-size:.68rem;color:rgba(255,255,255,0.3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem}
+    .footer-desc{font-size:.84rem;color:rgba(255,255,255,0.42);line-height:1.75;max-width:280px}
+    .footer-col-title{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
     .footer-links{list-style:none}
-    .footer-links li{margin-bottom:0.65rem}
-    .footer-links a{font-size:0.875rem;color:rgba(255,255,255,0.5);transition:color var(--tr)}
+    .footer-links li{margin-bottom:.6rem}
+    .footer-links a{font-size:.875rem;color:rgba(255,255,255,0.45);transition:color var(--tr)}
     .footer-links a:hover{color:#fff}
-    .footer-contact-item{display:flex;gap:0.65rem;align-items:flex-start;margin-bottom:0.85rem}
-    .footer-contact-item svg{flex-shrink:0;margin-top:2px;color:var(--gold);opacity:0.8}
-    .footer-contact-item span{font-size:0.85rem;color:rgba(255,255,255,0.5);line-height:1.5}
-    .footer-divider{border:none;border-top:1px solid rgba(255,255,255,0.07);margin-bottom:1.5rem}
+    .footer-contact-item{display:flex;gap:.65rem;align-items:flex-start;margin-bottom:.8rem}
+    .footer-contact-item svg{flex-shrink:0;margin-top:3px;color:var(--gold);opacity:0.75}
+    .footer-contact-item span{font-size:.84rem;color:rgba(255,255,255,0.45);line-height:1.55}
+    .footer-divider{border:none;border-top:1px solid rgba(255,255,255,0.06);margin-bottom:1.5rem}
     .footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-    .footer-copy{font-size:0.8rem;color:rgba(255,255,255,0.3)}
+    .footer-copy{font-size:.78rem;color:rgba(255,255,255,0.28)}
     .footer-bottom-links{display:flex;gap:1.5rem}
-    .footer-bottom-links a{font-size:0.8rem;color:rgba(255,255,255,0.3);transition:color var(--tr)}
+    .footer-bottom-links a{font-size:.78rem;color:rgba(255,255,255,0.28);transition:color var(--tr)}
     .footer-bottom-links a:hover{color:rgba(255,255,255,0.6)}
 
-    @media(max-width:1024px){.product-body{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr;gap:2rem}}
-    @media(max-width:768px){.footer-grid{grid-template-columns:1fr;gap:2rem}.footer-bottom{flex-direction:column;text-align:center}.cta-inner{flex-direction:column;text-align:center}.product-inner,.page-hero-inner,.cta-inner,.footer-inner{padding-left:1.25rem;padding-right:1.25rem}}
+    @media(max-width:1024px){.product-body{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr;gap:2rem}.product-inner{padding-left:2rem}}
+    @media(max-width:768px){.footer-grid{grid-template-columns:1fr;gap:1.75rem}.footer-bottom{flex-direction:column;text-align:center}.cta-inner{flex-direction:column;text-align:center}.product-inner,.page-hero-inner,.cta-inner,.footer-inner{padding-left:1.25rem;padding-right:1.25rem}.hero-stats{gap:1.5rem}.product-header{grid-template-columns:auto 1fr}}
   </style>
 </head>
 <body>
@@ -196,13 +254,13 @@
 <!-- NAV -->
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="Balance Industry Group home">
-      <svg class="nav-logo-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-        <rect width="36" height="36" rx="6" fill="rgba(255,255,255,0.08)"/>
-        <rect x="8" y="8" width="5" height="20" rx="1.5" fill="#fff"/>
-        <rect x="13" y="8" width="10" height="8.5" rx="4.25" fill="none" stroke="#fff" stroke-width="2"/>
-        <rect x="13" y="19.5" width="11" height="8.5" rx="4.25" fill="none" stroke="#C8860A" stroke-width="2"/>
-        <rect x="8" y="16.75" width="13" height="2.5" fill="#C8860A" opacity="0.5"/>
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-mark" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+        <rect width="38" height="38" rx="7" fill="rgba(255,255,255,0.07)"/>
+        <rect x="8" y="8" width="5.5" height="22" rx="1.5" fill="#fff"/>
+        <rect x="13.5" y="8" width="11" height="9.5" rx="4.75" fill="none" stroke="#fff" stroke-width="2"/>
+        <rect x="13.5" y="21" width="12" height="9" rx="4.5" fill="none" stroke="#C8860A" stroke-width="2"/>
+        <rect x="8" y="17.5" width="14" height="2.5" fill="#C8860A" opacity="0.5"/>
       </svg>
       <div class="nav-logo-text">
         <span class="nav-logo-name">Balance Industry</span>
@@ -236,72 +294,128 @@
   <a href="contact.html" class="mobile-menu-contact">Get a Quote</a>
 </div>
 
-<!-- PAGE HERO -->
+<!-- HERO -->
 <section class="page-hero">
+  <div class="hero-bg-lines" aria-hidden="true">
+    <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" fill="none">
+      <line x1="100" y1="0" x2="800" y2="600" stroke="white" stroke-width="1"/>
+      <line x1="250" y1="0" x2="800" y2="500" stroke="white" stroke-width="0.5"/>
+      <line x1="400" y1="0" x2="800" y2="400" stroke="white" stroke-width="1"/>
+      <line x1="0" y1="150" x2="800" y2="550" stroke="white" stroke-width="0.5"/>
+      <line x1="550" y1="0" x2="800" y2="200" stroke="white" stroke-width="1"/>
+      <circle cx="650" cy="120" r="180" stroke="white" stroke-width="0.5"/>
+      <circle cx="650" cy="120" r="280" stroke="white" stroke-width="0.5"/>
+    </svg>
+  </div>
+  <div class="hero-glow" aria-hidden="true"></div>
   <div class="page-hero-inner">
-    <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; <span>Products</span></div>
-    <h1 class="page-hero-title">Our Products</h1>
-    <p class="page-hero-desc">Four core chemical product lines, sourced from verified Chinese manufacturers and delivered with full quality documentation to industrial buyers worldwide.</p>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <span>Products</span>
+    </div>
+    <div class="hero-eyebrow">Product Portfolio</div>
+    <h1 class="page-hero-title">Industrial Chemicals<br><em>Sourced &amp; Verified</em></h1>
+    <p class="page-hero-desc">Four core product lines — PVC resins, plasticizers, and conductive carbon black — supplied direct from ISO-certified Chinese manufacturers with full documentation.</p>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">4<span>+</span></div>
+        <div class="hero-stat-label">Product Lines</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">SGS<span> ✓</span></div>
+        <div class="hero-stat-label">Inspection Available</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">1<span> FCL</span></div>
+        <div class="hero-stat-label">Min. Order</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">24<span>h</span></div>
+        <div class="hero-stat-label">Quote Response</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ANCHOR NAV -->
 <nav class="anchor-nav" aria-label="Product sections">
   <div class="anchor-nav-inner">
-    <a href="#pvc-resin">PVC Resin</a>
-    <a href="#pvc-paste">PVC Paste Resin</a>
-    <a href="#plasticizers">Plasticizers</a>
-    <a href="#carbon-black">Acetylene Carbon Black</a>
+    <a href="#pvc-resin"><span class="anav-num">01</span> PVC Resin</a>
+    <a href="#pvc-paste"><span class="anav-num">02</span> PVC Paste Resin</a>
+    <a href="#plasticizers"><span class="anav-num">03</span> Plasticizers</a>
+    <a href="#carbon-black"><span class="anav-num">04</span> Acetylene Carbon Black</a>
   </div>
 </nav>
 
 <!-- ══ 01 PVC RESIN ══ -->
 <section class="product-section" id="pvc-resin">
+  <div class="section-ghost" aria-hidden="true">PVC</div>
   <div class="product-inner">
-    <div class="product-header">
-      <div class="product-num">01</div>
-      <div>
+    <div class="product-header reveal">
+      <div class="product-num-wrap">
+        <div class="product-num">01</div>
+        <div class="product-num-line"></div>
+      </div>
+      <div class="product-title-block">
         <div class="product-label">Suspension Grade</div>
         <h2 class="product-title">PVC Resin</h2>
-        <div class="product-subtitle">K-58 &nbsp;·&nbsp; K-67 &nbsp;·&nbsp; K-70 &nbsp;·&nbsp; K-71</div>
+        <div class="product-subtitle">Polyvinyl Chloride — Suspension Polymerization</div>
+        <div class="grade-pills">
+          <span class="grade-pill">K-58</span>
+          <span class="grade-pill">K-67</span>
+          <span class="grade-pill">K-70</span>
+          <span class="grade-pill">K-71</span>
+        </div>
+      </div>
+      <div class="product-actions reveal reveal-delay-2" style="margin-top:0;align-self:center">
+        <a href="contact.html" class="btn-primary">Request TDS <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="contact.html" class="btn-outline">Sample</a>
       </div>
     </div>
     <div class="product-body">
-      <div>
+      <div class="reveal reveal-delay-1">
         <div class="product-desc">
-          <p>Suspension-polymerized PVC resin produced by leading ISO-certified Chinese manufacturers. Each grade is characterized by its K-value — a measure of average molecular weight — determining processability, mechanical properties, and end-use suitability.</p>
-          <p>We supply consistent, batch-verified resin with full Certificate of Analysis (COA), MSDS, and SGS inspection on request. Available in 25 kg bags or 1,000 kg jumbo bags; minimum order from 1 FCL (20–25 MT).</p>
-        </div>
-        <div class="product-apps">
-          <div class="product-apps-title">Primary Applications</div>
-          <div class="app-tags">
-            <span class="app-tag">Pipes &amp; Fittings</span>
-            <span class="app-tag">Cable &amp; Wire Insulation</span>
-            <span class="app-tag">Window Profiles</span>
-            <span class="app-tag">Rigid Sheets &amp; Films</span>
-            <span class="app-tag">Bottles &amp; Packaging</span>
-            <span class="app-tag">Foam Boards</span>
-          </div>
-        </div>
-        <div class="product-actions">
-          <a href="contact.html" class="btn-primary">Request TDS <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          <a href="contact.html" class="btn-outline">Request Sample</a>
+          <p>Suspension-polymerized PVC resin produced by leading ISO-certified Chinese manufacturers. Each grade is defined by its K-value — a direct measure of average molecular weight — which governs processability, mechanical strength, and end-use suitability.</p>
+          <p>We supply consistent, batch-verified resin with full Certificate of Analysis (COA), MSDS, and SGS third-party inspection on request. Packaging: 25 kg woven bags or 1,000 kg jumbo bags. MOQ from 1 FCL (20–25 MT).</p>
         </div>
       </div>
-      <div class="spec-card">
-        <div class="spec-card-header">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-          <span class="spec-card-title">Grade Specifications</span>
+      <div class="reveal reveal-delay-2">
+        <div class="spec-card">
+          <div class="spec-card-tabs">
+            <button class="spec-card-tab active" data-card="c1" data-panel="spec">Specifications</button>
+            <button class="spec-card-tab" data-card="c1" data-panel="apps">Applications</button>
+          </div>
+          <div class="spec-panel active" id="c1-spec">
+            <table class="spec-table">
+              <thead><tr><th>Grade</th><th>K-Value</th><th>Viscosity No.</th><th>Typical Use</th></tr></thead>
+              <tbody>
+                <tr><td class="spec-name">K-58</td><td class="spec-value">57–59</td><td class="spec-value">~95 mL/g</td><td class="spec-value">Injection moulding</td></tr>
+                <tr><td class="spec-name">K-67</td><td class="spec-value">66–68</td><td class="spec-value">~113 mL/g</td><td class="spec-value">Pipe &amp; profile extrusion <span class="spec-badge">Popular</span></td></tr>
+                <tr><td class="spec-name">K-70</td><td class="spec-value">69–71</td><td class="spec-value">~119 mL/g</td><td class="spec-value">Cable &amp; flexible film</td></tr>
+                <tr><td class="spec-name">K-71</td><td class="spec-value">70–72</td><td class="spec-value">~122 mL/g</td><td class="spec-value">High-flex applications</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="spec-panel" id="c1-apps">
+            <div class="apps-panel-inner">
+              <div class="apps-grid">
+                <span class="app-tag">Pipes &amp; Fittings</span>
+                <span class="app-tag">Cable &amp; Wire Insulation</span>
+                <span class="app-tag">Window Profiles</span>
+                <span class="app-tag">Rigid Sheets &amp; Films</span>
+                <span class="app-tag">Bottles &amp; Packaging</span>
+                <span class="app-tag">Foam Boards</span>
+                <span class="app-tag">Door &amp; Siding Panels</span>
+                <span class="app-tag">Medical Tubing</span>
+              </div>
+            </div>
+          </div>
+          <div class="spec-card-footer">
+            <span class="spec-card-footer-note">COA &amp; MSDS available per batch</span>
+            <a href="contact.html" class="spec-card-footer-link">Full TDS <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
         </div>
-        <table class="spec-table">
-          <thead><tr><th>Grade</th><th>K-Value</th><th>Viscosity No.</th><th>Typical Use</th></tr></thead>
-          <tbody>
-            <tr><td class="spec-name">K-58</td><td class="spec-value">57–59</td><td class="spec-value">~95 mL/g</td><td class="spec-value">Injection moulding</td></tr>
-            <tr><td class="spec-name">K-67</td><td class="spec-value">66–68</td><td class="spec-value">~113 mL/g</td><td class="spec-value">Pipe &amp; profile extrusion <span class="spec-badge">Popular</span></td></tr>
-            <tr><td class="spec-name">K-70</td><td class="spec-value">69–71</td><td class="spec-value">~119 mL/g</td><td class="spec-value">Cable &amp; flexible film</td></tr>
-            <tr><td class="spec-name">K-71</td><td class="spec-value">70–72</td><td class="spec-value">~122 mL/g</td><td class="spec-value">High-flex applications</td></tr>
-          </tbody>
-        </table>
       </div>
     </div>
   </div>
@@ -309,52 +423,73 @@
 
 <!-- ══ 02 PVC PASTE RESIN ══ -->
 <section class="product-section bg-alt" id="pvc-paste">
+  <div class="section-ghost" aria-hidden="true">PASTE</div>
   <div class="product-inner">
-    <div class="product-header">
-      <div class="product-num">02</div>
-      <div>
+    <div class="product-header reveal">
+      <div class="product-num-wrap">
+        <div class="product-num">02</div>
+        <div class="product-num-line"></div>
+      </div>
+      <div class="product-title-block">
         <div class="product-label">Emulsion / Micro-Suspension Grade</div>
         <h2 class="product-title">PVC Paste Resin</h2>
-        <div class="product-subtitle">P-440 &nbsp;·&nbsp; P-450 &nbsp;·&nbsp; P-70 &nbsp;·&nbsp; Custom Grades</div>
+        <div class="product-subtitle">Plastisol &amp; Organisol Applications</div>
+        <div class="grade-pills">
+          <span class="grade-pill">P-440</span>
+          <span class="grade-pill">P-450</span>
+          <span class="grade-pill">P-70</span>
+          <span class="grade-pill">Custom</span>
+        </div>
+      </div>
+      <div class="product-actions reveal reveal-delay-2" style="margin-top:0;align-self:center">
+        <a href="contact.html" class="btn-primary">Request TDS <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="contact.html" class="btn-outline">Sample</a>
       </div>
     </div>
     <div class="product-body">
-      <div>
+      <div class="reveal reveal-delay-1">
         <div class="product-desc">
           <p>Emulsion-process and micro-suspension PVC paste resin engineered for plastisol and organisol applications. Ultra-fine particle size distribution ensures smooth paste formation, excellent viscosity stability, and consistent film quality during coating and dipping operations.</p>
-          <p>Suitable for both low-viscosity dipping grades and high-viscosity coating grades. Full plasticizer compatibility data available. COA provided per lot; third-party SGS inspection available on request.</p>
-        </div>
-        <div class="product-apps">
-          <div class="product-apps-title">Primary Applications</div>
-          <div class="app-tags">
-            <span class="app-tag">Synthetic Leather</span>
-            <span class="app-tag">Vinyl Gloves</span>
-            <span class="app-tag">Floor Covering</span>
-            <span class="app-tag">Wallcoverings</span>
-            <span class="app-tag">Automotive Underbody Coating</span>
-            <span class="app-tag">Dip-Coated Components</span>
-          </div>
-        </div>
-        <div class="product-actions">
-          <a href="contact.html" class="btn-primary">Request TDS <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          <a href="contact.html" class="btn-outline">Request Sample</a>
+          <p>Suitable for both low-viscosity dipping grades and high-viscosity coating grades. Full plasticizer compatibility data available. COA provided per lot; third-party SGS inspection on request.</p>
         </div>
       </div>
-      <div class="spec-card">
-        <div class="spec-card-header">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-          <span class="spec-card-title">Key Parameters</span>
+      <div class="reveal reveal-delay-2">
+        <div class="spec-card">
+          <div class="spec-card-tabs">
+            <button class="spec-card-tab active" data-card="c2" data-panel="spec">Specifications</button>
+            <button class="spec-card-tab" data-card="c2" data-panel="apps">Applications</button>
+          </div>
+          <div class="spec-panel active" id="c2-spec">
+            <table class="spec-table">
+              <thead><tr><th>Parameter</th><th>Typical Value</th><th>Standard</th></tr></thead>
+              <tbody>
+                <tr><td class="spec-name">K-Value</td><td class="spec-value">68–72</td><td class="spec-value">ISO 1628-2</td></tr>
+                <tr><td class="spec-name">Particle Size (D50)</td><td class="spec-value">0.8–1.5 μm</td><td class="spec-value">Laser diffraction</td></tr>
+                <tr><td class="spec-name">Volatile Content</td><td class="spec-value">≤ 0.4%</td><td class="spec-value">GB/T 2914</td></tr>
+                <tr><td class="spec-name">Whiteness</td><td class="spec-value">≥ 85</td><td class="spec-value">GB/T 15595</td></tr>
+                <tr><td class="spec-name">Brookfield Viscosity</td><td class="spec-value">Grade-dependent</td><td class="spec-value">On request</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="spec-panel" id="c2-apps">
+            <div class="apps-panel-inner">
+              <div class="apps-grid">
+                <span class="app-tag">Synthetic Leather</span>
+                <span class="app-tag">Vinyl Gloves</span>
+                <span class="app-tag">Floor Covering</span>
+                <span class="app-tag">Wallcoverings</span>
+                <span class="app-tag">Automotive Underbody Coating</span>
+                <span class="app-tag">Dip-Coated Components</span>
+                <span class="app-tag">Foam Padding</span>
+                <span class="app-tag">Coated Fabrics</span>
+              </div>
+            </div>
+          </div>
+          <div class="spec-card-footer">
+            <span class="spec-card-footer-note">Plasticizer compatibility data available</span>
+            <a href="contact.html" class="spec-card-footer-link">Full TDS <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
         </div>
-        <table class="spec-table">
-          <thead><tr><th>Parameter</th><th>Typical Value</th><th>Standard</th></tr></thead>
-          <tbody>
-            <tr><td class="spec-name">K-Value</td><td class="spec-value">68–72</td><td class="spec-value">ISO 1628-2</td></tr>
-            <tr><td class="spec-name">Particle Size (D50)</td><td class="spec-value">0.8–1.5 μm</td><td class="spec-value">Laser diffraction</td></tr>
-            <tr><td class="spec-name">Volatile Content</td><td class="spec-value">≤ 0.4%</td><td class="spec-value">GB/T 2914</td></tr>
-            <tr><td class="spec-name">Whiteness</td><td class="spec-value">≥ 85</td><td class="spec-value">GB/T 15595</td></tr>
-            <tr><td class="spec-name">Brookfield Viscosity</td><td class="spec-value">Grade-dependent</td><td class="spec-value">On request</td></tr>
-          </tbody>
-        </table>
       </div>
     </div>
   </div>
@@ -362,50 +497,70 @@
 
 <!-- ══ 03 PLASTICIZERS ══ -->
 <section class="product-section" id="plasticizers">
+  <div class="section-ghost" aria-hidden="true">DOP</div>
   <div class="product-inner">
-    <div class="product-header">
-      <div class="product-num">03</div>
-      <div>
+    <div class="product-header reveal">
+      <div class="product-num-wrap">
+        <div class="product-num">03</div>
+        <div class="product-num-line"></div>
+      </div>
+      <div class="product-title-block">
         <div class="product-label">General Purpose &amp; Eco-Friendly</div>
         <h2 class="product-title">Plasticizers</h2>
-        <div class="product-subtitle">DOP &nbsp;·&nbsp; DOTP &nbsp;·&nbsp; DINP</div>
+        <div class="product-subtitle">Phthalate &amp; Non-Phthalate Options</div>
+        <div class="grade-pills">
+          <span class="grade-pill">DOP</span>
+          <span class="grade-pill">DOTP</span>
+          <span class="grade-pill">DINP</span>
+        </div>
+      </div>
+      <div class="product-actions reveal reveal-delay-2" style="margin-top:0;align-self:center">
+        <a href="contact.html" class="btn-primary">Request TDS <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="contact.html" class="btn-outline">Sample</a>
       </div>
     </div>
     <div class="product-body">
-      <div>
+      <div class="reveal reveal-delay-1">
         <div class="product-desc">
-          <p>We supply the three primary plasticizers used in PVC compounding: DOP (general purpose), DOTP (phthalate-free, REACH-compliant), and DINP (high molecular weight, low volatility). Each product is sourced from established Chinese producers with consistent purity specifications.</p>
-          <p>Available in 200 L drums or ISO tank containers. Purity typically ≥99.5%. Full COA, MSDS, and packing list provided. Suitable for flexible PVC film and plastisol formulations.</p>
-        </div>
-        <div class="product-apps">
-          <div class="product-apps-title">Primary Applications</div>
-          <div class="app-tags">
-            <span class="app-tag">Flexible PVC Films</span>
-            <span class="app-tag">Wire &amp; Cable Compounds</span>
-            <span class="app-tag">PVC Flooring</span>
-            <span class="app-tag">Plastisol Formulations</span>
-            <span class="app-tag">Medical-Grade PVC</span>
-            <span class="app-tag">Automotive Interiors</span>
-          </div>
-        </div>
-        <div class="product-actions">
-          <a href="contact.html" class="btn-primary">Request TDS <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          <a href="contact.html" class="btn-outline">Request Sample</a>
+          <p>We supply the three primary plasticizers used in PVC compounding: DOP (dioctyl phthalate, general purpose), DOTP (dioctyl terephthalate, phthalate-free, REACH-compliant), and DINP (diisononyl phthalate, high molecular weight, low volatility).</p>
+          <p>Available in 200 L drums or ISO tank containers. Purity typically ≥99.5%. Full COA, MSDS, and packing list provided on every shipment.</p>
         </div>
       </div>
-      <div class="spec-card">
-        <div class="spec-card-header">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-          <span class="spec-card-title">Product Comparison</span>
+      <div class="reveal reveal-delay-2">
+        <div class="spec-card">
+          <div class="spec-card-tabs">
+            <button class="spec-card-tab active" data-card="c3" data-panel="spec">Specifications</button>
+            <button class="spec-card-tab" data-card="c3" data-panel="apps">Applications</button>
+          </div>
+          <div class="spec-panel active" id="c3-spec">
+            <table class="spec-table">
+              <thead><tr><th>Product</th><th>Purity</th><th>APHA Colour</th><th>Compliance</th></tr></thead>
+              <tbody>
+                <tr><td class="spec-name">DOP</td><td class="spec-value">≥ 99.5%</td><td class="spec-value">≤ 20</td><td class="spec-value">Standard</td></tr>
+                <tr><td class="spec-name">DOTP</td><td class="spec-value">≥ 99.5%</td><td class="spec-value">≤ 15</td><td class="spec-value">REACH / RoHS <span class="spec-badge">Eco</span></td></tr>
+                <tr><td class="spec-name">DINP</td><td class="spec-value">≥ 99.0%</td><td class="spec-value">≤ 20</td><td class="spec-value">Low volatility</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="spec-panel" id="c3-apps">
+            <div class="apps-panel-inner">
+              <div class="apps-grid">
+                <span class="app-tag">Flexible PVC Films</span>
+                <span class="app-tag">Wire &amp; Cable Compounds</span>
+                <span class="app-tag">PVC Flooring</span>
+                <span class="app-tag">Plastisol Formulations</span>
+                <span class="app-tag">Medical-Grade PVC</span>
+                <span class="app-tag">Automotive Interiors</span>
+                <span class="app-tag">Sealants &amp; Adhesives</span>
+                <span class="app-tag">Synthetic Leather</span>
+              </div>
+            </div>
+          </div>
+          <div class="spec-card-footer">
+            <span class="spec-card-footer-note">ISO tanks available for bulk orders</span>
+            <a href="contact.html" class="spec-card-footer-link">Full TDS <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
         </div>
-        <table class="spec-table">
-          <thead><tr><th>Product</th><th>Purity</th><th>Colour (APHA)</th><th>Compliance</th></tr></thead>
-          <tbody>
-            <tr><td class="spec-name">DOP</td><td class="spec-value">≥ 99.5%</td><td class="spec-value">≤ 20</td><td class="spec-value">Standard</td></tr>
-            <tr><td class="spec-name">DOTP</td><td class="spec-value">≥ 99.5%</td><td class="spec-value">≤ 15</td><td class="spec-value">REACH / RoHS <span class="spec-badge">Eco</span></td></tr>
-            <tr><td class="spec-name">DINP</td><td class="spec-value">≥ 99.0%</td><td class="spec-value">≤ 20</td><td class="spec-value">Low volatility</td></tr>
-          </tbody>
-        </table>
       </div>
     </div>
   </div>
@@ -413,54 +568,77 @@
 
 <!-- ══ 04 ACETYLENE CARBON BLACK ══ -->
 <section class="product-section product-section--carbon" id="carbon-black">
+  <div class="carbon-particles" aria-hidden="true">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
+  <div class="section-ghost" aria-hidden="true">C·BLACK</div>
   <div class="product-inner">
-    <div class="product-header">
-      <div class="product-num">04</div>
-      <div>
+    <div class="product-header reveal">
+      <div class="product-num-wrap">
+        <div class="product-num">04</div>
+        <div class="product-num-line"></div>
+      </div>
+      <div class="product-title-block">
         <div class="product-label">Conductive Grade &nbsp;·&nbsp; Battery Grade</div>
         <h2 class="product-title">Acetylene Carbon Black</h2>
-        <div class="product-subtitle">Ultra-High Purity &nbsp;·&nbsp; Controlled Exothermic Decomposition Process</div>
+        <div class="product-subtitle">Controlled Exothermic Decomposition Process</div>
+        <div class="grade-pills">
+          <span class="grade-pill">Powder Form</span>
+          <span class="grade-pill">Pellet Form</span>
+          <span class="grade-pill">≥ 99.8% C</span>
+        </div>
+      </div>
+      <div class="product-actions reveal reveal-delay-2" style="margin-top:0;align-self:center">
+        <a href="contact.html" class="btn-primary">Request TDS &amp; Sample <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="contact.html" class="btn-outline">Get Pricing</a>
       </div>
     </div>
     <div class="product-body">
-      <div>
+      <div class="reveal reveal-delay-1">
         <div class="product-desc">
-          <p>Manufactured by controlled exothermic decomposition of high-purity acetylene gas, our carbon black delivers exceptional electrical conductivity, ultra-low ash content, and a characteristic 3D chain-like structure that maximises liquid absorption — critical for lithium battery electrolyte retention.</p>
-          <p>Available in standard powder form and compressed pellet form. Packaging: 10 kg or 20 kg kraft bags inside cartons; palletized for container loading. Full lot traceability, COA, and MSDS provided. Sample quantities available for qualification testing.</p>
-        </div>
-        <div class="product-apps">
-          <div class="product-apps-title">Primary Applications</div>
-          <div class="app-tags">
-            <span class="app-tag">Li-ion Battery Electrodes</span>
-            <span class="app-tag">Lead-Acid Batteries</span>
-            <span class="app-tag">Dry Cell Batteries</span>
-            <span class="app-tag">EMI Shielding Compounds</span>
-            <span class="app-tag">HV Cable Shielding</span>
-            <span class="app-tag">Conductive Rubber</span>
-            <span class="app-tag">Conductive Plastics</span>
-          </div>
-        </div>
-        <div class="product-actions">
-          <a href="contact.html" class="btn-primary">Request TDS &amp; Sample <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          <a href="contact.html" class="btn-outline">Get Pricing</a>
+          <p>Manufactured by controlled exothermic decomposition of high-purity acetylene gas, our carbon black delivers exceptional electrical conductivity, ultra-low ash content (≤0.03%), and a characteristic 3D chain-like structure that maximises liquid absorption — critical for lithium battery electrolyte retention.</p>
+          <p>Available in standard powder form and compressed pellet form. Packaging: 10 kg or 20 kg kraft bags inside cartons; palletized for container loading. Full lot traceability, COA, and MSDS on every shipment.</p>
         </div>
       </div>
-      <div class="spec-card">
-        <div class="spec-card-header">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-          <span class="spec-card-title">Technical Specifications</span>
+      <div class="reveal reveal-delay-2">
+        <div class="spec-card">
+          <div class="spec-card-tabs">
+            <button class="spec-card-tab active" data-card="c4" data-panel="spec">Specifications</button>
+            <button class="spec-card-tab" data-card="c4" data-panel="apps">Applications</button>
+          </div>
+          <div class="spec-panel active" id="c4-spec">
+            <table class="spec-table">
+              <thead><tr><th>Parameter</th><th>Typical Value</th><th>Test Method</th></tr></thead>
+              <tbody>
+                <tr><td class="spec-name">Carbon Content</td><td class="spec-value">≥ 99.8%</td><td class="spec-value">Combustion</td></tr>
+                <tr><td class="spec-name">Ash Content</td><td class="spec-value">≤ 0.03%</td><td class="spec-value">ISO 1125</td></tr>
+                <tr><td class="spec-name">DBP Absorption</td><td class="spec-value">250–350 mL/100g</td><td class="spec-value">ISO 4656</td></tr>
+                <tr><td class="spec-name">BET Surface Area</td><td class="spec-value">55–80 m²/g</td><td class="spec-value">ISO 4652</td></tr>
+                <tr><td class="spec-name">Moisture Content</td><td class="spec-value">≤ 0.5%</td><td class="spec-value">ISO 1124</td></tr>
+                <tr><td class="spec-name">pH Value</td><td class="spec-value">6.0–7.5</td><td class="spec-value">ISO 787-9</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="spec-panel" id="c4-apps">
+            <div class="apps-panel-inner">
+              <div class="apps-grid">
+                <span class="app-tag">Li-ion Battery Electrodes</span>
+                <span class="app-tag">Lead-Acid Batteries</span>
+                <span class="app-tag">Dry Cell Batteries</span>
+                <span class="app-tag">EMI Shielding</span>
+                <span class="app-tag">HV Cable Shielding</span>
+                <span class="app-tag">Conductive Rubber</span>
+                <span class="app-tag">Conductive Plastics</span>
+                <span class="app-tag">Fuel Cell Components</span>
+              </div>
+            </div>
+          </div>
+          <div class="spec-card-footer">
+            <span class="spec-card-footer-note">Lot traceability &amp; COA on every shipment</span>
+            <a href="contact.html" class="spec-card-footer-link">Full TDS <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
         </div>
-        <table class="spec-table">
-          <thead><tr><th>Parameter</th><th>Typical Value</th><th>Test Method</th></tr></thead>
-          <tbody>
-            <tr><td class="spec-name">Carbon Content</td><td class="spec-value">≥ 99.8%</td><td class="spec-value">Combustion</td></tr>
-            <tr><td class="spec-name">Ash Content</td><td class="spec-value">≤ 0.03%</td><td class="spec-value">ISO 1125</td></tr>
-            <tr><td class="spec-name">DBP Absorption</td><td class="spec-value">250–350 mL/100g</td><td class="spec-value">ISO 4656</td></tr>
-            <tr><td class="spec-name">BET Surface Area</td><td class="spec-value">55–80 m²/g</td><td class="spec-value">ISO 4652</td></tr>
-            <tr><td class="spec-name">Moisture Content</td><td class="spec-value">≤ 0.5%</td><td class="spec-value">ISO 1124</td></tr>
-            <tr><td class="spec-name">pH Value</td><td class="spec-value">6.0–7.5</td><td class="spec-value">ISO 787-9</td></tr>
-          </tbody>
-        </table>
       </div>
     </div>
   </div>
@@ -507,11 +685,11 @@
       <div>
         <div class="footer-col-title">Get In Touch</div>
         <div class="footer-contact-item">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5"/></svg>
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5"/></svg>
           <span>export@balanceindustrygrp.com</span>
         </div>
         <div class="footer-contact-item">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <span>Zhengzhou, Henan Province<br>China</span>
         </div>
       </div>
@@ -519,64 +697,111 @@
     <hr class="footer-divider">
     <div class="footer-bottom">
       <p class="footer-copy">&copy; 2025 Balance Industry Group Co., Limited. All rights reserved.</p>
-      <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
     </div>
   </div>
 </footer>
 
 <script>
-  // Mobile menu
-  (function(){
-    const burger=document.getElementById('burger'),menu=document.getElementById('mobile-menu');
-    burger.addEventListener('click',function(){
-      const open=menu.classList.toggle('open');
-      burger.setAttribute('aria-expanded',open);
-      menu.setAttribute('aria-hidden',!open);
+// Mobile menu
+(function(){
+  var burger=document.getElementById('burger'),menu=document.getElementById('mobile-menu');
+  burger.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open);
+    menu.setAttribute('aria-hidden',!open);
+  });
+  document.addEventListener('click',function(e){
+    if(!menu.contains(e.target)&&!burger.contains(e.target)){
+      menu.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+      menu.setAttribute('aria-hidden','true');
+    }
+  });
+})();
+
+// Spec card tabs
+document.querySelectorAll('.spec-card-tab').forEach(function(tab){
+  tab.addEventListener('click',function(){
+    var card=tab.getAttribute('data-card');
+    var panel=tab.getAttribute('data-panel');
+    // deactivate all tabs in this card
+    document.querySelectorAll('.spec-card-tab[data-card="'+card+'"]').forEach(function(t){
+      t.classList.remove('active');
     });
-    document.addEventListener('click',function(e){
-      if(!menu.contains(e.target)&&!burger.contains(e.target)){
-        menu.classList.remove('open');
-        burger.setAttribute('aria-expanded','false');
-        menu.setAttribute('aria-hidden','true');
+    // hide all panels in this card
+    document.querySelectorAll('#'+card+'-spec, #'+card+'-apps').forEach(function(p){
+      p.classList.remove('active');
+    });
+    // activate clicked
+    tab.classList.add('active');
+    document.getElementById(card+'-'+panel).classList.add('active');
+  });
+});
+
+// Scroll reveal
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
       }
     });
-  })();
+  },{threshold:0.12});
+  els.forEach(function(el){obs.observe(el)});
+})();
 
-  // Anchor nav active highlight
-  (function(){
-    const links=document.querySelectorAll('.anchor-nav-inner a');
-    const sections=document.querySelectorAll('.product-section[id]');
-    const obs=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){
-          links.forEach(function(l){l.classList.remove('active')});
-          const a=document.querySelector('.anchor-nav-inner a[href="#'+e.target.id+'"]');
-          if(a) a.classList.add('active');
-        }
-      });
-    },{rootMargin:'-20% 0px -70% 0px'});
-    sections.forEach(function(s){obs.observe(s)});
-  })();
-
-  // Theme toggle
-  (function(){
-    const t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;
-    let d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
-    r.setAttribute('data-theme',d);
-    function setIcon(theme){
-      if(!t) return;
-      t.setAttribute('aria-label','Switch to '+(theme==='dark'?'light':'dark')+' mode');
-      t.innerHTML=theme==='dark'
-        ?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
-        :'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-    }
-    setIcon(d);
-    t&&t.addEventListener('click',function(){
-      d=d==='dark'?'light':'dark';
-      r.setAttribute('data-theme',d);
-      setIcon(d);
+// Left accent line on scroll
+(function(){
+  var sections=document.querySelectorAll('.product-section[id]');
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      e.target.classList.toggle('visible-line',e.isIntersecting);
     });
-  })();
+  },{threshold:0.15});
+  sections.forEach(function(s){obs.observe(s)});
+})();
+
+// Anchor nav active
+(function(){
+  var links=document.querySelectorAll('.anchor-nav-inner a');
+  var sections=document.querySelectorAll('.product-section[id]');
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        links.forEach(function(l){l.classList.remove('active')});
+        var a=document.querySelector('.anchor-nav-inner a[href="#'+e.target.id+'"]');
+        if(a) a.classList.add('active');
+      }
+    });
+  },{rootMargin:'-20% 0px -70% 0px'});
+  sections.forEach(function(s){obs.observe(s)});
+})();
+
+// Theme toggle
+(function(){
+  var t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;
+  var d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+  r.setAttribute('data-theme',d);
+  function setIcon(theme){
+    if(!t) return;
+    t.setAttribute('aria-label','Switch to '+(theme==='dark'?'light':'dark')+' mode');
+    t.innerHTML=theme==='dark'
+      ?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+      :'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  }
+  setIcon(d);
+  t&&t.addEventListener('click',function(){
+    d=d==='dark'?'light':'dark';
+    r.setAttribute('data-theme',d);
+    setIcon(d);
+  });
+})();
 </script>
 </body>
 </html>
