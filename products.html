@@ -21,7 +21,6 @@
       --shadow-xs:0 1px 4px rgba(13,44,84,0.06);
       --shadow-sm:0 2px 12px rgba(13,44,84,0.08);
       --shadow-md:0 8px 32px rgba(13,44,84,0.11);
-      --shadow-lg:0 20px 60px rgba(13,44,84,0.14);
       --radius-sm:6px;--radius-md:10px;--radius-lg:16px;--radius-xl:22px;
       --font-display:'Barlow Condensed','Arial Narrow',sans-serif;
       --font-body:'Inter','Helvetica Neue',sans-serif;
@@ -101,7 +100,6 @@
     .reveal.visible{opacity:1;transform:none}
     .reveal-delay-1{transition-delay:.1s}
     .reveal-delay-2{transition-delay:.2s}
-    .reveal-delay-3{transition-delay:.3s}
 
     /* ── PRODUCT SECTIONS ── */
     .product-section{padding:clamp(5rem,8vw,7rem) 0;position:relative}
@@ -169,32 +167,16 @@
     .app-tag{font-size:.78rem;font-weight:500;padding:.3rem .75rem;border-radius:100px;background:rgba(13,44,84,0.05);color:var(--navy);border:1px solid var(--border);transition:background var(--tr),color var(--tr)}
     .app-tag:hover{background:var(--navy);color:#fff}
     .spec-card-footer{padding:1rem 1.25rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
-    .bg-01 .spec-card-footer{background:var(--bg-02)}
-    .bg-02 .spec-card-footer{background:var(--bg-02)}
+    .bg-01 .spec-card-footer,.bg-02 .spec-card-footer{background:var(--bg-02)}
     .bg-03 .spec-card-footer{background:var(--off-white2)}
     .spec-card-footer-note{font-size:.76rem;color:var(--text-faint)}
     .spec-card-footer-link{font-size:.76rem;font-weight:600;color:var(--gold);display:flex;align-items:center;gap:.3rem;transition:color var(--tr)}
     .spec-card-footer-link:hover{color:var(--gold-hover)}
 
-    /* ══ CARBON BLACK — 直接从 bg-03 渐变到深蓝，无桥段 div ══ */
+    /* ══ CARBON BLACK — 纯深蓝色，无渐变过渡 ══ */
     .product-section--carbon{
-      background:linear-gradient(
-        to bottom,
-        #e8ecf4 0%,
-        #c8d0de 10%,
-        #8a9bb5 20%,
-        #3d5a80 32%,
-        #1a3a62 44%,
-        #0f2a4e 55%,
-        var(--navy-deep) 68%,
-        var(--navy-deep) 100%
-      );
+      background:linear-gradient(135deg,var(--navy-deep) 0%,#0d2545 50%,var(--navy-deep) 100%);
       overflow:hidden;
-      padding-top:0;
-    }
-    /* 内容区从渐变完成处开始，给顶部足够空间让渐变可见 */
-    .carbon-content{
-      padding:clamp(5rem,8vw,7rem) 0;
     }
 
     /* 粒子动画 */
@@ -219,7 +201,6 @@
     .product-section--carbon .product-subtitle{color:rgba(255,255,255,0.42)}
     .product-section--carbon .grade-pill{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.75);border-color:rgba(255,255,255,0.12)}
     .product-section--carbon .product-desc{color:rgba(255,255,255,0.62)}
-    .product-section--carbon .product-header{border-bottom-color:rgba(255,255,255,0.1)}
     .product-section--carbon .btn-outline{border-color:rgba(255,255,255,0.3);color:rgba(255,255,255,0.85)}
     .product-section--carbon .btn-outline:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.5);color:#fff}
     .product-section--carbon .spec-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);box-shadow:0 8px 40px rgba(0,0,0,0.3)}
@@ -591,80 +572,77 @@
   </div>
 </section>
 
-<!-- ══ 04 ACETYLENE CARBON BLACK ══ -->
-<!-- 无 carbon-bridge div，背景直接从 #e8ecf4 渐变到深蓝 -->
+<!-- ══ 04 ACETYLENE CARBON BLACK — 纯深蓝，无过渡 ══ -->
 <section class="product-section product-section--carbon" id="carbon-black">
   <div class="carbon-particles" aria-hidden="true">
     <span></span><span></span><span></span><span></span>
     <span></span><span></span><span></span><span></span>
   </div>
   <div class="section-ghost" aria-hidden="true">C·BLACK</div>
-  <div class="carbon-content">
-    <div class="product-inner">
-      <div class="product-header reveal">
-        <div class="product-num-wrap">
-          <div class="product-num">04</div>
-          <div class="product-num-line"></div>
-        </div>
-        <div class="product-title-block">
-          <div class="product-label">Conductive Grade &nbsp;·&nbsp; Battery Grade</div>
-          <h2 class="product-title">Acetylene Carbon Black</h2>
-          <div class="product-subtitle">Controlled Exothermic Decomposition Process</div>
-          <div class="grade-pills">
-            <span class="grade-pill">Powder Form</span>
-            <span class="grade-pill">Pellet Form</span>
-            <span class="grade-pill">≥ 99.8% C</span>
-          </div>
-        </div>
-        <div class="product-actions reveal reveal-delay-2" style="margin-top:0;align-self:center">
-          <a href="contact.html" class="btn-primary">Request TDS &amp; Sample <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          <a href="contact.html" class="btn-outline">Get Pricing</a>
+  <div class="product-inner">
+    <div class="product-header reveal">
+      <div class="product-num-wrap">
+        <div class="product-num">04</div>
+        <div class="product-num-line"></div>
+      </div>
+      <div class="product-title-block">
+        <div class="product-label">Conductive Grade &nbsp;·&nbsp; Battery Grade</div>
+        <h2 class="product-title">Acetylene Carbon Black</h2>
+        <div class="product-subtitle">Controlled Exothermic Decomposition Process</div>
+        <div class="grade-pills">
+          <span class="grade-pill">Powder Form</span>
+          <span class="grade-pill">Pellet Form</span>
+          <span class="grade-pill">≥ 99.8% C</span>
         </div>
       </div>
-      <div class="product-body">
-        <div class="reveal reveal-delay-1">
-          <div class="product-desc">
-            <p>Manufactured by controlled exothermic decomposition of high-purity acetylene gas, our carbon black delivers exceptional electrical conductivity, ultra-low ash content (≤0.03%), and a characteristic 3D chain-like structure that maximises liquid absorption — critical for lithium battery electrolyte retention.</p>
-            <p>Available in standard powder form and compressed pellet form. Packaging: 10 kg or 20 kg kraft bags inside cartons; palletized for container loading. Full lot traceability, COA, and MSDS on every shipment.</p>
-          </div>
+      <div class="product-actions reveal reveal-delay-2" style="margin-top:0;align-self:center">
+        <a href="contact.html" class="btn-primary">Request TDS &amp; Sample <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="contact.html" class="btn-outline">Get Pricing</a>
+      </div>
+    </div>
+    <div class="product-body">
+      <div class="reveal reveal-delay-1">
+        <div class="product-desc">
+          <p>Manufactured by controlled exothermic decomposition of high-purity acetylene gas, our carbon black delivers exceptional electrical conductivity, ultra-low ash content (≤0.03%), and a characteristic 3D chain-like structure that maximises liquid absorption — critical for lithium battery electrolyte retention.</p>
+          <p>Available in standard powder form and compressed pellet form. Packaging: 10 kg or 20 kg kraft bags inside cartons; palletized for container loading. Full lot traceability, COA, and MSDS on every shipment.</p>
         </div>
-        <div class="reveal reveal-delay-2">
-          <div class="spec-card">
-            <div class="spec-card-tabs">
-              <button class="spec-card-tab active" data-card="c4" data-panel="spec">Specifications</button>
-              <button class="spec-card-tab" data-card="c4" data-panel="apps">Applications</button>
-            </div>
-            <div class="spec-panel active" id="c4-spec">
-              <table class="spec-table">
-                <thead><tr><th>Parameter</th><th>Typical Value</th><th>Test Method</th></tr></thead>
-                <tbody>
-                  <tr><td class="spec-name">Carbon Content</td><td class="spec-value">≥ 99.8%</td><td class="spec-value">Combustion</td></tr>
-                  <tr><td class="spec-name">Ash Content</td><td class="spec-value">≤ 0.03%</td><td class="spec-value">ISO 1125</td></tr>
-                  <tr><td class="spec-name">DBP Absorption</td><td class="spec-value">250–350 mL/100g</td><td class="spec-value">ISO 4656</td></tr>
-                  <tr><td class="spec-name">BET Surface Area</td><td class="spec-value">55–80 m²/g</td><td class="spec-value">ISO 4652</td></tr>
-                  <tr><td class="spec-name">Moisture Content</td><td class="spec-value">≤ 0.5%</td><td class="spec-value">ISO 1124</td></tr>
-                  <tr><td class="spec-name">pH Value</td><td class="spec-value">6.0–7.5</td><td class="spec-value">ISO 787-9</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="spec-panel" id="c4-apps">
-              <div class="apps-panel-inner">
-                <div class="apps-grid">
-                  <span class="app-tag">Li-ion Battery Electrodes</span>
-                  <span class="app-tag">Lead-Acid Batteries</span>
-                  <span class="app-tag">Dry Cell Batteries</span>
-                  <span class="app-tag">EMI Shielding</span>
-                  <span class="app-tag">HV Cable Shielding</span>
-                  <span class="app-tag">Conductive Rubber</span>
-                  <span class="app-tag">Conductive Plastics</span>
-                  <span class="app-tag">Fuel Cell Components</span>
-                </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="spec-card">
+          <div class="spec-card-tabs">
+            <button class="spec-card-tab active" data-card="c4" data-panel="spec">Specifications</button>
+            <button class="spec-card-tab" data-card="c4" data-panel="apps">Applications</button>
+          </div>
+          <div class="spec-panel active" id="c4-spec">
+            <table class="spec-table">
+              <thead><tr><th>Parameter</th><th>Typical Value</th><th>Test Method</th></tr></thead>
+              <tbody>
+                <tr><td class="spec-name">Carbon Content</td><td class="spec-value">≥ 99.8%</td><td class="spec-value">Combustion</td></tr>
+                <tr><td class="spec-name">Ash Content</td><td class="spec-value">≤ 0.03%</td><td class="spec-value">ISO 1125</td></tr>
+                <tr><td class="spec-name">DBP Absorption</td><td class="spec-value">250–350 mL/100g</td><td class="spec-value">ISO 4656</td></tr>
+                <tr><td class="spec-name">BET Surface Area</td><td class="spec-value">55–80 m²/g</td><td class="spec-value">ISO 4652</td></tr>
+                <tr><td class="spec-name">Moisture Content</td><td class="spec-value">≤ 0.5%</td><td class="spec-value">ISO 1124</td></tr>
+                <tr><td class="spec-name">pH Value</td><td class="spec-value">6.0–7.5</td><td class="spec-value">ISO 787-9</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="spec-panel" id="c4-apps">
+            <div class="apps-panel-inner">
+              <div class="apps-grid">
+                <span class="app-tag">Li-ion Battery Electrodes</span>
+                <span class="app-tag">Lead-Acid Batteries</span>
+                <span class="app-tag">Dry Cell Batteries</span>
+                <span class="app-tag">EMI Shielding</span>
+                <span class="app-tag">HV Cable Shielding</span>
+                <span class="app-tag">Conductive Rubber</span>
+                <span class="app-tag">Conductive Plastics</span>
+                <span class="app-tag">Fuel Cell Components</span>
               </div>
             </div>
-            <div class="spec-card-footer">
-              <span class="spec-card-footer-note">Lot traceability &amp; COA on every shipment</span>
-              <a href="contact.html" class="spec-card-footer-link">Full TDS <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-            </div>
+          </div>
+          <div class="spec-card-footer">
+            <span class="spec-card-footer-note">Lot traceability &amp; COA on every shipment</span>
+            <a href="contact.html" class="spec-card-footer-link">Full TDS <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </div>
         </div>
       </div>
