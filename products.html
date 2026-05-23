@@ -11,7 +11,11 @@
     :root{
       --navy:#0D2C54;--navy-deep:#091e3a;--navy-mid:#163d6e;--navy-light:#1a4a80;
       --gold:#C8860A;--gold-hover:#a86d06;--gold-light:#e8a020;--gold-pale:rgba(200,134,10,0.12);
-      --white:#ffffff;--off-white:#f5f6f8;--off-white2:#eef0f4;
+      --white:#ffffff;
+      --bg-01:#ffffff;
+      --bg-02:#f4f6fa;
+      --bg-03:#e8ecf4;
+      --off-white2:#eef0f4;
       --text-main:#1a2234;--text-muted:#5a6a82;--text-faint:#8a9ab5;
       --border:rgba(13,44,84,0.1);--border-mid:rgba(13,44,84,0.18);
       --shadow-xs:0 1px 4px rgba(13,44,84,0.06);
@@ -52,7 +56,7 @@
     .theme-toggle{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:.35rem;color:rgba(255,255,255,0.55);transition:color var(--tr),background var(--tr)}
     .theme-toggle:hover{background:rgba(255,255,255,0.08);color:#fff}
     .nav-burger{display:none;flex-direction:column;gap:5px;width:36px;height:36px;align-items:center;justify-content:center;border-radius:.35rem;color:rgba(255,255,255,0.8)}
-    .nav-burger span{display:block;width:20px;height:2px;background:currentColor;border-radius:2px;transition:transform var(--tr),opacity var(--tr)}
+    .nav-burger span{display:block;width:20px;height:2px;background:currentColor;border-radius:2px}
     .mobile-menu{display:none;background:var(--color-primary);padding:1rem 2rem 1.5rem;border-top:1px solid rgba(255,255,255,0.07)}
     .mobile-menu.open{display:block}
     .mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:.2rem}
@@ -102,37 +106,39 @@
 
     /* ── PRODUCT SECTIONS ── */
     .product-section{padding:clamp(5rem,8vw,7rem) 0;position:relative}
-    .product-section.bg-alt{background:var(--off-white)}
-    /* left accent line */
+
+    /* 渐进背景：01 → 02 → 03 → 04 */
+    .product-section.bg-01{background:var(--bg-01)}
+    .product-section.bg-02{background:var(--bg-02)}
+    .product-section.bg-03{background:var(--bg-03)}
+
+    /* 左侧金色竖线 */
     .product-section::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,transparent,var(--gold) 30%,var(--gold) 70%,transparent);opacity:0;transition:opacity .6s}
     .product-section.visible-line::before{opacity:1}
+    /* 炭黑区块的左线用亮金 */
+    .product-section--carbon::before{background:linear-gradient(to bottom,transparent,var(--gold-light) 30%,var(--gold-light) 70%,transparent)}
+
     .product-inner{max-width:1200px;margin:0 auto;padding:0 2rem 0 3rem}
 
-    /* ghost product label */
+    /* ghost text */
     .section-ghost{position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);font-family:var(--font-display);font-size:clamp(6rem,10vw,11rem);font-weight:800;color:transparent;-webkit-text-stroke:1px rgba(13,44,84,0.05);line-height:1;pointer-events:none;user-select:none;white-space:nowrap;letter-spacing:-.02em}
     .product-section--carbon .section-ghost{-webkit-text-stroke-color:rgba(255,255,255,0.05)}
 
-    /* header row */
+    /* product header */
     .product-header{display:grid;grid-template-columns:auto 1fr auto;align-items:start;gap:1.5rem;margin-bottom:2.75rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
     .product-section--carbon .product-header{border-bottom-color:rgba(255,255,255,0.1)}
-    /* vertical number */
     .product-num-wrap{display:flex;flex-direction:column;align-items:center;gap:.35rem;padding-top:.15rem}
     .product-num{font-family:var(--font-display);font-size:2.8rem;font-weight:800;color:rgba(13,44,84,0.12);line-height:1;letter-spacing:-.02em}
     .product-num-line{width:1px;height:32px;background:linear-gradient(to bottom,var(--gold),transparent)}
-    /* title block */
-    .product-title-block{}
     .product-label{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem;display:flex;align-items:center;gap:.5rem}
     .product-label::before{content:'';display:block;width:16px;height:1.5px;background:var(--gold);border-radius:2px}
     .product-title{font-family:var(--font-display);font-size:clamp(2rem,3.5vw,2.9rem);font-weight:700;color:var(--navy);line-height:1.05;margin-bottom:.4rem;letter-spacing:-.01em}
     .product-subtitle{font-size:.82rem;color:var(--text-faint);letter-spacing:.06em}
-    /* grade pills in header */
     .grade-pills{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.6rem}
     .grade-pill{font-size:.72rem;font-weight:600;padding:.2rem .65rem;border-radius:4px;background:rgba(13,44,84,0.06);color:var(--navy);border:1px solid var(--border);letter-spacing:.04em;font-family:var(--font-display)}
 
-    /* body grid */
+    /* product body */
     .product-body{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-
-    /* left col */
     .product-desc{font-size:.9375rem;color:var(--text-muted);line-height:1.82}
     .product-desc p+p{margin-top:1rem}
     .product-actions{display:flex;gap:.65rem;flex-wrap:wrap;margin-top:1.75rem}
@@ -141,15 +147,21 @@
     .btn-outline{display:inline-flex;align-items:center;gap:.45rem;border:1.5px solid var(--border-mid);color:var(--navy);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.7rem 1.4rem;border-radius:var(--radius-sm);transition:background var(--tr),color var(--tr),border-color var(--tr)}
     .btn-outline:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
 
-    /* right col — tabbed card */
-    .spec-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-md)}
-    .spec-card-tabs{display:flex;border-bottom:1px solid var(--border);background:var(--off-white)}
+    /* spec card */
+    .spec-card{border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-md)}
+    /* 每个区块的卡片背景跟随区块背景，用白色+边框 */
+    .bg-01 .spec-card{background:#fff;border:1px solid var(--border)}
+    .bg-02 .spec-card{background:#fff;border:1px solid rgba(13,44,84,0.11)}
+    .bg-03 .spec-card{background:#fff;border:1px solid rgba(13,44,84,0.13)}
+
+    .spec-card-tabs{display:flex;border-bottom:1px solid var(--border)}
+    .bg-01 .spec-card-tabs,.bg-02 .spec-card-tabs{background:var(--bg-02)}
+    .bg-03 .spec-card-tabs{background:var(--off-white2)}
     .spec-card-tab{flex:1;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);padding:.85rem 1rem;text-align:center;cursor:pointer;border:none;background:none;font-family:var(--font-body);border-bottom:2px solid transparent;margin-bottom:-1px;transition:color var(--tr),border-color var(--tr),background var(--tr)}
     .spec-card-tab:hover{color:var(--navy);background:rgba(13,44,84,0.03)}
     .spec-card-tab.active{color:var(--navy);border-bottom-color:var(--gold);background:var(--white)}
     .spec-panel{display:none}
     .spec-panel.active{display:block}
-    /* spec table */
     .spec-table{width:100%;border-collapse:collapse}
     .spec-table th{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);background:var(--off-white2);padding:.55rem 1.25rem;text-align:left;border-bottom:1px solid var(--border)}
     .spec-table td{font-size:.84rem;padding:.65rem 1.25rem;border-bottom:1px solid var(--border);vertical-align:top}
@@ -158,21 +170,37 @@
     .spec-name{font-weight:600;color:var(--text-main)}
     .spec-value{color:var(--text-muted)}
     .spec-badge{display:inline-block;font-size:.66rem;font-weight:700;padding:.12rem .45rem;border-radius:4px;background:var(--gold-pale);color:var(--gold);border:1px solid rgba(200,134,10,0.22)}
-    /* apps panel */
     .apps-panel-inner{padding:1.5rem 1.25rem}
     .apps-grid{display:flex;flex-wrap:wrap;gap:.45rem}
     .app-tag{font-size:.78rem;font-weight:500;padding:.3rem .75rem;border-radius:100px;background:rgba(13,44,84,0.05);color:var(--navy);border:1px solid var(--border);transition:background var(--tr),color var(--tr)}
     .app-tag:hover{background:var(--navy);color:#fff}
-    /* card footer */
-    .spec-card-footer{padding:1rem 1.25rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--off-white)}
+    .spec-card-footer{padding:1rem 1.25rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+    .bg-01 .spec-card-footer{background:var(--bg-02)}
+    .bg-02 .spec-card-footer{background:var(--bg-02)}
+    .bg-03 .spec-card-footer{background:var(--off-white2)}
     .spec-card-footer-note{font-size:.76rem;color:var(--text-faint)}
     .spec-card-footer-link{font-size:.76rem;font-weight:600;color:var(--gold);display:flex;align-items:center;gap:.3rem;transition:color var(--tr)}
     .spec-card-footer-link:hover{color:var(--gold-hover)}
 
-    /* ── CARBON BLACK SECTION ── */
-    .product-section--carbon{background:var(--navy-deep);overflow:hidden}
-    .product-section--carbon::before{background:linear-gradient(to bottom,transparent,var(--gold-light) 30%,var(--gold-light) 70%,transparent)}
-    /* animated particle field */
+    /* ── CARBON BLACK — 过渡桥 + 深色区块 ── */
+    /* 桥段：03区块底部不做处理，炭黑区块顶部用伪元素做渐变过渡 */
+    .product-section--carbon{
+      background:linear-gradient(175deg,var(--navy-deep) 0%,#0a2040 50%,var(--navy-deep) 100%);
+      overflow:hidden;
+      /* 顶部过渡桥：从 bg-03 (#e8ecf4) → 透明，叠在深蓝背景上 */
+      padding-top:0;
+    }
+    .carbon-bridge{
+      height:80px;
+      background:linear-gradient(to bottom, var(--bg-03), transparent);
+      position:relative;
+      z-index:1;
+    }
+    .carbon-content{
+      padding:clamp(2rem,4vw,3.5rem) 0 clamp(5rem,8vw,7rem);
+    }
+
+    /* 粒子动画 */
     .carbon-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
     .carbon-particles span{position:absolute;border-radius:50%;background:rgba(200,134,10,0.15);animation:float linear infinite}
     .carbon-particles span:nth-child(1){width:3px;height:3px;left:10%;top:20%;animation-duration:18s;animation-delay:0s}
@@ -184,6 +212,7 @@
     .carbon-particles span:nth-child(7){width:5px;height:5px;left:60%;top:50%;animation-duration:19s;animation-delay:-3s;background:rgba(200,134,10,0.08)}
     .carbon-particles span:nth-child(8){width:2px;height:2px;left:15%;top:85%;animation-duration:21s;animation-delay:-7s}
     @keyframes float{0%{transform:translateY(0) translateX(0) rotate(0)}33%{transform:translateY(-40px) translateX(20px) rotate(120deg)}66%{transform:translateY(-20px) translateX(-15px) rotate(240deg)}100%{transform:translateY(0) translateX(0) rotate(360deg)}}
+
     /* carbon text overrides */
     .product-section--carbon .product-num{color:rgba(255,255,255,0.07)}
     .product-section--carbon .product-num-line{background:linear-gradient(to bottom,var(--gold-light),transparent)}
@@ -193,6 +222,7 @@
     .product-section--carbon .product-subtitle{color:rgba(255,255,255,0.42)}
     .product-section--carbon .grade-pill{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.75);border-color:rgba(255,255,255,0.12)}
     .product-section--carbon .product-desc{color:rgba(255,255,255,0.62)}
+    .product-section--carbon .product-header{border-bottom-color:rgba(255,255,255,0.1)}
     .product-section--carbon .btn-outline{border-color:rgba(255,255,255,0.3);color:rgba(255,255,255,0.85)}
     .product-section--carbon .btn-outline:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.5);color:#fff}
     /* carbon spec card */
@@ -208,7 +238,6 @@
     .product-section--carbon .spec-value{color:rgba(255,255,255,0.48)}
     .product-section--carbon .app-tag{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.75);border-color:rgba(255,255,255,0.1)}
     .product-section--carbon .app-tag:hover{background:rgba(255,255,255,0.14);color:#fff}
-    .product-section--carbon .apps-panel-inner{}
     .product-section--carbon .spec-card-footer{background:rgba(255,255,255,0.03);border-top-color:rgba(255,255,255,0.08)}
     .product-section--carbon .spec-card-footer-note{color:rgba(255,255,255,0.3)}
     .product-section--carbon .spec-card-footer-link{color:var(--gold-light)}
@@ -349,7 +378,7 @@
 </nav>
 
 <!-- ══ 01 PVC RESIN ══ -->
-<section class="product-section" id="pvc-resin">
+<section class="product-section bg-01" id="pvc-resin">
   <div class="section-ghost" aria-hidden="true">PVC</div>
   <div class="product-inner">
     <div class="product-header reveal">
@@ -422,7 +451,7 @@
 </section>
 
 <!-- ══ 02 PVC PASTE RESIN ══ -->
-<section class="product-section bg-alt" id="pvc-paste">
+<section class="product-section bg-02" id="pvc-paste">
   <div class="section-ghost" aria-hidden="true">PASTE</div>
   <div class="product-inner">
     <div class="product-header reveal">
@@ -496,7 +525,7 @@
 </section>
 
 <!-- ══ 03 PLASTICIZERS ══ -->
-<section class="product-section" id="plasticizers">
+<section class="product-section bg-03" id="plasticizers">
   <div class="section-ghost" aria-hidden="true">DOP</div>
   <div class="product-inner">
     <div class="product-header reveal">
@@ -568,75 +597,79 @@
 
 <!-- ══ 04 ACETYLENE CARBON BLACK ══ -->
 <section class="product-section product-section--carbon" id="carbon-black">
+  <!-- 过渡桥：从 bg-03 颜色渐变到透明，再露出深蓝背景 -->
+  <div class="carbon-bridge" aria-hidden="true"></div>
   <div class="carbon-particles" aria-hidden="true">
     <span></span><span></span><span></span><span></span>
     <span></span><span></span><span></span><span></span>
   </div>
   <div class="section-ghost" aria-hidden="true">C·BLACK</div>
-  <div class="product-inner">
-    <div class="product-header reveal">
-      <div class="product-num-wrap">
-        <div class="product-num">04</div>
-        <div class="product-num-line"></div>
-      </div>
-      <div class="product-title-block">
-        <div class="product-label">Conductive Grade &nbsp;·&nbsp; Battery Grade</div>
-        <h2 class="product-title">Acetylene Carbon Black</h2>
-        <div class="product-subtitle">Controlled Exothermic Decomposition Process</div>
-        <div class="grade-pills">
-          <span class="grade-pill">Powder Form</span>
-          <span class="grade-pill">Pellet Form</span>
-          <span class="grade-pill">≥ 99.8% C</span>
+  <div class="carbon-content">
+    <div class="product-inner">
+      <div class="product-header reveal">
+        <div class="product-num-wrap">
+          <div class="product-num">04</div>
+          <div class="product-num-line"></div>
+        </div>
+        <div class="product-title-block">
+          <div class="product-label">Conductive Grade &nbsp;·&nbsp; Battery Grade</div>
+          <h2 class="product-title">Acetylene Carbon Black</h2>
+          <div class="product-subtitle">Controlled Exothermic Decomposition Process</div>
+          <div class="grade-pills">
+            <span class="grade-pill">Powder Form</span>
+            <span class="grade-pill">Pellet Form</span>
+            <span class="grade-pill">≥ 99.8% C</span>
+          </div>
+        </div>
+        <div class="product-actions reveal reveal-delay-2" style="margin-top:0;align-self:center">
+          <a href="contact.html" class="btn-primary">Request TDS &amp; Sample <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="contact.html" class="btn-outline">Get Pricing</a>
         </div>
       </div>
-      <div class="product-actions reveal reveal-delay-2" style="margin-top:0;align-self:center">
-        <a href="contact.html" class="btn-primary">Request TDS &amp; Sample <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        <a href="contact.html" class="btn-outline">Get Pricing</a>
-      </div>
-    </div>
-    <div class="product-body">
-      <div class="reveal reveal-delay-1">
-        <div class="product-desc">
-          <p>Manufactured by controlled exothermic decomposition of high-purity acetylene gas, our carbon black delivers exceptional electrical conductivity, ultra-low ash content (≤0.03%), and a characteristic 3D chain-like structure that maximises liquid absorption — critical for lithium battery electrolyte retention.</p>
-          <p>Available in standard powder form and compressed pellet form. Packaging: 10 kg or 20 kg kraft bags inside cartons; palletized for container loading. Full lot traceability, COA, and MSDS on every shipment.</p>
+      <div class="product-body">
+        <div class="reveal reveal-delay-1">
+          <div class="product-desc">
+            <p>Manufactured by controlled exothermic decomposition of high-purity acetylene gas, our carbon black delivers exceptional electrical conductivity, ultra-low ash content (≤0.03%), and a characteristic 3D chain-like structure that maximises liquid absorption — critical for lithium battery electrolyte retention.</p>
+            <p>Available in standard powder form and compressed pellet form. Packaging: 10 kg or 20 kg kraft bags inside cartons; palletized for container loading. Full lot traceability, COA, and MSDS on every shipment.</p>
+          </div>
         </div>
-      </div>
-      <div class="reveal reveal-delay-2">
-        <div class="spec-card">
-          <div class="spec-card-tabs">
-            <button class="spec-card-tab active" data-card="c4" data-panel="spec">Specifications</button>
-            <button class="spec-card-tab" data-card="c4" data-panel="apps">Applications</button>
-          </div>
-          <div class="spec-panel active" id="c4-spec">
-            <table class="spec-table">
-              <thead><tr><th>Parameter</th><th>Typical Value</th><th>Test Method</th></tr></thead>
-              <tbody>
-                <tr><td class="spec-name">Carbon Content</td><td class="spec-value">≥ 99.8%</td><td class="spec-value">Combustion</td></tr>
-                <tr><td class="spec-name">Ash Content</td><td class="spec-value">≤ 0.03%</td><td class="spec-value">ISO 1125</td></tr>
-                <tr><td class="spec-name">DBP Absorption</td><td class="spec-value">250–350 mL/100g</td><td class="spec-value">ISO 4656</td></tr>
-                <tr><td class="spec-name">BET Surface Area</td><td class="spec-value">55–80 m²/g</td><td class="spec-value">ISO 4652</td></tr>
-                <tr><td class="spec-name">Moisture Content</td><td class="spec-value">≤ 0.5%</td><td class="spec-value">ISO 1124</td></tr>
-                <tr><td class="spec-name">pH Value</td><td class="spec-value">6.0–7.5</td><td class="spec-value">ISO 787-9</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="spec-panel" id="c4-apps">
-            <div class="apps-panel-inner">
-              <div class="apps-grid">
-                <span class="app-tag">Li-ion Battery Electrodes</span>
-                <span class="app-tag">Lead-Acid Batteries</span>
-                <span class="app-tag">Dry Cell Batteries</span>
-                <span class="app-tag">EMI Shielding</span>
-                <span class="app-tag">HV Cable Shielding</span>
-                <span class="app-tag">Conductive Rubber</span>
-                <span class="app-tag">Conductive Plastics</span>
-                <span class="app-tag">Fuel Cell Components</span>
+        <div class="reveal reveal-delay-2">
+          <div class="spec-card">
+            <div class="spec-card-tabs">
+              <button class="spec-card-tab active" data-card="c4" data-panel="spec">Specifications</button>
+              <button class="spec-card-tab" data-card="c4" data-panel="apps">Applications</button>
+            </div>
+            <div class="spec-panel active" id="c4-spec">
+              <table class="spec-table">
+                <thead><tr><th>Parameter</th><th>Typical Value</th><th>Test Method</th></tr></thead>
+                <tbody>
+                  <tr><td class="spec-name">Carbon Content</td><td class="spec-value">≥ 99.8%</td><td class="spec-value">Combustion</td></tr>
+                  <tr><td class="spec-name">Ash Content</td><td class="spec-value">≤ 0.03%</td><td class="spec-value">ISO 1125</td></tr>
+                  <tr><td class="spec-name">DBP Absorption</td><td class="spec-value">250–350 mL/100g</td><td class="spec-value">ISO 4656</td></tr>
+                  <tr><td class="spec-name">BET Surface Area</td><td class="spec-value">55–80 m²/g</td><td class="spec-value">ISO 4652</td></tr>
+                  <tr><td class="spec-name">Moisture Content</td><td class="spec-value">≤ 0.5%</td><td class="spec-value">ISO 1124</td></tr>
+                  <tr><td class="spec-name">pH Value</td><td class="spec-value">6.0–7.5</td><td class="spec-value">ISO 787-9</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="spec-panel" id="c4-apps">
+              <div class="apps-panel-inner">
+                <div class="apps-grid">
+                  <span class="app-tag">Li-ion Battery Electrodes</span>
+                  <span class="app-tag">Lead-Acid Batteries</span>
+                  <span class="app-tag">Dry Cell Batteries</span>
+                  <span class="app-tag">EMI Shielding</span>
+                  <span class="app-tag">HV Cable Shielding</span>
+                  <span class="app-tag">Conductive Rubber</span>
+                  <span class="app-tag">Conductive Plastics</span>
+                  <span class="app-tag">Fuel Cell Components</span>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="spec-card-footer">
-            <span class="spec-card-footer-note">Lot traceability &amp; COA on every shipment</span>
-            <a href="contact.html" class="spec-card-footer-link">Full TDS <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <div class="spec-card-footer">
+              <span class="spec-card-footer-note">Lot traceability &amp; COA on every shipment</span>
+              <a href="contact.html" class="spec-card-footer-link">Full TDS <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
           </div>
         </div>
       </div>
@@ -728,15 +761,8 @@ document.querySelectorAll('.spec-card-tab').forEach(function(tab){
   tab.addEventListener('click',function(){
     var card=tab.getAttribute('data-card');
     var panel=tab.getAttribute('data-panel');
-    // deactivate all tabs in this card
-    document.querySelectorAll('.spec-card-tab[data-card="'+card+'"]').forEach(function(t){
-      t.classList.remove('active');
-    });
-    // hide all panels in this card
-    document.querySelectorAll('#'+card+'-spec, #'+card+'-apps').forEach(function(p){
-      p.classList.remove('active');
-    });
-    // activate clicked
+    document.querySelectorAll('.spec-card-tab[data-card="'+card+'"]').forEach(function(t){t.classList.remove('active')});
+    document.querySelectorAll('#'+card+'-spec, #'+card+'-apps').forEach(function(p){p.classList.remove('active')});
     tab.classList.add('active');
     document.getElementById(card+'-'+panel).classList.add('active');
   });
@@ -747,22 +773,17 @@ document.querySelectorAll('.spec-card-tab').forEach(function(tab){
   var els=document.querySelectorAll('.reveal');
   var obs=new IntersectionObserver(function(entries){
     entries.forEach(function(e){
-      if(e.isIntersecting){
-        e.target.classList.add('visible');
-        obs.unobserve(e.target);
-      }
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
     });
   },{threshold:0.12});
   els.forEach(function(el){obs.observe(el)});
 })();
 
-// Left accent line on scroll
+// Left accent line
 (function(){
   var sections=document.querySelectorAll('.product-section[id]');
   var obs=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      e.target.classList.toggle('visible-line',e.isIntersecting);
-    });
+    entries.forEach(function(e){e.target.classList.toggle('visible-line',e.isIntersecting)});
   },{threshold:0.15});
   sections.forEach(function(s){obs.observe(s)});
 })();
