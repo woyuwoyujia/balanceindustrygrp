@@ -246,7 +246,9 @@
     .footer-contact { font-size: var(--text-xs); color: oklch(from #ffffff l c h / 0.45); }
     .footer-contact a { color: var(--color-accent); }
     .footer-contact a:hover { color: oklch(from var(--color-accent) l c h / 0.8); }
-
+.footer-contact-item { display: flex; gap: 0.65rem; align-items: flex-start; margin-bottom: 0.85rem; }
+.footer-contact-item svg { flex-shrink: 0; margin-top: 2px; color: #C8860A; opacity: 0.8; }
+.footer-contact-item span { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
       .hero-inner { grid-template-columns: 1fr; gap: var(--space-10); }
