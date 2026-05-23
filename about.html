@@ -1,71 +1,410 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Balance Industry</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Balance Industry Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:       #0D2C54;
+      --navy-deep:  #091e3a;
+      --navy-mid:   #163d6e;
+      --gold:       #C8860A;
+      --gold-hover: #a86d06;
+      --gold-light: #e8a020;
+      --gold-bg:    rgba(200,134,10,0.10);
+      --bronze:     #7A4E0D;
+      --bronze-dark:#5c3a08;
+      --white:      #ffffff;
+      --off-white:  #f5f6f8;
+      --text-main:  #1a2234;
+      --text-muted: #5a6a82;
+      --border:     rgba(13,44,84,0.12);
+      --shadow-md:  0 6px 24px rgba(13,44,84,0.10);
+      --shadow-lg:  0 16px 48px rgba(13,44,84,0.14);
+      --radius-sm:  6px;
+      --radius-md:  10px;
+      --radius-lg:  16px;
+      --font-display: 'Barlow Condensed','Arial Narrow',sans-serif;
+      --font-body:    'Inter','Helvetica Neue',sans-serif;
+      --tr: 180ms cubic-bezier(0.16,1,0.3,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-body); font-size: 16px; color: var(--text-main); background: var(--white); line-height: 1.6; }
+    img { display: block; max-width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; border: none; background: none; font: inherit; }
+
+    /* ── NAVBAR ── */
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--navy); height: 68px; display: flex; align-items: center; box-shadow: 0 2px 20px rgba(0,0,0,0.25); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; width: 100%; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo-text { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; letter-spacing: 0.04em; color: var(--white); line-height: 1.15; }
+    .nav-logo-text span { color: var(--gold); }
+    .nav-logo-sub { font-size: 0.65rem; color: rgba(255,255,255,0.45); letter-spacing: 0.12em; text-transform: uppercase; }
+    /* CENTER: nav links */
+    .nav-links { display: flex; align-items: center; justify-content: center; gap: 0.25rem; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 500; color: rgba(255,255,255,0.75); padding: 0.4rem 0.85rem; border-radius: var(--radius-sm); transition: color var(--tr), background var(--tr); }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+    .nav-links a.active { color: var(--gold); }
+    /* RIGHT: cta + theme */
+    .nav-actions { display: flex; align-items: center; gap: 0.5rem; }
+    .nav-cta { background: var(--gold); color: var(--white); padding: 0.45rem 1.1rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; transition: background var(--tr); white-space: nowrap; }
+    .nav-cta:hover { background: var(--gold-hover); color: var(--white); }
+    .theme-btn { width: 36px; height: 36px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.65); transition: color var(--tr), background var(--tr); flex-shrink: 0; }
+    .theme-btn:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; padding: 6px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; background: var(--navy-deep); z-index: 99; padding: 1rem 1.5rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; padding: 0.75rem 0; color: rgba(255,255,255,0.8); font-size: 1rem; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color var(--tr); }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-menu-cta { margin-top: 1rem; background: var(--gold); color: var(--white) !important; text-align: center; padding: 0.75rem !important; border-radius: var(--radius-sm); font-weight: 600 !important; text-transform: uppercase; border-bottom: none !important; }
+
+    /* ── PAGE HERO ── */
+    .page-hero { background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 60%, var(--navy-mid) 100%); padding: 120px 0 64px; position: relative; overflow: hidden; }
+    .page-hero::after { content: ''; position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(200,134,10,0.08) 0%, transparent 70%); pointer-events: none; }
+    .page-hero-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .breadcrumb { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-bottom: 1rem; }
+    .breadcrumb a { color: rgba(255,255,255,0.4); transition: color var(--tr); }
+    .breadcrumb a:hover { color: var(--gold); }
+    .breadcrumb span { color: var(--gold); }
+    .page-hero-title { font-family: var(--font-display); font-size: clamp(2.2rem,4vw,3.5rem); font-weight: 800; color: var(--white); line-height: 1.05; margin-bottom: 0.75rem; }
+    .page-hero-desc { font-size: 1rem; color: rgba(255,255,255,0.6); max-width: 520px; line-height: 1.7; }
+
+    /* ── SECTIONS ── */
+    .section { padding: clamp(4rem,7vw,6rem) 0; }
+    .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .section-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.65rem; }
+    .section-title { font-family: var(--font-display); font-size: clamp(1.7rem,3vw,2.4rem); font-weight: 700; line-height: 1.1; color: var(--navy); margin-bottom: 0.75rem; }
+    .section-desc { font-size: 1rem; color: var(--text-muted); max-width: 600px; line-height: 1.75; }
+
+    /* ── WHO WE ARE ── */
+    .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .who-body { font-size: 1rem; color: var(--text-muted); line-height: 1.85; }
+    .who-body p + p { margin-top: 1.25rem; }
+    .who-body strong { color: var(--text-main); font-weight: 600; }
+    .who-image { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 4/3; background: var(--off-white); }
+    .who-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ── WHAT WE SUPPLY ── */
+    .supply-section { background: var(--off-white); }
+    .supply-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+    .supply-card { border-radius: var(--radius-lg); padding: 2.25rem 2rem; transition: transform var(--tr), box-shadow var(--tr); }
+    .supply-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+    .supply-card.bronze { background: linear-gradient(135deg, var(--bronze-dark) 0%, var(--bronze) 100%); }
+    .supply-card.dark   { background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%); }
+    .supply-icon { width: 52px; height: 52px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+    .supply-icon.bronze-icon { background: rgba(255,255,255,0.12); color: var(--gold-light); }
+    .supply-icon.dark-icon   { background: rgba(200,134,10,0.15); color: var(--gold); }
+    .supply-tag { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.65rem; border-radius: 100px; margin-bottom: 0.85rem; }
+    .supply-tag.bronze-tag { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.9); }
+    .supply-tag.dark-tag   { background: rgba(200,134,10,0.18); border: 1px solid rgba(200,134,10,0.3); color: var(--gold-light); }
+    .supply-name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 0.5rem; color: var(--white); }
+    .supply-products { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em; margin-bottom: 0.85rem; text-transform: uppercase; }
+    .supply-products.bronze-prod { color: var(--gold-light); }
+    .supply-products.dark-prod   { color: var(--gold); }
+    .supply-desc { font-size: 0.9rem; line-height: 1.7; color: rgba(255,255,255,0.65); }
+
+    /* ── WHY WORK WITH US ── */
+    .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.5rem; }
+    .why-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem 1.75rem; transition: transform var(--tr), box-shadow var(--tr), border-color var(--tr); }
+    .why-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: rgba(13,44,84,0.22); }
+    .why-icon { width: 46px; height: 46px; background: rgba(13,44,84,0.06); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: var(--navy); margin-bottom: 1.25rem; }
+    .why-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+    .why-detail { font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; }
+
+    /* ── COMMITMENT ── */
+    .commitment-section { background: var(--navy); }
+    .commitment-inner { max-width: 900px; margin: 0 auto; padding: 0 2rem; text-align: center; }
+    .commitment-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: block; }
+    .commitment-quote { font-family: var(--font-display); font-size: clamp(1.4rem,2.5vw,2rem); font-weight: 600; color: var(--white); line-height: 1.45; position: relative; padding: 0 2rem; }
+    .commitment-quote::before { content: '\201C'; font-family: Georgia,serif; font-size: 4rem; line-height: 0; color: var(--gold); opacity: 0.4; position: absolute; left: -0.25rem; top: 0.4em; }
+    .commitment-quote::after  { content: '\201D'; font-family: Georgia,serif; font-size: 4rem; line-height: 0; color: var(--gold); opacity: 0.4; position: absolute; right: -0.25rem; bottom: -0.3em; }
+    .commitment-attr { margin-top: 2rem; font-size: 0.82rem; color: rgba(255,255,255,0.4); letter-spacing: 0.08em; text-transform: uppercase; }
+
+    /* ── CTA BANNER ── */
+    .cta-section { background: linear-gradient(135deg, var(--gold) 0%, #a86d06 100%); padding: clamp(3rem,5vw,5rem) 0; }
+    .cta-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .cta-text h2 { font-family: var(--font-display); font-size: clamp(1.6rem,2.5vw,2.4rem); font-weight: 800; color: var(--white); line-height: 1.1; margin-bottom: 0.5rem; }
+    .cta-text p { font-size: 1rem; color: rgba(255,255,255,0.82); }
+    .btn-cta-white { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--white); color: var(--gold); font-size: 0.875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 1rem 2rem; border-radius: var(--radius-sm); white-space: nowrap; transition: background var(--tr), box-shadow var(--tr); box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+    .btn-cta-white:hover { background: #fafafa; }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--navy-deep); padding: 4rem 0 2rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-brand-name { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--white); letter-spacing: 0.04em; margin-bottom: 0.25rem; }
+    .footer-brand-name span { color: var(--gold); }
+    .footer-brand-sub { font-size: 0.68rem; color: rgba(255,255,255,0.35); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; }
+    .footer-desc { font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 280px; }
+    .footer-col-title { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 0.65rem; }
+    .footer-links a { font-size: 0.875rem; color: rgba(255,255,255,0.5); transition: color var(--tr); }
+    .footer-links a:hover { color: var(--white); }
+    .footer-contact-item { display: flex; gap: 0.65rem; align-items: flex-start; margin-bottom: 0.85rem; }
+    .footer-contact-item svg { flex-shrink: 0; margin-top: 2px; color: var(--gold); opacity: 0.8; }
+    .footer-contact-item span { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+    .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.07); margin-bottom: 1.5rem; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+    .footer-bottom-links { display: flex; gap: 1.5rem; }
+    .footer-bottom-links a { font-size: 0.8rem; color: rgba(255,255,255,0.3); transition: color var(--tr); }
+    .footer-bottom-links a:hover { color: rgba(255,255,255,0.6); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+    @media (max-width: 768px) {
+      .nav-links, .nav-actions { display: none; }
+      .hamburger { display: flex; }
+      .nav-inner { grid-template-columns: auto auto; }
+      .who-grid, .supply-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .why-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .cta-inner { flex-direction: column; text-align: center; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .section-inner, .nav-inner, .page-hero-inner, .cta-inner, .footer-inner { padding-left: 1.25rem; padding-right: 1.25rem; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-    <div class="logo">Balance Industry</div>
-    <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-</nav>
-    </header>
 
-    <main>
-        <section class="page-header">
-    <div class="container">
-        <p class="page-subtitle">A professional and comprehensive chemical group in China</p>
+<!-- ══ NAVBAR ══ -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg width="34" height="34" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Balance Industry Group logo">
+        <rect width="36" height="36" rx="6" fill="rgba(255,255,255,0.06)"/>
+        <rect x="8" y="8" width="5" height="20" rx="1.5" fill="#ffffff"/>
+        <rect x="13" y="8" width="10" height="8.5" rx="4.25" fill="none" stroke="#ffffff" stroke-width="2"/>
+        <rect x="13" y="19.5" width="11" height="8.5" rx="4.25" fill="none" stroke="#C8860A" stroke-width="2"/>
+        <rect x="8" y="16.75" width="13" height="2.5" fill="#C8860A" opacity="0.4"/>
+      </svg>
+      <div>
+        <div class="nav-logo-text">BALANCE <span>INDUSTRY</span></div>
+        <div class="nav-logo-sub">Group Co., Limited</div>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="contact.html" class="nav-cta">Get a Quote</a>
+      <button class="theme-btn" data-theme-toggle aria-label="Switch to dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
     </div>
+
+    <button class="hamburger" onclick="toggleMobile()" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="products.html">Products</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="mobile-menu-cta">Get a Quote</a>
+</div>
+
+
+<!-- ══ PAGE HERO ══ -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; <span>About Us</span></div>
+    <h1 class="page-hero-title">About Us</h1>
+    <p class="page-hero-desc">A specialized chemical supplier and supply chain integrator connecting global manufacturers with verified Chinese raw material sources.</p>
+  </div>
 </section>
 
-        <section class="content-section section">
-            <div class="container">
-                <div class="content-grid">
-                    <div class="text-content">
-                        <h2 class="section-subtitle">Company Profile</h2>
-                        <p>Balance Industry was established in the year 2001, who is a professional and comprehensive chemical group in China specialized in Chlor-Alkali chemicals and Petrochemicals based on the advantages of abundant resources. Meantime, as for meeting more customers’ requirements in the domestic and international market, we always pay more attention to the cooperation with other strong and powerful companies to enable us to provide better products and service for the honorable customers in the diversified industries.</p>
-                        <p>In Balance Industry, we see customers as business partners. We are committed to their success. By our definition, an appreciative customer is the mark of a successful company. In return for investing in us, our customers get to share our wealth of experience and innovative thinking as well as our guarantee of regular and reliable supply of high-quality products.</p>
-                        <p>Since our incorporation, we are fully committed to serve and deliver high quality and competitive products to end users. Creating a win-win relationship with customers will always remain our uncompromised priority in order to sustain long term business friendship. We believe our customers’ preference for us, as well as trust and cooperation form a solid basis for success.</p>
-</div>
-                    <div class="image-content">
-    <img src="images/company-profile.jpg" alt="Balance Industry office or factory view">
-</div>
-                </div>
-            </div>
-        </section>
 
-        <section class="policy-section section">
-            <div class="container text-center-container">
-                <h2 class="section-subtitle">Company Quality Policy</h2>
-                <div class="policy-quote">
-                    <p>"Balance Industry firmly believes in Fast, Effectiveness, and Best in Service Assurance. The quality of our products and services starts with understanding the requirements of our customers, defining them and meeting or exceeding these requirements."</p>
-                </div>
-            </div>
-        </section>
-        
-        <section class="commitment-section section">
-             <div class="container">
-                <h2 class="section-subtitle text-center-container">Our Commitment</h2>
-                <ul class="commitment-list">
-                    <li>Compliance to statutory and regulatory requirements.</li>
-                    <li>Implementing an effective quality management system for continual improvement within the organization.</li>
-                    <li>Developing and entrusting competent personnel to realize our set quality objectives.</li>
-                </ul>
-            </div>
-        </section>
+<!-- ══ WHO WE ARE ══ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="who-grid">
+      <div>
+        <div class="section-label">Who We Are</div>
+        <h2 class="section-title">Precision Chemistry.<br>Global Reach.</h2>
+        <div class="who-body">
+          <p>Balance Industry Group is a <strong>specialized chemical supplier and supply chain integrator</strong> headquartered in Zhengzhou, China. Operating with independent export credentials, we bridge the gap between global manufacturers and tier-1 Chinese chemical production bases.</p>
+          <p>We focus on two core pillars of the manufacturing industry: <strong>Base Resins &amp; Additives</strong> for the global plastics and polymer sectors, and <strong>Conductive Materials</strong> — specifically ultra-high purity Acetylene Carbon Black for advanced battery and conductive polymer applications.</p>
+          <p>We go beyond simple procurement. By maintaining deep technical partnerships with our production facilities and applying strict quality control at every stage, we ensure the batch-to-batch consistency that precision manufacturing demands.</p>
+        </div>
+      </div>
+      <div class="who-image">
+        <img src="./images/company-profile.jpg" alt="Balance Industry Group chemical production facility" width="800" height="600" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
 
-    </main>
 
-    <footer>
-        <p>&copy; 2025 Balance Industry. All rights reserved.</p>
-    </footer>
+<!-- ══ WHAT WE SUPPLY ══ -->
+<section class="section supply-section">
+  <div class="section-inner">
+    <div class="section-label">What We Supply</div>
+    <h2 class="section-title">Two Core Product Pillars</h2>
+    <p class="section-desc">Our portfolio is structured around the complementary needs of plastics processors and advanced materials manufacturers.</p>
+    <div class="supply-grid">
+
+      <div class="supply-card bronze">
+        <div class="supply-icon bronze-icon">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 17.5h7M17.5 14v7"/></svg>
+        </div>
+        <span class="supply-tag bronze-tag">Base Resins &amp; Additives</span>
+        <div class="supply-name">PVC Resin, PVC Paste Resin &amp; Plasticizers</div>
+        <div class="supply-products bronze-prod">Suspension PVC &nbsp;&middot;&nbsp; Emulsion / Micro-Suspension Paste &nbsp;&middot;&nbsp; DOP / DOTP / DINP</div>
+        <p class="supply-desc">Serving manufacturers in pipes &amp; fittings, cable &amp; wire, synthetic leather, flooring, vinyl gloves, and flexible packaging. Consistent K-value, viscosity stability, and full COA on every shipment.</p>
+      </div>
+
+      <div class="supply-card dark">
+        <div class="supply-icon dark-icon">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <span class="supply-tag dark-tag">Conductive Materials</span>
+        <div class="supply-name">Acetylene Carbon Black</div>
+        <div class="supply-products dark-prod">Ultra-High Purity &nbsp;&middot;&nbsp; Conductive Grade &nbsp;&middot;&nbsp; Battery Grade</div>
+        <p class="supply-desc">Manufactured through controlled exothermic decomposition of high-purity acetylene gas. Engineered for lithium-ion batteries, dry cells, lead-acid batteries, high-voltage cable shielding, and EMI-shielding conductive polymers.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ WHY WORK WITH US ══ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">Why Work With Us</div>
+    <h2 class="section-title">What Sets Us Apart</h2>
+    <p class="section-desc">Three commitments that define every order we handle, from initial inquiry to final delivery.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <div class="why-title">Verified Quality</div>
+        <p class="why-detail">Every batch ships with a full Certificate of Analysis, MSDS, and inspection report. Traceability from production to port — no exceptions.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div>
+        <div class="why-title">Technical Support</div>
+        <p class="why-detail">We assist with grade matching, TDS interpretation, and formulation compatibility. You deal directly with people who understand the materials — not a call center.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div>
+        <div class="why-title">Reliable Export</div>
+        <p class="why-detail">With independent export rights and years of international logistics experience, we handle L/C, T/T, sea freight, and customs documentation across 30+ destination countries.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ COMMITMENT ══ -->
+<section class="section commitment-section">
+  <div class="commitment-inner">
+    <span class="commitment-label">Our Commitment</span>
+    <blockquote class="commitment-quote">Every material we supply is selected, tested, and documented to the standard your production line demands — because your quality is our reputation.</blockquote>
+    <p class="commitment-attr">— Balance Industry Group</p>
+  </div>
+</section>
+
+
+<!-- ══ CTA BANNER ══ -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <h2>Ready to Source Smarter?</h2>
+      <p>Tell us your application and required grade — we'll provide the TDS and arrange a free sample.</p>
+    </div>
+    <a href="contact.html" class="btn-cta-white">Contact Our Team <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">BALANCE <span>INDUSTRY</span></div>
+        <div class="footer-brand-sub">Group Co., Limited</div>
+        <p class="footer-desc">Precision chemical supply chain services for plastic and rubber manufacturers worldwide. Zhengzhou, China.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Products</div>
+        <ul class="footer-links">
+          <li><a href="products.html#pvc-resin">PVC Resin</a></li>
+          <li><a href="products.html#pvc-paste">PVC Paste Resin</a></li>
+          <li><a href="products.html#plasticizers">Plasticizers</a></li>
+          <li><a href="products.html#carbon-black">Acetylene Carbon Black</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Request TDS</a></li>
+          <li><a href="contact.html">Request Sample</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Get In Touch</div>
+        <div class="footer-contact-item">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5"/></svg>
+          <span>export@balanceindustrygrp.com</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Zhengzhou, Henan Province<br>China</span>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 Balance Industry Group Co., Limited. All rights reserved.</p>
+      <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMobile() { document.getElementById('mobileMenu').classList.toggle('open'); }
+  document.addEventListener('click', function(e) {
+    const m = document.getElementById('mobileMenu'), b = document.querySelector('.hamburger');
+    if (!m.contains(e.target) && !b.contains(e.target)) m.classList.remove('open');
+  });
+  window.addEventListener('scroll', function() {
+    document.querySelector('.navbar').style.boxShadow =
+      window.scrollY > 20 ? '0 4px 30px rgba(0,0,0,0.3)' : '0 2px 20px rgba(0,0,0,0.25)';
+  });
+  (function(){
+    const t = document.querySelector('[data-theme-toggle]'), r = document.documentElement;
+    let d = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+    r.setAttribute('data-theme', d);
+    function setIcon(theme) {
+      if (!t) return;
+      t.setAttribute('aria-label','Switch to '+(theme==='dark'?'light':'dark')+' mode');
+      t.innerHTML = theme==='dark'
+        ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+        : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    }
+    setIcon(d);
+    t && t.addEventListener('click', function(){ d=d==='dark'?'light':'dark'; r.setAttribute('data-theme',d); setIcon(d); });
+  })();
+</script>
 </body>
 </html>
