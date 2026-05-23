@@ -1,84 +1,692 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Balance Industry</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Balance Industry Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --navy:#0D2C54;--navy-deep:#091e3a;--navy-mid:#163d6e;
+      --gold:#C8860A;--gold-hover:#a86d06;--gold-light:#e8a020;--gold-pale:rgba(200,134,10,0.12);
+      --white:#ffffff;--off-white:#f5f6f8;--off-white2:#eef0f4;
+      --text-main:#1a2234;--text-muted:#5a6a82;--text-faint:#8a9ab5;
+      --border:rgba(13,44,84,0.10);--border-mid:rgba(13,44,84,0.18);
+      --shadow-xs:0 1px 4px rgba(13,44,84,0.06);
+      --shadow-sm:0 2px 12px rgba(13,44,84,0.08);
+      --shadow-md:0 8px 32px rgba(13,44,84,0.11);
+      --radius-sm:6px;--radius-md:10px;--radius-lg:16px;--radius-xl:22px;
+      --font-display:'Barlow Condensed','Arial Narrow',sans-serif;
+      --font-body:'Inter','Helvetica Neue',sans-serif;
+      --tr:200ms cubic-bezier(0.16,1,0.3,1);
+      --color-primary:#0D2C54;--color-accent:#C8860A;--color-accent-hover:#a36c08;
+      --content-wide:1280px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;scroll-padding-top:80px}
+    body{font-family:var(--font-body);font-size:16px;color:var(--text-main);background:var(--white);line-height:1.6;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    button{cursor:pointer;border:none;background:none;font:inherit}
+
+    /* ── NAV ── */
+    .nav{position:sticky;top:0;z-index:100;background:var(--color-primary);border-bottom:1px solid rgba(255,255,255,0.07)}
+    .nav::after{content:'';position:absolute;inset:0 0 -1px 0;background:linear-gradient(90deg,rgba(200,134,10,0.18) 0%,transparent 40%);pointer-events:none}
+    .nav-inner{max-width:var(--content-wide);margin-inline:auto;padding-inline:2rem;height:62px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1rem;position:relative;z-index:1}
+    .nav-logo{display:flex;align-items:center;gap:.75rem;flex-shrink:0}
+    .nav-logo-mark{width:38px;height:38px;flex-shrink:0}
+    .nav-logo-text{display:flex;flex-direction:column;line-height:1.15}
+    .nav-logo-name{font-family:var(--font-display);font-size:.95rem;font-weight:700;letter-spacing:.05em;color:#fff;text-transform:uppercase}
+    .nav-logo-sub{font-size:.72rem;color:rgba(255,255,255,0.48);letter-spacing:.03em}
+    .nav-links{display:flex;align-items:center;justify-content:center;gap:.2rem;list-style:none}
+    .nav-links a{font-size:.875rem;font-weight:500;color:rgba(255,255,255,0.7);padding:.45rem .8rem;border-radius:.35rem;letter-spacing:.02em;transition:color var(--tr),background var(--tr)}
+    .nav-links a:hover{color:#fff;background:rgba(255,255,255,0.08)}
+    .nav-links a.active{color:#fff}
+    .nav-actions{display:flex;align-items:center;gap:.5rem}
+    .nav-contact-btn{font-size:.75rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--navy-deep);background:var(--color-accent);padding:.45rem 1.1rem;border-radius:.35rem;white-space:nowrap;transition:background var(--tr),transform var(--tr)}
+    .nav-contact-btn:hover{background:var(--color-accent-hover);transform:translateY(-1px)}
+    .theme-toggle{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:.35rem;color:rgba(255,255,255,0.55);transition:color var(--tr),background var(--tr)}
+    .theme-toggle:hover{background:rgba(255,255,255,0.08);color:#fff}
+    .nav-burger{display:none;flex-direction:column;gap:5px;width:36px;height:36px;align-items:center;justify-content:center;border-radius:.35rem;color:rgba(255,255,255,0.8)}
+    .nav-burger span{display:block;width:20px;height:2px;background:currentColor;border-radius:2px}
+    .mobile-menu{display:none;background:var(--color-primary);padding:1rem 2rem 1.5rem;border-top:1px solid rgba(255,255,255,0.07)}
+    .mobile-menu.open{display:block}
+    .mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:.2rem}
+    .mobile-menu a{display:block;font-size:1rem;font-weight:500;color:rgba(255,255,255,0.8);padding:.75rem;border-radius:.35rem;transition:color var(--tr),background var(--tr)}
+    .mobile-menu a:hover{background:rgba(255,255,255,0.08);color:#fff}
+    .mobile-menu-contact{margin-top:1rem;display:block;text-align:center;font-size:.875rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--navy-deep);background:var(--color-accent);padding:.75rem;border-radius:.35rem}
+    @media(max-width:768px){.nav-links,.nav-contact-btn{display:none}.nav-burger{display:flex}.nav-inner{grid-template-columns:auto auto}}
+
+    /* ── PAGE HERO ── */
+    .page-hero{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 55%,var(--navy-mid) 100%);padding:80px 0 64px;position:relative;overflow:hidden}
+    .hero-bg-lines{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+    .hero-bg-lines svg{position:absolute;right:0;top:0;width:55%;height:100%;opacity:0.055}
+    .hero-glow{position:absolute;top:-120px;right:-120px;width:500px;height:500px;background:radial-gradient(circle,rgba(200,134,10,0.12) 0%,transparent 65%);pointer-events:none}
+    .page-hero-inner{max-width:1200px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+    .breadcrumb{font-size:.76rem;color:rgba(255,255,255,0.38);margin-bottom:1.1rem;display:flex;align-items:center;gap:.4rem}
+    .breadcrumb a{color:rgba(255,255,255,0.38);transition:color var(--tr)}
+    .breadcrumb a:hover{color:var(--gold)}
+    .breadcrumb-sep{opacity:.4}
+    .breadcrumb span{color:var(--gold)}
+    .hero-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem;display:flex;align-items:center;gap:.6rem}
+    .hero-eyebrow::before{content:'';display:block;width:28px;height:2px;background:var(--gold);border-radius:2px}
+    .page-hero-title{font-family:var(--font-display);font-size:clamp(2.4rem,5vw,4rem);font-weight:800;color:#fff;line-height:1.0;margin-bottom:1rem;letter-spacing:-.01em}
+    .page-hero-title em{font-style:normal;color:var(--gold-light)}
+    .page-hero-desc{font-size:1rem;color:rgba(255,255,255,0.58);max-width:520px;line-height:1.75}
+
+    /* ── SCROLL REVEAL ── */
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(0.16,1,0.3,1),transform .6s cubic-bezier(0.16,1,0.3,1)}
+    .reveal.visible{opacity:1;transform:none}
+    .reveal-delay-1{transition-delay:.1s}
+    .reveal-delay-2{transition-delay:.2s}
+    .reveal-delay-3{transition-delay:.3s}
+
+    /* ── MAIN CONTACT SECTION ── */
+    .contact-section{padding:clamp(4rem,7vw,6rem) 0;background:var(--white)}
+    .contact-inner{max-width:1200px;margin:0 auto;padding:0 2rem}
+    .contact-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:4rem;align-items:start}
+
+    /* ── LEFT: INFO COLUMN ── */
+    .contact-info{}
+    .info-label{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+    .info-label::before{content:'';display:block;width:16px;height:1.5px;background:var(--gold);border-radius:2px}
+    .info-heading{font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;color:var(--navy);line-height:1.1;margin-bottom:1rem;letter-spacing:-.01em}
+    .info-desc{font-size:.9375rem;color:var(--text-muted);line-height:1.8;margin-bottom:2rem}
+
+    /* contact items */
+    .contact-items{display:flex;flex-direction:column;gap:1.25rem;margin-bottom:2.5rem}
+    .contact-item{display:flex;align-items:flex-start;gap:1rem}
+    .contact-item-icon{width:40px;height:40px;border-radius:var(--radius-md);background:var(--gold-pale);border:1px solid rgba(200,134,10,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold)}
+    .contact-item-body{}
+    .contact-item-label{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);margin-bottom:.2rem}
+    .contact-item-value{font-size:.9375rem;color:var(--text-main);font-weight:500;line-height:1.5}
+    .contact-item-value a{color:var(--navy);transition:color var(--tr)}
+    .contact-item-value a:hover{color:var(--gold)}
+
+    /* response time badge */
+    .response-badge{display:inline-flex;align-items:center;gap:.6rem;background:rgba(13,44,84,0.04);border:1px solid var(--border);border-radius:var(--radius-lg);padding:.75rem 1.1rem}
+    .response-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;flex-shrink:0;box-shadow:0 0 0 3px rgba(34,197,94,0.18)}
+    .response-text{font-size:.82rem;color:var(--text-muted)}
+    .response-text strong{color:var(--text-main);font-weight:600}
+
+    /* what to expect */
+    .expect-card{margin-top:2.5rem;background:var(--off-white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem}
+    .expect-title{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin-bottom:1rem}
+    .expect-list{list-style:none;display:flex;flex-direction:column;gap:.65rem}
+    .expect-list li{display:flex;align-items:flex-start;gap:.65rem;font-size:.875rem;color:var(--text-muted)}
+    .expect-list li svg{flex-shrink:0;color:var(--gold);margin-top:2px}
+
+    /* ── RIGHT: FORM ── */
+    .contact-form-wrap{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-xl);box-shadow:var(--shadow-md);overflow:hidden}
+    .form-header{background:var(--navy);padding:1.5rem 2rem;display:flex;align-items:center;gap:.85rem}
+    .form-header-icon{width:36px;height:36px;border-radius:var(--radius-md);background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:var(--gold-light);flex-shrink:0}
+    .form-header-text{}
+    .form-header-title{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:.04em;text-transform:uppercase}
+    .form-header-sub{font-size:.78rem;color:rgba(255,255,255,0.48);margin-top:.1rem}
+    .form-body{padding:2rem}
+
+    /* product interest tabs */
+    .form-tabs-label{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);margin-bottom:.6rem}
+    .form-tabs{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.75rem}
+    .form-tab{font-size:.75rem;font-weight:600;padding:.35rem .85rem;border-radius:100px;border:1.5px solid var(--border);background:var(--off-white);color:var(--text-muted);cursor:pointer;transition:all var(--tr);font-family:var(--font-body);letter-spacing:.02em}
+    .form-tab:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-pale)}
+    .form-tab.selected{border-color:var(--gold);color:var(--navy-deep);background:var(--gold);font-weight:700}
+
+    /* form fields */
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+    .form-group{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem}
+    .form-group:last-child{margin-bottom:0}
+    .form-label{font-size:.75rem;font-weight:600;color:var(--text-main);letter-spacing:.02em}
+    .form-label .req{color:var(--gold);margin-left:2px}
+    .form-input,.form-select,.form-textarea{width:100%;font-family:var(--font-body);font-size:.9rem;color:var(--text-main);background:var(--off-white);border:1.5px solid var(--border);border-radius:var(--radius-md);padding:.7rem 1rem;transition:border-color var(--tr),box-shadow var(--tr);outline:none;-webkit-appearance:none}
+    .form-input::placeholder,.form-textarea::placeholder{color:var(--text-faint)}
+    .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,134,10,0.12);background:var(--white)}
+    .form-select{background-image:url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238a9ab5' stroke-width='2' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .75rem center;padding-right:2.5rem;cursor:pointer}
+    .form-textarea{resize:vertical;min-height:110px;line-height:1.6}
+    .form-divider{border:none;border-top:1px solid var(--border);margin:1.5rem 0}
+
+    /* file upload */
+    .file-upload{border:1.5px dashed var(--border-mid);border-radius:var(--radius-md);padding:1rem 1.25rem;display:flex;align-items:center;gap:.85rem;cursor:pointer;transition:border-color var(--tr),background var(--tr);background:var(--off-white)}
+    .file-upload:hover{border-color:var(--gold);background:var(--gold-pale)}
+    .file-upload input{display:none}
+    .file-upload-icon{width:32px;height:32px;border-radius:var(--radius-sm);background:rgba(13,44,84,0.06);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--text-faint)}
+    .file-upload-text{}
+    .file-upload-title{font-size:.82rem;font-weight:600;color:var(--navy)}
+    .file-upload-sub{font-size:.72rem;color:var(--text-faint);margin-top:.1rem}
+
+    /* privacy note */
+    .privacy-note{display:flex;align-items:flex-start;gap:.5rem;margin-top:1rem}
+    .privacy-note input[type=checkbox]{width:15px;height:15px;accent-color:var(--gold);flex-shrink:0;margin-top:2px;cursor:pointer}
+    .privacy-note label{font-size:.78rem;color:var(--text-faint);line-height:1.5;cursor:pointer}
+    .privacy-note label a{color:var(--gold);text-decoration:underline;text-decoration-color:rgba(200,134,10,0.35)}
+
+    /* submit */
+    .btn-submit{width:100%;display:flex;align-items:center;justify-content:center;gap:.6rem;background:var(--gold);color:#fff;font-size:.875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.9rem 1.5rem;border-radius:var(--radius-sm);transition:background var(--tr),transform var(--tr),box-shadow var(--tr);margin-top:1.25rem;border:none;cursor:pointer;font-family:var(--font-body)}
+    .btn-submit:hover{background:var(--gold-hover);transform:translateY(-1px);box-shadow:0 4px 20px rgba(200,134,10,0.35)}
+    .btn-submit:active{transform:none}
+
+    /* ── SUCCESS STATE ── */
+    .form-success{display:none;flex-direction:column;align-items:center;text-align:center;padding:3rem 2rem}
+    .success-icon{width:64px;height:64px;border-radius:50%;background:rgba(34,197,94,0.1);border:2px solid rgba(34,197,94,0.25);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;color:#22c55e}
+    .success-title{font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
+    .success-desc{font-size:.9375rem;color:var(--text-muted);max-width:340px;line-height:1.7}
+    .success-back{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.5rem;font-size:.82rem;font-weight:600;color:var(--gold);transition:color var(--tr)}
+    .success-back:hover{color:var(--gold-hover)}
+
+    /* ── INFO STRIP ── */
+    .info-strip{background:var(--off-white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:3rem 0}
+    .info-strip-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+    .strip-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:box-shadow var(--tr),transform var(--tr)}
+    .strip-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+    .strip-card-icon{width:44px;height:44px;border-radius:var(--radius-md);background:var(--gold-pale);border:1px solid rgba(200,134,10,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold)}
+    .strip-card-title{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.3rem;letter-spacing:.02em}
+    .strip-card-text{font-size:.84rem;color:var(--text-muted);line-height:1.65}
+
+    /* ── FOOTER ── */
+    .footer{background:var(--navy-deep);padding:4.5rem 0 2rem}
+    .footer-inner{max-width:1200px;margin:0 auto;padding:0 2rem}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:3rem;margin-bottom:3rem}
+    .footer-brand-name{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:#fff;letter-spacing:.04em;margin-bottom:.25rem}
+    .footer-brand-name span{color:var(--gold)}
+    .footer-brand-sub{font-size:.68rem;color:rgba(255,255,255,0.3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem}
+    .footer-desc{font-size:.84rem;color:rgba(255,255,255,0.42);line-height:1.75;max-width:280px}
+    .footer-col-title{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+    .footer-links{list-style:none}
+    .footer-links li{margin-bottom:.6rem}
+    .footer-links a{font-size:.875rem;color:rgba(255,255,255,0.45);transition:color var(--tr)}
+    .footer-links a:hover{color:#fff}
+    .footer-contact-item{display:flex;gap:.65rem;align-items:flex-start;margin-bottom:.8rem}
+    .footer-contact-item svg{flex-shrink:0;margin-top:3px;color:var(--gold);opacity:.75}
+    .footer-contact-item span{font-size:.84rem;color:rgba(255,255,255,0.45);line-height:1.55}
+    .footer-divider{border:none;border-top:1px solid rgba(255,255,255,0.06);margin-bottom:1.5rem}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer-copy{font-size:.78rem;color:rgba(255,255,255,0.28)}
+    .footer-bottom-links{display:flex;gap:1.5rem}
+    .footer-bottom-links a{font-size:.78rem;color:rgba(255,255,255,0.28);transition:color var(--tr)}
+    .footer-bottom-links a:hover{color:rgba(255,255,255,0.6)}
+
+    @media(max-width:1024px){
+      .contact-grid{grid-template-columns:1fr;gap:2.5rem}
+      .info-strip-inner{grid-template-columns:1fr 1fr}
+      .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+    }
+    @media(max-width:640px){
+      .form-row{grid-template-columns:1fr}
+      .info-strip-inner{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr;gap:1.75rem}
+      .footer-bottom{flex-direction:column;text-align:center}
+      .contact-inner,.page-hero-inner,.info-strip-inner,.footer-inner{padding-left:1.25rem;padding-right:1.25rem}
+      .form-body{padding:1.5rem}
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-    <div class="logo">Balance Industry</div>
-    <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="contact.html">Contact</a></li>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-mark" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+        <rect width="38" height="38" rx="7" fill="rgba(255,255,255,0.07)"/>
+        <rect x="8" y="8" width="5.5" height="22" rx="1.5" fill="#fff"/>
+        <rect x="13.5" y="8" width="11" height="9.5" rx="4.75" fill="none" stroke="#fff" stroke-width="2"/>
+        <rect x="13.5" y="21" width="12" height="9" rx="4.5" fill="none" stroke="#C8860A" stroke-width="2"/>
+        <rect x="8" y="17.5" width="14" height="2.5" fill="#C8860A" opacity="0.5"/>
+      </svg>
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Balance Industry</span>
+        <span class="nav-logo-sub">Group Co., Limited</span>
+      </div>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
+    <div class="nav-actions">
+      <a href="contact.html" class="nav-contact-btn">Get a Quote</a>
+      <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="nav-burger" aria-label="Open menu" aria-expanded="false" id="burger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
 </nav>
-    </header>
-
-    <main>
-        <section class="page-header">
-            <div class="container">
-                <p class="page-subtitle">Get In Touch With Us</p>
-            </div>
-        </section>
-
-        <section id="contact-main" class="section">
-            <div class="container">
-                <div class="contact-layout">
-                    <div class="contact-info">
-                        <h3>Contact Information</h3>
-                        <p>We are here to help. Reach out to us via phone, email, or visit our factory.</p>
-                        <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>No. 6, Suoling Road, Zhengzhou, China</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-phone-alt"></i>
-                            <span>+86 371 6092 2826</span>
-                        </div>
-<div class="info-item">
-    <i class="fas fa-mobile-alt"></i>
-    <span>+86 180 3715 8172</span>
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <ul role="list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="mobile-menu-contact">Get a Quote</a>
 </div>
-                        <div class="info-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>balanceindustry@163.net</span>
-                        </div>
-                        <div class="info-item">
-                           <span style="margin-left: 41.5px;">export@balanceindustrygrp.com</span>
-                        </div>
-                    </div>
 
-                    <div class="contact-form">
-                        <h3>Send Us a Message</h3>
-                        <form action="https://formspree.io/f/your_form_id" method="POST">
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
-                            </div>
-                            <button type="submit" class="btn">Submit Message</button>
-                        </form>
-                    </div>
-                </div>
+<!-- HERO -->
+<section class="page-hero">
+  <div class="hero-bg-lines" aria-hidden="true">
+    <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" fill="none">
+      <line x1="100" y1="0" x2="800" y2="600" stroke="white" stroke-width="1"/>
+      <line x1="250" y1="0" x2="800" y2="500" stroke="white" stroke-width="0.5"/>
+      <line x1="400" y1="0" x2="800" y2="400" stroke="white" stroke-width="1"/>
+      <line x1="0" y1="150" x2="800" y2="550" stroke="white" stroke-width="0.5"/>
+      <circle cx="650" cy="120" r="180" stroke="white" stroke-width="0.5"/>
+      <circle cx="650" cy="120" r="280" stroke="white" stroke-width="0.5"/>
+    </svg>
+  </div>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <span>Contact</span>
+    </div>
+    <div class="hero-eyebrow">Get In Touch</div>
+    <h1 class="page-hero-title">Let's Talk<br><em>Business</em></h1>
+    <p class="page-hero-desc">Send us your product requirements, target volume, and destination port — we'll respond with pricing and full documentation within 24 hours.</p>
+  </div>
+</section>
+
+<!-- MAIN CONTACT SECTION -->
+<section class="contact-section">
+  <div class="contact-inner">
+    <div class="contact-grid">
+
+      <!-- LEFT: INFO -->
+      <div>
+        <div class="reveal">
+          <div class="info-label">Direct Contact</div>
+          <h2 class="info-heading">We Reply<br>Within 24 Hours</h2>
+          <p class="info-desc">We work with buyers across Southeast Asia, the Middle East, Africa, and Europe. Whether you need a spot quote, a sample request, or a full supply agreement, our export team is ready.</p>
+        </div>
+
+        <div class="contact-items reveal reveal-delay-1">
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5"/></svg>
             </div>
-        </section>
-    </main>
+            <div class="contact-item-body">
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-value"><a href="mailto:export@balanceindustrygrp.com">export@balanceindustrygrp.com</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+            </div>
+            <div class="contact-item-body">
+              <div class="contact-item-label">WhatsApp / WeChat</div>
+              <div class="contact-item-value">Available on request</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="contact-item-body">
+              <div class="contact-item-label">Location</div>
+              <div class="contact-item-value">Zhengzhou, Henan Province, China</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div class="contact-item-body">
+              <div class="contact-item-label">Business Hours</div>
+              <div class="contact-item-value">Mon – Fri &nbsp;·&nbsp; 09:00 – 18:00 CST</div>
+            </div>
+          </div>
+        </div>
 
-    <footer>
-        <p>© 2025 Balance Industry. All rights reserved.</p>
-    </footer>
+        <div class="reveal reveal-delay-2">
+          <div class="response-badge">
+            <div class="response-dot"></div>
+            <div class="response-text"><strong>Typical response time: under 24 hours</strong> on business days</div>
+          </div>
+        </div>
+
+        <div class="expect-card reveal reveal-delay-3">
+          <div class="expect-title">What We'll Send Back</div>
+          <ul class="expect-list">
+            <li>
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Competitive FOB / CIF pricing based on your volume
+            </li>
+            <li>
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Technical Data Sheet (TDS) and MSDS for each product
+            </li>
+            <li>
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Sample availability and lead time confirmation
+            </li>
+            <li>
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              SGS inspection options and COA template
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- RIGHT: FORM -->
+      <div class="reveal reveal-delay-1">
+        <div class="contact-form-wrap" id="formWrap">
+          <div class="form-header">
+            <div class="form-header-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div class="form-header-text">
+              <div class="form-header-title">Request a Quote</div>
+              <div class="form-header-sub">All fields marked * are required</div>
+            </div>
+          </div>
+
+          <div class="form-body" id="formBody">
+            <!-- Product interest tabs -->
+            <div class="form-tabs-label">Products of Interest</div>
+            <div class="form-tabs" id="productTabs">
+              <button type="button" class="form-tab" data-product="PVC Resin">PVC Resin</button>
+              <button type="button" class="form-tab" data-product="PVC Paste Resin">PVC Paste Resin</button>
+              <button type="button" class="form-tab" data-product="DOP">DOP</button>
+              <button type="button" class="form-tab" data-product="DOTP">DOTP</button>
+              <button type="button" class="form-tab" data-product="DINP">DINP</button>
+              <button type="button" class="form-tab" data-product="Acetylene Carbon Black">Carbon Black</button>
+            </div>
+
+            <form id="contactForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="fname">First Name <span class="req">*</span></label>
+                  <input class="form-input" type="text" id="fname" name="fname" placeholder="John" required autocomplete="given-name"/>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="lname">Last Name <span class="req">*</span></label>
+                  <input class="form-input" type="text" id="lname" name="lname" placeholder="Smith" required autocomplete="family-name"/>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="email">Email Address <span class="req">*</span></label>
+                  <input class="form-input" type="email" id="email" name="email" placeholder="john@company.com" required autocomplete="email"/>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="company">Company Name <span class="req">*</span></label>
+                  <input class="form-input" type="text" id="company" name="company" placeholder="Acme Industries Ltd." required autocomplete="organization"/>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="country">Destination Country <span class="req">*</span></label>
+                  <select class="form-select" id="country" name="country" required>
+                    <option value="" disabled selected>Select country…</option>
+                    <option>Vietnam</option>
+                    <option>Indonesia</option>
+                    <option>Thailand</option>
+                    <option>Malaysia</option>
+                    <option>Philippines</option>
+                    <option>India</option>
+                    <option>Bangladesh</option>
+                    <option>Pakistan</option>
+                    <option>Turkey</option>
+                    <option>Egypt</option>
+                    <option>Saudi Arabia</option>
+                    <option>UAE</option>
+                    <option>Nigeria</option>
+                    <option>South Africa</option>
+                    <option>Brazil</option>
+                    <option>Mexico</option>
+                    <option>Poland</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="volume">Estimated Monthly Volume</label>
+                  <select class="form-select" id="volume" name="volume">
+                    <option value="" disabled selected>Select range…</option>
+                    <option>1 – 5 MT (sample / trial)</option>
+                    <option>1 FCL (20–25 MT)</option>
+                    <option>2 – 5 FCL / month</option>
+                    <option>6 – 20 FCL / month</option>
+                    <option>20+ FCL / month</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="message">Message / Specifications</label>
+                <textarea class="form-textarea" id="message" name="message" placeholder="Please describe your product grade requirements, packaging preferences, target port, payment terms, or any other details…"></textarea>
+              </div>
+
+              <hr class="form-divider"/>
+
+              <div class="form-group">
+                <label class="form-label">Attachment <span style="font-weight:400;color:var(--text-faint)">(optional — spec sheet, TDS request, etc.)</span></label>
+                <label class="file-upload" for="fileInput">
+                  <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg"/>
+                  <div class="file-upload-icon">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                  </div>
+                  <div class="file-upload-text">
+                    <div class="file-upload-title" id="fileLabel">Click to upload a file</div>
+                    <div class="file-upload-sub">PDF, DOC, XLS, PNG, JPG — max 10 MB</div>
+                  </div>
+                </label>
+              </div>
+
+              <div class="privacy-note">
+                <input type="checkbox" id="privacy" name="privacy" required/>
+                <label for="privacy">I agree that my submitted data will be used to respond to my enquiry. We do not share your information with third parties. <a href="#">Privacy Policy</a></label>
+              </div>
+
+              <button type="submit" class="btn-submit">
+                Send Enquiry
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
+              </button>
+            </form>
+          </div>
+
+          <!-- Success state -->
+          <div class="form-success" id="formSuccess">
+            <div class="success-icon">
+              <svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="success-title">Enquiry Sent!</div>
+            <p class="success-desc">Thank you for reaching out. Our export team will review your request and reply within 24 business hours.</p>
+            <a href="#" class="success-back" id="successBack">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+              Submit another enquiry
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INFO STRIP -->
+<section class="info-strip">
+  <div class="info-strip-inner">
+    <div class="strip-card reveal">
+      <div class="strip-card-icon">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      </div>
+      <div>
+        <div class="strip-card-title">Global Shipping</div>
+        <div class="strip-card-text">FOB Qingdao / Tianjin / Shanghai. Full export documentation including B/L, COA, packing list, and phytosanitary certificate where required.</div>
+      </div>
+    </div>
+    <div class="strip-card reveal reveal-delay-1">
+      <div class="strip-card-icon">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <div>
+        <div class="strip-card-title">Quality Documentation</div>
+        <div class="strip-card-text">Every shipment includes a batch Certificate of Analysis (COA), MSDS, and optional SGS or BV third-party inspection report.</div>
+      </div>
+    </div>
+    <div class="strip-card reveal reveal-delay-2">
+      <div class="strip-card-icon">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <div class="strip-card-title">Verified Suppliers</div>
+        <div class="strip-card-text">All manufacturers in our network hold ISO 9001 certification. Factory audits and pre-shipment inspections available on request.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">BALANCE <span>INDUSTRY</span></div>
+        <div class="footer-brand-sub">Group Co., Limited</div>
+        <p class="footer-desc">Precision chemical supply chain services for plastic and rubber manufacturers worldwide. Zhengzhou, China.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Products</div>
+        <ul class="footer-links">
+          <li><a href="products.html#pvc-resin">PVC Resin</a></li>
+          <li><a href="products.html#pvc-paste">PVC Paste Resin</a></li>
+          <li><a href="products.html#plasticizers">Plasticizers</a></li>
+          <li><a href="products.html#carbon-black">Acetylene Carbon Black</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Request TDS</a></li>
+          <li><a href="contact.html">Request Sample</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Get In Touch</div>
+        <div class="footer-contact-item">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5"/></svg>
+          <span>export@balanceindustrygrp.com</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Zhengzhou, Henan Province<br>China</span>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 Balance Industry Group Co., Limited. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Mobile menu
+(function(){
+  var burger=document.getElementById('burger'),menu=document.getElementById('mobile-menu');
+  burger.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open);
+    menu.setAttribute('aria-hidden',!open);
+  });
+  document.addEventListener('click',function(e){
+    if(!menu.contains(e.target)&&!burger.contains(e.target)){
+      menu.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+      menu.setAttribute('aria-hidden','true');
+    }
+  });
+})();
+
+// Product interest tabs (multi-select)
+(function(){
+  document.querySelectorAll('.form-tab').forEach(function(tab){
+    tab.addEventListener('click',function(){
+      tab.classList.toggle('selected');
+    });
+  });
+})();
+
+// File upload label
+document.getElementById('fileInput').addEventListener('change',function(){
+  var label=document.getElementById('fileLabel');
+  label.textContent=this.files.length?this.files[0].name:'Click to upload a file';
+});
+
+// Form submit (demo — shows success state)
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  // Basic validation
+  var ok=true;
+  this.querySelectorAll('[required]').forEach(function(f){
+    if(!f.value.trim()||(f.type==='checkbox'&&!f.checked)){
+      f.style.borderColor='#e53e3e';
+      ok=false;
+    } else {
+      f.style.borderColor='';
+    }
+  });
+  if(!ok) return;
+  // Show success
+  document.getElementById('formBody').style.display='none';
+  var s=document.getElementById('formSuccess');
+  s.style.display='flex';
+});
+
+// Reset form from success state
+document.getElementById('successBack').addEventListener('click',function(e){
+  e.preventDefault();
+  document.getElementById('contactForm').reset();
+  document.querySelectorAll('.form-tab').forEach(function(t){t.classList.remove('selected')});
+  document.getElementById('fileLabel').textContent='Click to upload a file';
+  document.getElementById('formBody').style.display='block';
+  document.getElementById('formSuccess').style.display='none';
+});
+
+// Scroll reveal
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
+    });
+  },{threshold:0.1});
+  els.forEach(function(el){obs.observe(el)});
+})();
+
+// Theme toggle
+(function(){
+  var t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;
+  var d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+  r.setAttribute('data-theme',d);
+  function setIcon(theme){
+    if(!t)return;
+    t.setAttribute('aria-label','Switch to '+(theme==='dark'?'light':'dark')+' mode');
+    t.innerHTML=theme==='dark'
+      ?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+      :'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  }
+  setIcon(d);
+  t&&t.addEventListener('click',function(){
+    d=d==='dark'?'light':'dark';
+    r.setAttribute('data-theme',d);
+    setIcon(d);
+  });
+})();
+</script>
 </body>
 </html>
