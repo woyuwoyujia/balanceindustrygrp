@@ -11,10 +11,11 @@
     :root{--navy:#0D2C54;--navy-deep:#091e3a;--navy-mid:#163d6e;--gold:#C8860A;--gold-hover:#a86d06;--gold-light:#e8a020;--white:#ffffff;--off-white:#f5f6f8;--text-main:#1a2234;--text-muted:#5a6a82;--border:rgba(13,44,84,0.12);--shadow-sm:0 2px 8px rgba(13,44,84,0.07);--shadow-md:0 6px 24px rgba(13,44,84,0.10);--shadow-lg:0 16px 48px rgba(13,44,84,0.14);--radius-sm:6px;--radius-md:10px;--radius-lg:16px;--font-display:'Barlow Condensed','Arial Narrow',sans-serif;--font-body:'Inter','Helvetica Neue',sans-serif;--tr:180ms cubic-bezier(0.16,1,0.3,1);--text-xs:clamp(0.75rem,0.7rem + 0.25vw,0.875rem);--text-sm:clamp(0.875rem,0.8rem + 0.35vw,1rem);--text-base:clamp(1rem,0.95rem + 0.25vw,1.125rem);--space-1:0.25rem;--space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--radius-nav:0.375rem;--transition:180ms cubic-bezier(0.16,1,0.3,1);--color-primary:#0D2C54;--color-accent:#C8860A;--color-accent-hover:#a36c08;--content-wide:1280px}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-    body{font-family:var(--font-body);font-size:16px;color:var(--text-main);background:var(--off-white);line-height:1.6}
+    body{font-family:var(--font-body);font-size:16px;color:var(--text-main);background:var(--white);line-height:1.6}
     img{display:block;max-width:100%;height:auto}
     a{text-decoration:none;color:inherit}
     button{cursor:pointer;border:none;background:none;font:inherit}
+
     /* NAV */
     .nav{position:sticky;top:0;z-index:100;background:var(--color-primary);border-bottom:1px solid rgba(255,255,255,0.08)}
     .nav-inner{max-width:var(--content-wide);margin-inline:auto;padding-inline:var(--space-6);height:60px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:var(--space-4)}
@@ -42,6 +43,7 @@
     .mobile-menu a:hover{background:rgba(255,255,255,0.08);color:#fff}
     .mobile-menu-contact{margin-top:var(--space-4);display:block;text-align:center;font-size:var(--text-sm);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-primary);background:var(--color-accent);padding:var(--space-3) var(--space-4);border-radius:var(--radius-nav)}
     @media(max-width:768px){.nav-links,.nav-contact-btn{display:none}.nav-burger{display:flex}.nav-inner{grid-template-columns:auto auto}}
+
     /* HERO */
     .page-hero{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 60%,var(--navy-mid) 100%);padding:80px 0 64px;position:relative;overflow:hidden}
     .page-hero::after{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(200,134,10,0.08) 0%,transparent 70%);pointer-events:none}
@@ -52,69 +54,79 @@
     .breadcrumb span{color:var(--gold)}
     .page-hero-title{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:800;color:#fff;line-height:1.05;margin-bottom:0.75rem}
     .page-hero-desc{font-size:1rem;color:rgba(255,255,255,0.6);max-width:520px;line-height:1.7}
-    /* CARDS SECTION */
-    .cards-section{padding:clamp(3rem,5vw,5rem) 0}
-    .cards-inner{max-width:1200px;margin:0 auto;padding:0 2rem}
-    .cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
-    /* PRODUCT CARD */
-    .pcard{background:var(--white);border-radius:var(--radius-lg);border:1px solid var(--border);overflow:hidden;box-shadow:var(--shadow-sm);transition:box-shadow var(--tr),transform var(--tr)}
-    .pcard:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
-    .pcard--dark{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 100%);border-color:transparent}
-    .pcard-top{padding:2rem 2rem 1.5rem}
-    .pcard-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem}
-    .pcard-num{font-family:var(--font-display);font-size:2.5rem;font-weight:800;color:var(--border);line-height:1}
-    .pcard--dark .pcard-num{color:rgba(255,255,255,0.07)}
-    .pcard-tag{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.25rem 0.75rem;border-radius:100px}
-    .pcard-tag--navy{background:rgba(13,44,84,0.07);color:var(--navy);border:1px solid var(--border)}
-    .pcard-tag--gold{background:rgba(200,134,10,0.15);color:var(--gold-light);border:1px solid rgba(200,134,10,0.25)}
-    .pcard-label{font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem}
-    .pcard--dark .pcard-label{color:var(--gold-light)}
-    .pcard-title{font-family:var(--font-display);font-size:clamp(1.5rem,2vw,2rem);font-weight:700;color:var(--navy);line-height:1.1;margin-bottom:0.35rem}
-    .pcard--dark .pcard-title{color:#fff}
-    .pcard-sub{font-size:0.8rem;color:var(--text-muted);letter-spacing:0.03em;margin-bottom:1.25rem}
-    .pcard--dark .pcard-sub{color:rgba(255,255,255,0.45)}
-    .pcard-desc{font-size:0.875rem;color:var(--text-muted);line-height:1.75}
-    .pcard--dark .pcard-desc{color:rgba(255,255,255,0.6)}
-    .pcard-apps{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1.25rem}
-    .pcard-app{font-size:0.75rem;padding:0.2rem 0.6rem;border-radius:100px;background:rgba(13,44,84,0.05);color:var(--navy);border:1px solid var(--border)}
-    .pcard--dark .pcard-app{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.75);border-color:rgba(255,255,255,0.12)}
-    /* EXPANDABLE SPECS */
-    .pcard-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;border-top:1px solid var(--border);font-size:0.8rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--navy);transition:background var(--tr);cursor:pointer;background:none}
-    .pcard--dark .pcard-toggle{border-top-color:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7)}
-    .pcard-toggle:hover{background:rgba(13,44,84,0.03)}
-    .pcard--dark .pcard-toggle:hover{background:rgba(255,255,255,0.04)}
-    .pcard-toggle-icon{width:20px;height:20px;border-radius:50%;background:rgba(13,44,84,0.07);display:flex;align-items:center;justify-content:center;transition:transform var(--tr),background var(--tr);flex-shrink:0}
-    .pcard--dark .pcard-toggle-icon{background:rgba(255,255,255,0.1)}
-    .pcard-toggle[aria-expanded="true"] .pcard-toggle-icon{transform:rotate(180deg);background:var(--gold)}
-    .pcard-toggle-icon svg{color:var(--navy)}
-    .pcard--dark .pcard-toggle-icon svg{color:#fff}
-    .pcard-toggle[aria-expanded="true"] .pcard-toggle-icon svg{color:#fff}
-    .pcard-specs{display:none;border-top:1px solid var(--border)}
-    .pcard--dark .pcard-specs{border-top-color:rgba(255,255,255,0.1)}
-    .pcard-specs.open{display:block}
+
+    /* TAB WRAPPER */
+    .tab-wrapper{max-width:1200px;margin:0 auto;padding:3rem 2rem 5rem}
+
+    /* TAB BAR */
+    .tab-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;margin-bottom:2rem}
+    .tab-btn{display:flex;flex-direction:column;align-items:flex-start;gap:0.25rem;padding:1.1rem 1.25rem;border-radius:var(--radius-lg);border:2px solid var(--border);background:var(--white);text-align:left;transition:border-color var(--tr),background var(--tr),box-shadow var(--tr);cursor:pointer}
+    .tab-btn:hover{border-color:rgba(13,44,84,0.25);box-shadow:var(--shadow-sm)}
+    .tab-btn.active{border-color:var(--gold);background:var(--white);box-shadow:0 0 0 4px rgba(200,134,10,0.08)}
+    .tab-btn.active-dark{border-color:rgba(255,255,255,0.15);background:var(--navy);box-shadow:0 0 0 4px rgba(13,44,84,0.15)}
+    .tab-num{font-family:var(--font-display);font-size:0.78rem;font-weight:700;color:var(--border);letter-spacing:0.08em}
+    .tab-btn.active .tab-num{color:var(--gold)}
+    .tab-btn.active-dark .tab-num{color:rgba(255,255,255,0.3)}
+    .tab-name{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--text-muted);line-height:1.2}
+    .tab-btn.active .tab-name{color:var(--navy)}
+    .tab-btn.active-dark .tab-name{color:#fff}
+    .tab-cat{font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);opacity:0.7}
+    .tab-btn.active .tab-cat{color:var(--gold);opacity:1}
+    .tab-btn.active-dark .tab-cat{color:var(--gold-light);opacity:1}
+
+    /* TAB PANELS */
+    .tab-panel{display:none;animation:fadeIn 220ms ease}
+    .tab-panel.active{display:block}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+    /* PANEL CONTENT — light */
+    .panel-box{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)}
+    .panel-box--dark{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 100%);border-color:transparent}
+    .panel-top{display:grid;grid-template-columns:1fr 1fr;gap:3rem;padding:2.5rem}
+    .panel-label{font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:0.35rem}
+    .panel-box--dark .panel-label{color:var(--gold-light)}
+    .panel-title{font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;color:var(--navy);line-height:1.05;margin-bottom:0.35rem}
+    .panel-box--dark .panel-title{color:#fff}
+    .panel-sub{font-size:0.85rem;color:var(--text-muted);letter-spacing:0.04em;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+    .panel-box--dark .panel-sub{color:rgba(255,255,255,0.45);border-bottom-color:rgba(255,255,255,0.1)}
+    .panel-desc{font-size:0.9375rem;color:var(--text-muted);line-height:1.8}
+    .panel-desc p+p{margin-top:1rem}
+    .panel-box--dark .panel-desc{color:rgba(255,255,255,0.65)}
+    .panel-apps-title{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);margin:1.5rem 0 0.65rem}
+    .panel-box--dark .panel-apps-title{color:rgba(255,255,255,0.85)}
+    .app-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+    .app-tag{font-size:0.78rem;font-weight:500;padding:0.25rem 0.65rem;border-radius:100px;background:rgba(13,44,84,0.05);color:var(--navy);border:1px solid var(--border)}
+    .panel-box--dark .app-tag{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.8);border-color:rgba(255,255,255,0.12)}
+    .panel-actions{display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:2rem}
+    .btn-primary{display:inline-flex;align-items:center;gap:0.5rem;background:var(--gold);color:#fff;font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.7rem 1.4rem;border-radius:var(--radius-sm);transition:background var(--tr)}
+    .btn-primary:hover{background:var(--gold-hover)}
+    .btn-outline{display:inline-flex;align-items:center;gap:0.5rem;border:1.5px solid var(--navy);color:var(--navy);font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.7rem 1.4rem;border-radius:var(--radius-sm);transition:background var(--tr),color var(--tr)}
+    .btn-outline:hover{background:var(--navy);color:#fff}
+    .panel-box--dark .btn-outline{border-color:rgba(255,255,255,0.4);color:#fff}
+    .panel-box--dark .btn-outline:hover{background:rgba(255,255,255,0.1)}
+
+    /* SPEC TABLE inside panel */
+    .spec-wrap{border-top:1px solid var(--border)}
+    .panel-box--dark .spec-wrap{border-top-color:rgba(255,255,255,0.1)}
+    .spec-wrap-header{padding:1rem 1.5rem;background:var(--navy);display:flex;align-items:center;gap:0.65rem}
+    .panel-box--dark .spec-wrap-header{background:rgba(255,255,255,0.06)}
+    .spec-wrap-header svg{color:var(--gold)}
+    .spec-wrap-title{font-family:var(--font-display);font-size:0.95rem;font-weight:700;color:#fff;letter-spacing:0.04em;text-transform:uppercase}
     .spec-table{width:100%;border-collapse:collapse}
-    .spec-table th{font-size:0.67rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);background:var(--off-white);padding:0.55rem 1.25rem;text-align:left;border-bottom:1px solid var(--border)}
-    .spec-table td{font-size:0.84rem;padding:0.6rem 1.25rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .spec-table th{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);background:var(--off-white);padding:0.6rem 1.5rem;text-align:left;border-bottom:1px solid var(--border)}
+    .spec-table td{font-size:0.85rem;padding:0.65rem 1.5rem;border-bottom:1px solid var(--border);vertical-align:top}
     .spec-table tr:last-child td{border-bottom:none}
     .spec-table tr:hover td{background:rgba(13,44,84,0.02)}
     .spec-name{font-weight:600;color:var(--text-main)}
     .spec-value{color:var(--text-muted)}
-    .spec-badge{display:inline-block;font-size:0.67rem;font-weight:700;padding:0.12rem 0.45rem;border-radius:4px;background:rgba(200,134,10,0.12);color:var(--gold);border:1px solid rgba(200,134,10,0.25)}
-    /* dark card spec table */
-    .pcard--dark .spec-table th{background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.4);border-bottom-color:rgba(255,255,255,0.08)}
-    .pcard--dark .spec-table td{border-bottom-color:rgba(255,255,255,0.08)}
-    .pcard--dark .spec-table tr:hover td{background:rgba(255,255,255,0.03)}
-    .pcard--dark .spec-name{color:rgba(255,255,255,0.9)}
-    .pcard--dark .spec-value{color:rgba(255,255,255,0.5)}
-    /* CARD FOOTER */
-    .pcard-footer{padding:1.25rem 2rem;border-top:1px solid var(--border);display:flex;gap:0.75rem;flex-wrap:wrap}
-    .pcard--dark .pcard-footer{border-top-color:rgba(255,255,255,0.1)}
-    .btn-primary{display:inline-flex;align-items:center;gap:0.5rem;background:var(--gold);color:#fff;font-size:0.78rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.6rem 1.25rem;border-radius:var(--radius-sm);transition:background var(--tr)}
-    .btn-primary:hover{background:var(--gold-hover)}
-    .btn-outline{display:inline-flex;align-items:center;gap:0.5rem;border:1.5px solid var(--navy);color:var(--navy);font-size:0.78rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.6rem 1.25rem;border-radius:var(--radius-sm);transition:background var(--tr),color var(--tr)}
-    .btn-outline:hover{background:var(--navy);color:#fff}
-    .pcard--dark .btn-outline{border-color:rgba(255,255,255,0.35);color:#fff}
-    .pcard--dark .btn-outline:hover{background:rgba(255,255,255,0.1)}
+    .spec-badge{display:inline-block;font-size:0.68rem;font-weight:700;padding:0.12rem 0.45rem;border-radius:4px;background:rgba(200,134,10,0.12);color:var(--gold);border:1px solid rgba(200,134,10,0.25)}
+    /* dark spec overrides */
+    .panel-box--dark .spec-table th{background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.4);border-bottom-color:rgba(255,255,255,0.08)}
+    .panel-box--dark .spec-table td{border-bottom-color:rgba(255,255,255,0.08)}
+    .panel-box--dark .spec-table tr:hover td{background:rgba(255,255,255,0.03)}
+    .panel-box--dark .spec-name{color:rgba(255,255,255,0.9)}
+    .panel-box--dark .spec-value{color:rgba(255,255,255,0.5)}
+
     /* CTA */
     .cta-section{background:linear-gradient(135deg,var(--gold) 0%,#a86d06 100%);padding:clamp(3rem,5vw,5rem) 0}
     .cta-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
@@ -122,6 +134,7 @@
     .cta-text p{font-size:1rem;color:rgba(255,255,255,0.82)}
     .btn-cta-white{display:inline-flex;align-items:center;gap:0.5rem;background:#fff;color:var(--gold);font-size:0.875rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:1rem 2rem;border-radius:var(--radius-sm);white-space:nowrap;transition:background var(--tr);box-shadow:0 4px 20px rgba(0,0,0,0.15)}
     .btn-cta-white:hover{background:#fafafa}
+
     /* FOOTER */
     .footer{background:var(--navy-deep);padding:4rem 0 2rem}
     .footer-inner{max-width:1200px;margin:0 auto;padding:0 2rem}
@@ -144,11 +157,14 @@
     .footer-bottom-links{display:flex;gap:1.5rem}
     .footer-bottom-links a{font-size:0.8rem;color:rgba(255,255,255,0.3);transition:color var(--tr)}
     .footer-bottom-links a:hover{color:rgba(255,255,255,0.6)}
-    @media(max-width:1024px){.cards-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr;gap:2rem}}
-    @media(max-width:768px){.footer-grid{grid-template-columns:1fr;gap:2rem}.footer-bottom{flex-direction:column;text-align:center}.cta-inner{flex-direction:column;text-align:center}.cards-inner,.page-hero-inner,.cta-inner,.footer-inner{padding-left:1.25rem;padding-right:1.25rem}}
+
+    @media(max-width:1024px){.tab-bar{grid-template-columns:repeat(2,1fr)}.panel-top{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr;gap:2rem}}
+    @media(max-width:768px){.tab-bar{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr;gap:2rem}.footer-bottom{flex-direction:column;text-align:center}.cta-inner{flex-direction:column;text-align:center}.tab-wrapper,.page-hero-inner,.cta-inner,.footer-inner{padding-left:1.25rem;padding-right:1.25rem}}
   </style>
 </head>
 <body>
+
+<!-- NAV -->
 <nav class="nav" role="navigation">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
@@ -191,6 +207,7 @@
   <a href="contact.html" class="mobile-menu-contact">Get a Quote</a>
 </div>
 
+<!-- HERO -->
 <section class="page-hero">
   <div class="page-hero-inner">
     <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; <span>Products</span></div>
@@ -199,175 +216,227 @@
   </div>
 </section>
 
-<section class="cards-section">
-  <div class="cards-inner">
-    <div class="cards-grid">
+<!-- TAB LAYOUT -->
+<div class="tab-wrapper">
 
-      <!-- Card 01 -->
-      <div class="pcard">
-        <div class="pcard-top">
-          <div class="pcard-meta">
-            <span class="pcard-num">01</span>
-            <span class="pcard-tag pcard-tag--navy">Suspension Grade</span>
+  <!-- TAB BAR -->
+  <div class="tab-bar" role="tablist">
+    <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="panel-01" data-tab="panel-01">
+      <span class="tab-num">01</span>
+      <span class="tab-name">PVC Resin</span>
+      <span class="tab-cat">Suspension Grade</span>
+    </button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-02" data-tab="panel-02">
+      <span class="tab-num">02</span>
+      <span class="tab-name">PVC Paste Resin</span>
+      <span class="tab-cat">Emulsion Grade</span>
+    </button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-03" data-tab="panel-03">
+      <span class="tab-num">03</span>
+      <span class="tab-name">Plasticizers</span>
+      <span class="tab-cat">DOP · DOTP · DINP</span>
+    </button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-04" data-tab="panel-04" id="tab-04">
+      <span class="tab-num">04</span>
+      <span class="tab-name">Acetylene Carbon Black</span>
+      <span class="tab-cat">Conductive Grade</span>
+    </button>
+  </div>
+
+  <!-- PANEL 01 -->
+  <div class="tab-panel active" id="panel-01" role="tabpanel">
+    <div class="panel-box">
+      <div class="panel-top">
+        <div>
+          <div class="panel-label">Base Resins &amp; Additives</div>
+          <h2 class="panel-title">PVC Resin</h2>
+          <div class="panel-sub">K-58 &nbsp;·&nbsp; K-67 &nbsp;·&nbsp; K-70 &nbsp;·&nbsp; K-71</div>
+          <div class="panel-desc">
+            <p>Suspension-polymerized PVC resin produced by leading ISO-certified Chinese manufacturers. Each grade is characterized by its K-value — a measure of average molecular weight — determining processability, mechanical properties, and end-use suitability.</p>
+            <p>We supply consistent, batch-verified resin with full Certificate of Analysis (COA), MSDS, and SGS inspection on request. Available in 25 kg bags or 1,000 kg jumbo bags; minimum order from 1 FCL (20–25 MT).</p>
           </div>
-          <div class="pcard-label">Base Resins</div>
-          <h2 class="pcard-title">PVC Resin</h2>
-          <div class="pcard-sub">K-58 &nbsp;·&nbsp; K-67 &nbsp;·&nbsp; K-70 &nbsp;·&nbsp; K-71</div>
-          <p class="pcard-desc">Suspension-polymerized PVC resin with consistent K-value, full COA, and batch-verified quality. Available from 1 FCL (20–25 MT). Serving pipes, cable, profiles, rigid sheet, and packaging manufacturers.</p>
-          <div class="pcard-apps">
-            <span class="pcard-app">Pipes &amp; Fittings</span>
-            <span class="pcard-app">Cable &amp; Wire</span>
-            <span class="pcard-app">Window Profiles</span>
-            <span class="pcard-app">Rigid Sheets</span>
-            <span class="pcard-app">Foam Boards</span>
+          <div class="panel-apps-title">Primary Applications</div>
+          <div class="app-tags">
+            <span class="app-tag">Pipes &amp; Fittings</span>
+            <span class="app-tag">Cable &amp; Wire Insulation</span>
+            <span class="app-tag">Window Profiles</span>
+            <span class="app-tag">Rigid Sheets &amp; Films</span>
+            <span class="app-tag">Bottles &amp; Packaging</span>
+            <span class="app-tag">Foam Boards</span>
+          </div>
+          <div class="panel-actions">
+            <a href="contact.html" class="btn-primary">Request TDS <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a href="contact.html" class="btn-outline">Request Sample</a>
           </div>
         </div>
-        <button class="pcard-toggle" aria-expanded="false" data-target="specs-01">
-          View Specifications
-          <span class="pcard-toggle-icon"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
-        </button>
-        <div class="pcard-specs" id="specs-01">
-          <table class="spec-table">
-            <thead><tr><th>Grade</th><th>K-Value</th><th>Viscosity No.</th><th>Use</th></tr></thead>
-            <tbody>
-              <tr><td class="spec-name">K-58</td><td class="spec-value">57–59</td><td class="spec-value">~95 mL/g</td><td class="spec-value">Injection moulding</td></tr>
-              <tr><td class="spec-name">K-67</td><td class="spec-value">66–68</td><td class="spec-value">~113 mL/g</td><td class="spec-value">Pipe &amp; profile <span class="spec-badge">Popular</span></td></tr>
-              <tr><td class="spec-name">K-70</td><td class="spec-value">69–71</td><td class="spec-value">~119 mL/g</td><td class="spec-value">Cable &amp; flex film</td></tr>
-              <tr><td class="spec-name">K-71</td><td class="spec-value">70–72</td><td class="spec-value">~122 mL/g</td><td class="spec-value">High-flex applications</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="pcard-footer">
-          <a href="contact.html" class="btn-primary">Request TDS <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          <a href="contact.html" class="btn-outline">Request Sample</a>
+        <div>
+          <div class="spec-wrap-header" style="border-radius:var(--radius-md) var(--radius-md) 0 0">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+            <span class="spec-wrap-title">Grade Specifications</span>
+          </div>
+          <div style="border:1px solid var(--border);border-top:none;border-radius:0 0 var(--radius-md) var(--radius-md);overflow:hidden">
+            <table class="spec-table">
+              <thead><tr><th>Grade</th><th>K-Value</th><th>Viscosity No.</th><th>Typical Use</th></tr></thead>
+              <tbody>
+                <tr><td class="spec-name">K-58</td><td class="spec-value">57–59</td><td class="spec-value">~95 mL/g</td><td class="spec-value">Injection moulding</td></tr>
+                <tr><td class="spec-name">K-67</td><td class="spec-value">66–68</td><td class="spec-value">~113 mL/g</td><td class="spec-value">Pipe &amp; profile <span class="spec-badge">Popular</span></td></tr>
+                <tr><td class="spec-name">K-70</td><td class="spec-value">69–71</td><td class="spec-value">~119 mL/g</td><td class="spec-value">Cable &amp; flex film</td></tr>
+                <tr><td class="spec-name">K-71</td><td class="spec-value">70–72</td><td class="spec-value">~122 mL/g</td><td class="spec-value">High-flex applications</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-
-      <!-- Card 02 -->
-      <div class="pcard">
-        <div class="pcard-top">
-          <div class="pcard-meta">
-            <span class="pcard-num">02</span>
-            <span class="pcard-tag pcard-tag--navy">Emulsion Grade</span>
-          </div>
-          <div class="pcard-label">Base Resins</div>
-          <h2 class="pcard-title">PVC Paste Resin</h2>
-          <div class="pcard-sub">P-440 &nbsp;·&nbsp; P-450 &nbsp;·&nbsp; P-70 &nbsp;·&nbsp; Custom</div>
-          <p class="pcard-desc">Emulsion and micro-suspension PVC paste resin for plastisol and organisol. Ultra-fine particle size, excellent viscosity stability, consistent film quality. COA per lot; SGS on request.</p>
-          <div class="pcard-apps">
-            <span class="pcard-app">Synthetic Leather</span>
-            <span class="pcard-app">Vinyl Gloves</span>
-            <span class="pcard-app">Floor Covering</span>
-            <span class="pcard-app">Wallcoverings</span>
-            <span class="pcard-app">Dip-Coated Parts</span>
-          </div>
-        </div>
-        <button class="pcard-toggle" aria-expanded="false" data-target="specs-02">
-          View Specifications
-          <span class="pcard-toggle-icon"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
-        </button>
-        <div class="pcard-specs" id="specs-02">
-          <table class="spec-table">
-            <thead><tr><th>Parameter</th><th>Value</th><th>Standard</th></tr></thead>
-            <tbody>
-              <tr><td class="spec-name">K-Value</td><td class="spec-value">68–72</td><td class="spec-value">ISO 1628-2</td></tr>
-              <tr><td class="spec-name">Particle Size D50</td><td class="spec-value">0.8–1.5 μm</td><td class="spec-value">Laser diffraction</td></tr>
-              <tr><td class="spec-name">Volatile Content</td><td class="spec-value">≤ 0.4%</td><td class="spec-value">GB/T 2914</td></tr>
-              <tr><td class="spec-name">Whiteness</td><td class="spec-value">≥ 85</td><td class="spec-value">GB/T 15595</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="pcard-footer">
-          <a href="contact.html" class="btn-primary">Request TDS <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          <a href="contact.html" class="btn-outline">Request Sample</a>
-        </div>
-      </div>
-
-      <!-- Card 03 -->
-      <div class="pcard">
-        <div class="pcard-top">
-          <div class="pcard-meta">
-            <span class="pcard-num">03</span>
-            <span class="pcard-tag pcard-tag--navy">General &amp; Eco Grade</span>
-          </div>
-          <div class="pcard-label">Additives</div>
-          <h2 class="pcard-title">Plasticizers</h2>
-          <div class="pcard-sub">DOP &nbsp;·&nbsp; DOTP &nbsp;·&nbsp; DINP</div>
-          <p class="pcard-desc">Three primary plasticizers for PVC compounding: DOP (standard), DOTP (REACH/RoHS compliant, phthalate-free), and DINP (low volatility). Purity ≥99.5%. Available in 200 L drums or ISO tanks.</p>
-          <div class="pcard-apps">
-            <span class="pcard-app">Flexible PVC Films</span>
-            <span class="pcard-app">Wire &amp; Cable</span>
-            <span class="pcard-app">PVC Flooring</span>
-            <span class="pcard-app">Plastisol</span>
-            <span class="pcard-app">Medical PVC</span>
-          </div>
-        </div>
-        <button class="pcard-toggle" aria-expanded="false" data-target="specs-03">
-          View Specifications
-          <span class="pcard-toggle-icon"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
-        </button>
-        <div class="pcard-specs" id="specs-03">
-          <table class="spec-table">
-            <thead><tr><th>Product</th><th>Purity</th><th>APHA</th><th>Compliance</th></tr></thead>
-            <tbody>
-              <tr><td class="spec-name">DOP</td><td class="spec-value">≥ 99.5%</td><td class="spec-value">≤ 20</td><td class="spec-value">Standard</td></tr>
-              <tr><td class="spec-name">DOTP</td><td class="spec-value">≥ 99.5%</td><td class="spec-value">≤ 15</td><td class="spec-value">REACH/RoHS <span class="spec-badge">Eco</span></td></tr>
-              <tr><td class="spec-name">DINP</td><td class="spec-value">≥ 99.0%</td><td class="spec-value">≤ 20</td><td class="spec-value">Low volatility</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="pcard-footer">
-          <a href="contact.html" class="btn-primary">Request TDS <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          <a href="contact.html" class="btn-outline">Request Sample</a>
-        </div>
-      </div>
-
-      <!-- Card 04 — dark -->
-      <div class="pcard pcard--dark">
-        <div class="pcard-top">
-          <div class="pcard-meta">
-            <span class="pcard-num">04</span>
-            <span class="pcard-tag pcard-tag--gold">Battery &amp; Conductive Grade</span>
-          </div>
-          <div class="pcard-label">Conductive Materials</div>
-          <h2 class="pcard-title">Acetylene Carbon Black</h2>
-          <div class="pcard-sub">Ultra-High Purity &nbsp;·&nbsp; Powder &amp; Pellet Form</div>
-          <p class="pcard-desc">Produced by controlled exothermic decomposition of acetylene gas. Ultra-low ash (≤0.03%), exceptional conductivity, 3D chain structure for maximum electrolyte retention. Full lot traceability and COA on every shipment.</p>
-          <div class="pcard-apps">
-            <span class="pcard-app">Li-ion Battery Electrodes</span>
-            <span class="pcard-app">Lead-Acid Batteries</span>
-            <span class="pcard-app">EMI Shielding</span>
-            <span class="pcard-app">HV Cable Shielding</span>
-            <span class="pcard-app">Conductive Plastics</span>
-          </div>
-        </div>
-        <button class="pcard-toggle" aria-expanded="false" data-target="specs-04">
-          View Specifications
-          <span class="pcard-toggle-icon"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
-        </button>
-        <div class="pcard-specs" id="specs-04">
-          <table class="spec-table">
-            <thead><tr><th>Parameter</th><th>Value</th><th>Method</th></tr></thead>
-            <tbody>
-              <tr><td class="spec-name">Carbon Content</td><td class="spec-value">≥ 99.8%</td><td class="spec-value">Combustion</td></tr>
-              <tr><td class="spec-name">Ash Content</td><td class="spec-value">≤ 0.03%</td><td class="spec-value">ISO 1125</td></tr>
-              <tr><td class="spec-name">DBP Absorption</td><td class="spec-value">250–350 mL/100g</td><td class="spec-value">ISO 4656</td></tr>
-              <tr><td class="spec-name">BET Surface Area</td><td class="spec-value">55–80 m²/g</td><td class="spec-value">ISO 4652</td></tr>
-              <tr><td class="spec-name">Moisture</td><td class="spec-value">≤ 0.5%</td><td class="spec-value">ISO 1124</td></tr>
-              <tr><td class="spec-name">pH Value</td><td class="spec-value">6.0–7.5</td><td class="spec-value">ISO 787-9</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="pcard-footer">
-          <a href="contact.html" class="btn-primary">Request TDS &amp; Sample <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          <a href="contact.html" class="btn-outline">Get Pricing</a>
-        </div>
-      </div>
-
     </div>
   </div>
-</section>
 
+  <!-- PANEL 02 -->
+  <div class="tab-panel" id="panel-02" role="tabpanel">
+    <div class="panel-box">
+      <div class="panel-top">
+        <div>
+          <div class="panel-label">Base Resins &amp; Additives</div>
+          <h2 class="panel-title">PVC Paste Resin</h2>
+          <div class="panel-sub">P-440 &nbsp;·&nbsp; P-450 &nbsp;·&nbsp; P-70 &nbsp;·&nbsp; Custom Grades</div>
+          <div class="panel-desc">
+            <p>Emulsion-process and micro-suspension PVC paste resin engineered for plastisol and organisol applications. Ultra-fine particle size distribution ensures smooth paste formation, excellent viscosity stability, and consistent film quality.</p>
+            <p>Suitable for both low-viscosity dipping grades and high-viscosity coating grades. Full plasticizer compatibility data available. COA provided per lot; third-party SGS inspection available on request.</p>
+          </div>
+          <div class="panel-apps-title">Primary Applications</div>
+          <div class="app-tags">
+            <span class="app-tag">Synthetic Leather</span>
+            <span class="app-tag">Vinyl Gloves</span>
+            <span class="app-tag">Floor Covering</span>
+            <span class="app-tag">Wallcoverings</span>
+            <span class="app-tag">Automotive Underbody Coating</span>
+            <span class="app-tag">Dip-Coated Components</span>
+          </div>
+          <div class="panel-actions">
+            <a href="contact.html" class="btn-primary">Request TDS <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a href="contact.html" class="btn-outline">Request Sample</a>
+          </div>
+        </div>
+        <div>
+          <div class="spec-wrap-header" style="border-radius:var(--radius-md) var(--radius-md) 0 0">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+            <span class="spec-wrap-title">Key Parameters</span>
+          </div>
+          <div style="border:1px solid var(--border);border-top:none;border-radius:0 0 var(--radius-md) var(--radius-md);overflow:hidden">
+            <table class="spec-table">
+              <thead><tr><th>Parameter</th><th>Typical Value</th><th>Standard</th></tr></thead>
+              <tbody>
+                <tr><td class="spec-name">K-Value</td><td class="spec-value">68–72</td><td class="spec-value">ISO 1628-2</td></tr>
+                <tr><td class="spec-name">Particle Size (D50)</td><td class="spec-value">0.8–1.5 μm</td><td class="spec-value">Laser diffraction</td></tr>
+                <tr><td class="spec-name">Volatile Content</td><td class="spec-value">≤ 0.4%</td><td class="spec-value">GB/T 2914</td></tr>
+                <tr><td class="spec-name">Whiteness</td><td class="spec-value">≥ 85</td><td class="spec-value">GB/T 15595</td></tr>
+                <tr><td class="spec-name">Brookfield Viscosity</td><td class="spec-value">Grade-dependent</td><td class="spec-value">On request</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL 03 -->
+  <div class="tab-panel" id="panel-03" role="tabpanel">
+    <div class="panel-box">
+      <div class="panel-top">
+        <div>
+          <div class="panel-label">Base Resins &amp; Additives</div>
+          <h2 class="panel-title">Plasticizers</h2>
+          <div class="panel-sub">DOP &nbsp;·&nbsp; DOTP &nbsp;·&nbsp; DINP</div>
+          <div class="panel-desc">
+            <p>We supply the three primary plasticizers used in PVC compounding: DOP (general purpose), DOTP (phthalate-free, REACH-compliant), and DINP (high molecular weight, low volatility). Each product is sourced from established Chinese producers with consistent purity specifications.</p>
+            <p>Available in 200 L drums or ISO tank containers. Purity typically ≥99.5%. Full COA, MSDS, and packing list provided. Suitable for flexible PVC film and plastisol formulations.</p>
+          </div>
+          <div class="panel-apps-title">Primary Applications</div>
+          <div class="app-tags">
+            <span class="app-tag">Flexible PVC Films</span>
+            <span class="app-tag">Wire &amp; Cable Compounds</span>
+            <span class="app-tag">PVC Flooring</span>
+            <span class="app-tag">Plastisol Formulations</span>
+            <span class="app-tag">Medical-Grade PVC</span>
+            <span class="app-tag">Automotive Interiors</span>
+          </div>
+          <div class="panel-actions">
+            <a href="contact.html" class="btn-primary">Request TDS <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a href="contact.html" class="btn-outline">Request Sample</a>
+          </div>
+        </div>
+        <div>
+          <div class="spec-wrap-header" style="border-radius:var(--radius-md) var(--radius-md) 0 0">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+            <span class="spec-wrap-title">Product Comparison</span>
+          </div>
+          <div style="border:1px solid var(--border);border-top:none;border-radius:0 0 var(--radius-md) var(--radius-md);overflow:hidden">
+            <table class="spec-table">
+              <thead><tr><th>Product</th><th>Purity</th><th>Colour (APHA)</th><th>Compliance</th></tr></thead>
+              <tbody>
+                <tr><td class="spec-name">DOP</td><td class="spec-value">≥ 99.5%</td><td class="spec-value">≤ 20</td><td class="spec-value">Standard</td></tr>
+                <tr><td class="spec-name">DOTP</td><td class="spec-value">≥ 99.5%</td><td class="spec-value">≤ 15</td><td class="spec-value">REACH / RoHS <span class="spec-badge">Eco</span></td></tr>
+                <tr><td class="spec-name">DINP</td><td class="spec-value">≥ 99.0%</td><td class="spec-value">≤ 20</td><td class="spec-value">Low volatility</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL 04 — dark -->
+  <div class="tab-panel" id="panel-04" role="tabpanel">
+    <div class="panel-box panel-box--dark">
+      <div class="panel-top">
+        <div>
+          <div class="panel-label">Conductive Materials</div>
+          <h2 class="panel-title">Acetylene Carbon Black</h2>
+          <div class="panel-sub">Ultra-High Purity &nbsp;·&nbsp; Conductive Grade &nbsp;·&nbsp; Battery Grade</div>
+          <div class="panel-desc">
+            <p>Manufactured by controlled exothermic decomposition of high-purity acetylene gas. Delivers exceptional electrical conductivity, ultra-low ash content (≤0.03%), and a characteristic 3D chain-like structure that maximises liquid absorption — critical for lithium battery electrolyte retention.</p>
+            <p>Available in standard powder form and compressed pellet form. Packaging: 10 kg or 20 kg kraft bags inside cartons; palletized for container loading. Full lot traceability, COA, and MSDS provided.</p>
+          </div>
+          <div class="panel-apps-title">Primary Applications</div>
+          <div class="app-tags">
+            <span class="app-tag">Li-ion Battery Electrodes</span>
+            <span class="app-tag">Lead-Acid Batteries</span>
+            <span class="app-tag">Dry Cell Batteries</span>
+            <span class="app-tag">EMI Shielding Compounds</span>
+            <span class="app-tag">HV Cable Shielding</span>
+            <span class="app-tag">Conductive Rubber</span>
+            <span class="app-tag">Conductive Plastics</span>
+          </div>
+          <div class="panel-actions">
+            <a href="contact.html" class="btn-primary">Request TDS &amp; Sample <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a href="contact.html" class="btn-outline">Get Pricing</a>
+          </div>
+        </div>
+        <div>
+          <div class="spec-wrap-header" style="border-radius:var(--radius-md) var(--radius-md) 0 0;background:rgba(255,255,255,0.08)">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+            <span class="spec-wrap-title">Technical Specifications</span>
+          </div>
+          <div style="border:1px solid rgba(255,255,255,0.1);border-top:none;border-radius:0 0 var(--radius-md) var(--radius-md);overflow:hidden">
+            <table class="spec-table">
+              <thead><tr><th>Parameter</th><th>Typical Value</th><th>Test Method</th></tr></thead>
+              <tbody>
+                <tr><td class="spec-name">Carbon Content</td><td class="spec-value">≥ 99.8%</td><td class="spec-value">Combustion</td></tr>
+                <tr><td class="spec-name">Ash Content</td><td class="spec-value">≤ 0.03%</td><td class="spec-value">ISO 1125</td></tr>
+                <tr><td class="spec-name">DBP Absorption</td><td class="spec-value">250–350 mL/100g</td><td class="spec-value">ISO 4656</td></tr>
+                <tr><td class="spec-name">BET Surface Area</td><td class="spec-value">55–80 m²/g</td><td class="spec-value">ISO 4652</td></tr>
+                <tr><td class="spec-name">Moisture Content</td><td class="spec-value">≤ 0.5%</td><td class="spec-value">ISO 1124</td></tr>
+                <tr><td class="spec-name">pH Value</td><td class="spec-value">6.0–7.5</td><td class="spec-value">ISO 787-9</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end tab-wrapper -->
+
+<!-- CTA -->
 <section class="cta-section">
   <div class="cta-inner">
     <div class="cta-text">
@@ -378,6 +447,7 @@
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-grid">
@@ -423,10 +493,39 @@
     </div>
   </div>
 </footer>
+
 <script>
-  (function(){const burger=document.getElementById('burger'),menu=document.getElementById('mobile-menu');burger.addEventListener('click',function(){const open=menu.classList.toggle('open');burger.setAttribute('aria-expanded',open);menu.setAttribute('aria-hidden',!open)});document.addEventListener('click',function(e){if(!menu.contains(e.target)&&!burger.contains(e.target)){menu.classList.remove('open');burger.setAttribute('aria-expanded','false');menu.setAttribute('aria-hidden','true')}})})();
-  document.querySelectorAll('.pcard-toggle').forEach(function(btn){btn.addEventListener('click',function(){const id=btn.getAttribute('data-target');const panel=document.getElementById(id);const open=panel.classList.toggle('open');btn.setAttribute('aria-expanded',open)})});
-  (function(){const t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;let d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';r.setAttribute('data-theme',d);function setIcon(theme){if(!t)return;t.setAttribute('aria-label','Switch to '+(theme==='dark'?'light':'dark')+' mode');t.innerHTML=theme==='dark'?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>':'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'}setIcon(d);t&&t.addEventListener('click',function(){d=d==='dark'?'light':'dark';r.setAttribute('data-theme',d);setIcon(d)})})();
+  (function(){
+    const burger=document.getElementById('burger'),menu=document.getElementById('mobile-menu');
+    burger.addEventListener('click',function(){const open=menu.classList.toggle('open');burger.setAttribute('aria-expanded',open);menu.setAttribute('aria-hidden',!open)});
+    document.addEventListener('click',function(e){if(!menu.contains(e.target)&&!burger.contains(e.target)){menu.classList.remove('open');burger.setAttribute('aria-expanded','false');menu.setAttribute('aria-hidden','true')}});
+  })();
+  (function(){
+    const tabs=document.querySelectorAll('.tab-btn');
+    const panels=document.querySelectorAll('.tab-panel');
+    tabs.forEach(function(btn){
+      btn.addEventListener('click',function(){
+        const target=btn.getAttribute('data-tab');
+        const isDark=(target==='panel-04');
+        tabs.forEach(function(t){
+          t.classList.remove('active','active-dark');
+          t.setAttribute('aria-selected','false');
+        });
+        panels.forEach(function(p){p.classList.remove('active')});
+        btn.classList.add(isDark?'active-dark':'active');
+        btn.setAttribute('aria-selected','true');
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  })();
+  (function(){
+    const t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;
+    let d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+    r.setAttribute('data-theme',d);
+    function setIcon(theme){if(!t)return;t.setAttribute('aria-label','Switch to '+(theme==='dark'?'light':'dark')+' mode');t.innerHTML=theme==='dark'?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>':'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'}
+    setIcon(d);
+    t&&t.addEventListener('click',function(){d=d==='dark'?'light':'dark';r.setAttribute('data-theme',d);setIcon(d)});
+  })();
 </script>
 </body>
 </html>
