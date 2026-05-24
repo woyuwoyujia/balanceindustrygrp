@@ -30,35 +30,33 @@
     a{text-decoration:none;color:inherit}
     button{cursor:pointer;border:none;background:none;font:inherit}
 
-    /* ── NAV — 严格与 HOME 一致 ── */
-.nav{position:sticky;top:0;z-index:100;background:#0D2C54;border-bottom:1px solid rgba(255,255,255,0.08)}
-.nav-inner{max-width:1280px;margin-inline:auto;padding-inline:1.5rem;height:60px;display:flex;align-items:center;justify-content:space-between;gap:2rem}
-.nav-logo{display:flex;align-items:center;gap:.75rem;flex-shrink:0}
-.nav-logo-mark{width:36px;height:36px;flex-shrink:0}
-.nav-logo-text{display:flex;flex-direction:column;line-height:1.15}
-.nav-logo-name{font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-size:.875rem;font-weight:700;letter-spacing:.04em;color:#fff;text-transform:uppercase}
-.nav-logo-sub{font-size:.75rem;color:rgba(255,255,255,0.55);letter-spacing:.02em}
-.nav-links{display:flex;align-items:center;gap:.25rem;list-style:none}
-.nav-links a{font-size:.875rem;font-weight:500;color:rgba(255,255,255,0.75);padding:.5rem .75rem;border-radius:.375rem;letter-spacing:.02em;transition:color 180ms,background 180ms}
-.nav-links a:hover{color:#fff;background:rgba(255,255,255,0.08)}
-.nav-links a.active{color:#fff}
-.nav-actions{display:flex;align-items:center;gap:.5rem}
-.nav-contact-btn{font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#0D2C54;background:#C8860A;padding:.5rem 1rem;border-radius:.375rem;white-space:nowrap;transition:background 180ms}
-.nav-contact-btn:hover{background:#a36c08}
-.theme-toggle{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:.375rem;color:rgba(255,255,255,0.6);transition:color 180ms,background 180ms}
-.theme-toggle:hover{background:rgba(255,255,255,0.08);color:#fff}
-.nav-burger{display:none;flex-direction:column;gap:5px;width:36px;height:36px;align-items:center;justify-content:center;border-radius:.375rem;color:rgba(255,255,255,0.8)}
-.nav-burger:hover{background:rgba(255,255,255,0.08)}
-.nav-burger span{display:block;width:20px;height:2px;background:currentColor;border-radius:2px}
-.mobile-menu{display:none;background:#0D2C54;padding:1rem 1.5rem 1.5rem;border-top:1px solid rgba(255,255,255,0.08)}
-.mobile-menu.open{display:block}
-.mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:.25rem}
-.mobile-menu a{display:block;font-size:1rem;font-weight:500;color:rgba(255,255,255,0.8);padding:.75rem;border-radius:.375rem;transition:color 180ms,background 180ms}
-.mobile-menu a:hover{background:rgba(255,255,255,0.08);color:#fff}
-.mobile-menu-contact{margin-top:1rem;display:block;text-align:center;font-size:.875rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#0D2C54;background:#C8860A;padding:.75rem;border-radius:.375rem}
-@media(max-width:768px){.nav-links,.nav-contact-btn{display:none}.nav-burger{display:flex}}
+    .nav{position:sticky;top:0;z-index:100;background:#0D2C54;border-bottom:1px solid rgba(255,255,255,0.08)}
+    .nav-inner{max-width:1280px;margin-inline:auto;padding-inline:1.5rem;height:60px;display:flex;align-items:center;justify-content:space-between;gap:2rem}
+    .nav-logo{display:flex;align-items:center;gap:.75rem;flex-shrink:0}
+    .nav-logo-mark{width:28px;height:36px;flex-shrink:0}
+    .nav-logo-text{display:flex;flex-direction:column;line-height:1.15}
+    .nav-logo-name{font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-size:.875rem;font-weight:700;letter-spacing:.04em;color:#fff;text-transform:uppercase}
+    .nav-logo-sub{font-size:.75rem;color:rgba(255,255,255,0.55);letter-spacing:.02em}
+    .nav-links{display:flex;align-items:center;gap:.25rem;list-style:none}
+    .nav-links a{font-size:.875rem;font-weight:500;color:rgba(255,255,255,0.75);padding:.5rem .75rem;border-radius:.375rem;letter-spacing:.02em;transition:color 180ms,background 180ms}
+    .nav-links a:hover{color:#fff;background:rgba(255,255,255,0.08)}
+    .nav-links a.active{color:#fff}
+    .nav-actions{display:flex;align-items:center;gap:.5rem}
+    .nav-contact-btn{font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#0D2C54;background:#C8860A;padding:.5rem 1rem;border-radius:.375rem;white-space:nowrap;transition:background 180ms}
+    .nav-contact-btn:hover{background:#a36c08}
+    .theme-toggle{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:.375rem;color:rgba(255,255,255,0.6);transition:color 180ms,background 180ms}
+    .theme-toggle:hover{background:rgba(255,255,255,0.08);color:#fff}
+    .nav-burger{display:none;flex-direction:column;gap:5px;width:36px;height:36px;align-items:center;justify-content:center;border-radius:.375rem;color:rgba(255,255,255,0.8)}
+    .nav-burger:hover{background:rgba(255,255,255,0.08)}
+    .nav-burger span{display:block;width:20px;height:2px;background:currentColor;border-radius:2px}
+    .mobile-menu{display:none;background:#0D2C54;padding:1rem 1.5rem 1.5rem;border-top:1px solid rgba(255,255,255,0.08)}
+    .mobile-menu.open{display:block}
+    .mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:.25rem}
+    .mobile-menu a{display:block;font-size:1rem;font-weight:500;color:rgba(255,255,255,0.8);padding:.75rem;border-radius:.375rem;transition:color 180ms,background 180ms}
+    .mobile-menu a:hover{background:rgba(255,255,255,0.08);color:#fff}
+    .mobile-menu-contact{margin-top:1rem;display:block;text-align:center;font-size:.875rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#0D2C54;background:#C8860A;padding:.75rem;border-radius:.375rem}
+    @media(max-width:768px){.nav-links,.nav-contact-btn{display:none}.nav-burger{display:flex}}
 
-    /* ── PAGE HERO ── */
     .page-hero{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 55%,var(--navy-mid) 100%);padding:50px 0 40px;position:relative;overflow:hidden}
     .hero-bg-lines{position:absolute;inset:0;pointer-events:none;overflow:hidden}
     .hero-bg-lines svg{position:absolute;right:0;top:0;width:55%;height:100%;opacity:0.055}
@@ -75,26 +73,22 @@
     .page-hero-title em{font-style:normal;color:var(--gold-light)}
     .page-hero-desc{font-size:1rem;color:rgba(255,255,255,0.58);max-width:520px;line-height:1.75}
 
-    /* ── SCROLL REVEAL ── */
     .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(0.16,1,0.3,1),transform .6s cubic-bezier(0.16,1,0.3,1)}
     .reveal.visible{opacity:1;transform:none}
     .reveal-delay-1{transition-delay:.1s}
     .reveal-delay-2{transition-delay:.2s}
     .reveal-delay-3{transition-delay:.3s}
 
-    /* ── MAIN CONTACT SECTION ── */
     .contact-section{padding:clamp(4rem,7vw,6rem) 0;background:var(--white)}
     .contact-inner{max-width:1200px;margin:0 auto;padding:0 2rem}
     .contact-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:4rem;align-items:start}
 
-    /* ── LEFT: INFO COLUMN ── */
     .contact-info{}
     .info-label{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
     .info-label::before{content:'';display:block;width:16px;height:1.5px;background:var(--gold);border-radius:2px}
     .info-heading{font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;color:var(--navy);line-height:1.1;margin-bottom:1rem;letter-spacing:-.01em}
     .info-desc{font-size:.9375rem;color:var(--text-muted);line-height:1.8;margin-bottom:2rem}
 
-    /* contact items */
     .contact-items{display:flex;flex-direction:column;gap:1.25rem;margin-bottom:2.5rem}
     .contact-item{display:flex;align-items:flex-start;gap:1rem}
     .contact-item-icon{width:40px;height:40px;border-radius:var(--radius-md);background:var(--gold-pale);border:1px solid rgba(200,134,10,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold)}
@@ -104,20 +98,17 @@
     .contact-item-value a{color:var(--navy);transition:color var(--tr)}
     .contact-item-value a:hover{color:var(--gold)}
 
-    /* response time badge */
     .response-badge{display:inline-flex;align-items:center;gap:.6rem;background:rgba(13,44,84,0.04);border:1px solid var(--border);border-radius:var(--radius-lg);padding:.75rem 1.1rem}
     .response-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;flex-shrink:0;box-shadow:0 0 0 3px rgba(34,197,94,0.18)}
     .response-text{font-size:.82rem;color:var(--text-muted)}
     .response-text strong{color:var(--text-main);font-weight:600}
 
-    /* what to expect */
     .expect-card{margin-top:2.5rem;background:var(--off-white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem}
     .expect-title{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin-bottom:1rem}
     .expect-list{list-style:none;display:flex;flex-direction:column;gap:.65rem}
     .expect-list li{display:flex;align-items:flex-start;gap:.65rem;font-size:.875rem;color:var(--text-muted)}
     .expect-list li svg{flex-shrink:0;color:var(--gold);margin-top:2px}
 
-    /* ── RIGHT: FORM ── */
     .contact-form-wrap{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-xl);box-shadow:var(--shadow-md);overflow:hidden}
     .form-header{background:var(--navy);padding:1.5rem 2rem;display:flex;align-items:center;gap:.85rem}
     .form-header-icon{width:36px;height:36px;border-radius:var(--radius-md);background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:var(--gold-light);flex-shrink:0}
@@ -126,14 +117,12 @@
     .form-header-sub{font-size:.78rem;color:rgba(255,255,255,0.48);margin-top:.1rem}
     .form-body{padding:2rem}
 
-    /* product interest tabs */
     .form-tabs-label{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);margin-bottom:.6rem}
     .form-tabs{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.75rem}
     .form-tab{font-size:.75rem;font-weight:600;padding:.35rem .85rem;border-radius:100px;border:1.5px solid var(--border);background:var(--off-white);color:var(--text-muted);cursor:pointer;transition:all var(--tr);font-family:var(--font-body);letter-spacing:.02em}
     .form-tab:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-pale)}
     .form-tab.selected{border-color:var(--gold);color:var(--navy-deep);background:var(--gold);font-weight:700}
 
-    /* form fields */
     .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
     .form-group{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem}
     .form-group:last-child{margin-bottom:0}
@@ -146,7 +135,6 @@
     .form-textarea{resize:vertical;min-height:110px;line-height:1.6}
     .form-divider{border:none;border-top:1px solid var(--border);margin:1.5rem 0}
 
-    /* file upload */
     .file-upload{border:1.5px dashed var(--border-mid);border-radius:var(--radius-md);padding:1rem 1.25rem;display:flex;align-items:center;gap:.85rem;cursor:pointer;transition:border-color var(--tr),background var(--tr);background:var(--off-white)}
     .file-upload:hover{border-color:var(--gold);background:var(--gold-pale)}
     .file-upload input{display:none}
@@ -155,18 +143,15 @@
     .file-upload-title{font-size:.82rem;font-weight:600;color:var(--navy)}
     .file-upload-sub{font-size:.72rem;color:var(--text-faint);margin-top:.1rem}
 
-    /* privacy note */
     .privacy-note{display:flex;align-items:flex-start;gap:.5rem;margin-top:1rem}
     .privacy-note input[type=checkbox]{width:15px;height:15px;accent-color:var(--gold);flex-shrink:0;margin-top:2px;cursor:pointer}
     .privacy-note label{font-size:.78rem;color:var(--text-faint);line-height:1.5;cursor:pointer}
     .privacy-note label a{color:var(--gold);text-decoration:underline;text-decoration-color:rgba(200,134,10,0.35)}
 
-    /* submit */
     .btn-submit{width:100%;display:flex;align-items:center;justify-content:center;gap:.6rem;background:var(--gold);color:#fff;font-size:.875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.9rem 1.5rem;border-radius:var(--radius-sm);transition:background var(--tr),transform var(--tr),box-shadow var(--tr);margin-top:1.25rem;border:none;cursor:pointer;font-family:var(--font-body)}
     .btn-submit:hover{background:var(--gold-hover);transform:translateY(-1px);box-shadow:0 4px 20px rgba(200,134,10,0.35)}
     .btn-submit:active{transform:none}
 
-    /* ── SUCCESS STATE ── */
     .form-success{display:none;flex-direction:column;align-items:center;text-align:center;padding:3rem 2rem}
     .success-icon{width:64px;height:64px;border-radius:50%;background:rgba(34,197,94,0.1);border:2px solid rgba(34,197,94,0.25);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;color:#22c55e}
     .success-title{font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
@@ -174,7 +159,6 @@
     .success-back{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.5rem;font-size:.82rem;font-weight:600;color:var(--gold);transition:color var(--tr)}
     .success-back:hover{color:var(--gold-hover)}
 
-    /* ── INFO STRIP ── */
     .info-strip{background:var(--off-white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:3rem 0}
     .info-strip-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
     .strip-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:box-shadow var(--tr),transform var(--tr)}
@@ -183,14 +167,9 @@
     .strip-card-title{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.3rem;letter-spacing:.02em}
     .strip-card-text{font-size:.84rem;color:var(--text-muted);line-height:1.65}
 
-    /* ── FOOTER ── */
     .footer{background:var(--navy-deep);padding:4.5rem 0 2rem}
     .footer-inner{max-width:1200px;margin:0 auto;padding:0 2rem}
     .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:3rem;margin-bottom:3rem}
-    .footer-brand-name{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:#fff;letter-spacing:.04em;margin-bottom:.25rem}
-    .footer-brand-name span{color:var(--gold)}
-    .footer-brand-sub{font-size:.68rem;color:rgba(255,255,255,0.3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem}
-    .footer-desc{font-size:.84rem;color:rgba(255,255,255,0.42);line-height:1.75;max-width:280px}
     .footer-col-title{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
     .footer-links{list-style:none}
     .footer-links li{margin-bottom:.6rem}
@@ -227,18 +206,18 @@
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <svg class="nav-logo-mark" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <defs>
-    <clipPath id="clip-left">
-      <rect x="0" y="0" width="18" height="36"/>
-    </clipPath>
-    <clipPath id="clip-right">
-      <rect x="18" y="0" width="18" height="36"/>
-    </clipPath>
-  </defs>
-  <text x="2" y="32" font-family="Georgia,Times New Roman,serif" font-size="36" font-weight="700" fill="#ffffff" clip-path="url(#clip-left)">B</text>
-  <text x="2" y="32" font-family="Georgia,Times New Roman,serif" font-size="36" font-weight="700" fill="#C8860A" clip-path="url(#clip-right)">B</text>
-</svg>
+      <svg class="nav-logo-mark" viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <clipPath id="clip-left">
+            <rect x="0" y="0" width="14" height="36"/>
+          </clipPath>
+          <clipPath id="clip-right">
+            <rect x="14" y="0" width="14" height="36"/>
+          </clipPath>
+        </defs>
+        <text x="0" y="32" font-family="Georgia,Times New Roman,serif" font-size="36" font-weight="700" fill="#ffffff" clip-path="url(#clip-left)">B</text>
+        <text x="0" y="32" font-family="Georgia,Times New Roman,serif" font-size="36" font-weight="700" fill="#C8860A" clip-path="url(#clip-right)">B</text>
+      </svg>
       <div class="nav-logo-text">
         <span class="nav-logo-name">Balance Industry</span>
         <span class="nav-logo-sub" style="color:#C8860A;font-family:'Barlow Condensed',Arial Narrow,sans-serif;letter-spacing:0.06em;">Group Co., Limited</span>
@@ -320,21 +299,21 @@
             </div>
           </div>
           <div class="contact-item">
-  <div class="contact-item-icon">
-    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
-  </div>
-  <div class="contact-item-body">
-    <div class="contact-item-label">Mobile / WhatsApp</div>
-    <div class="contact-item-value"><a href="https://wa.me/8618037158172">+86 180 3715 8172</a></div>
-  </div>
-</div>
+            <div class="contact-item-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+            </div>
+            <div class="contact-item-body">
+              <div class="contact-item-label">Mobile / WhatsApp</div>
+              <div class="contact-item-value"><a href="https://wa.me/8618037158172">+86 180 3715 8172</a></div>
+            </div>
+          </div>
           <div class="contact-item">
             <div class="contact-item-icon">
               <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
             <div class="contact-item-body">
               <div class="contact-item-label">Location</div>
-              <div class="contact-item-value">No. 6, Suoling Road,Zhengzhou, China</div>
+              <div class="contact-item-value">No. 6, Suoling Road, Zhengzhou, China</div>
             </div>
           </div>
           <div class="contact-item">
@@ -392,7 +371,6 @@
           </div>
 
           <div class="form-body" id="formBody">
-            <!-- Product interest tabs -->
             <div class="form-tabs-label">Products of Interest</div>
             <div class="form-tabs" id="productTabs">
               <button type="button" class="form-tab" data-product="PVC Resin">PVC Resin</button>
@@ -543,7 +521,7 @@
       </div>
       <div>
         <div class="strip-card-title">Verified Suppliers</div>
-        <div class="strip-card-text">All production partners hold ISO 9001 certification. We maintain formulation-level cooperation — not just purchasing access. </div>
+        <div class="strip-card-text">All production partners hold ISO 9001 certification. We maintain formulation-level cooperation — not just purchasing access.</div>
       </div>
     </div>
   </div>
@@ -554,18 +532,18 @@
   <div class="footer-inner">
     <div class="footer-grid">
       <div>
-        <a href="index.html" class="nav-logo" style="filter: brightness(0.8); margin-bottom: 0.75rem; display:inline-flex;">
-          <svg class="nav-logo-mark" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <a href="index.html" class="nav-logo" style="filter:brightness(0.8);margin-bottom:0.75rem;display:inline-flex;">
+          <svg class="nav-logo-mark" viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs>
               <clipPath id="clip-left-f">
-                <rect x="0" y="0" width="18" height="36"/>
+                <rect x="0" y="0" width="14" height="36"/>
               </clipPath>
               <clipPath id="clip-right-f">
-                <rect x="18" y="0" width="18" height="36"/>
+                <rect x="14" y="0" width="14" height="36"/>
               </clipPath>
             </defs>
-            <text x="5" y="29" font-family="Georgia,Times New Roman,serif" font-size="28" font-weight="700" fill="#ffffff" clip-path="url(#clip-left-f)">B</text>
-            <text x="5" y="29" font-family="Georgia,Times New Roman,serif" font-size="28" font-weight="700" fill="#C8860A" clip-path="url(#clip-right-f)">B</text>
+            <text x="0" y="32" font-family="Georgia,Times New Roman,serif" font-size="36" font-weight="700" fill="#ffffff" clip-path="url(#clip-left-f)">B</text>
+            <text x="0" y="32" font-family="Georgia,Times New Roman,serif" font-size="36" font-weight="700" fill="#C8860A" clip-path="url(#clip-right-f)">B</text>
           </svg>
           <div class="nav-logo-text">
             <span class="nav-logo-name">Balance Industry</span>
@@ -600,7 +578,7 @@
         </div>
         <div class="footer-contact-item">
           <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span>No. 6, Suoling Road,Zhengzhou, China</span>
+          <span>No. 6, Suoling Road, Zhengzhou, China</span>
         </div>
       </div>
     </div>
@@ -616,7 +594,6 @@
 </footer>
 
 <script>
-// Mobile menu
 (function(){
   var burger=document.getElementById('burger'),menu=document.getElementById('mobile-menu');
   burger.addEventListener('click',function(){
@@ -633,7 +610,6 @@
   });
 })();
 
-// Product interest tabs (multi-select)
 (function(){
   document.querySelectorAll('.form-tab').forEach(function(tab){
     tab.addEventListener('click',function(){
@@ -642,16 +618,13 @@
   });
 })();
 
-// File upload label
 document.getElementById('fileInput').addEventListener('change',function(){
   var label=document.getElementById('fileLabel');
   label.textContent=this.files.length?this.files[0].name:'Click to upload a file';
 });
 
-// Form submit (demo — shows success state)
 document.getElementById('contactForm').addEventListener('submit',function(e){
   e.preventDefault();
-  // Basic validation
   var ok=true;
   this.querySelectorAll('[required]').forEach(function(f){
     if(!f.value.trim()||(f.type==='checkbox'&&!f.checked)){
@@ -662,13 +635,11 @@ document.getElementById('contactForm').addEventListener('submit',function(e){
     }
   });
   if(!ok) return;
-  // Show success
   document.getElementById('formBody').style.display='none';
   var s=document.getElementById('formSuccess');
   s.style.display='flex';
 });
 
-// Reset form from success state
 document.getElementById('successBack').addEventListener('click',function(e){
   e.preventDefault();
   document.getElementById('contactForm').reset();
@@ -678,7 +649,6 @@ document.getElementById('successBack').addEventListener('click',function(e){
   document.getElementById('formSuccess').style.display='none';
 });
 
-// Scroll reveal
 (function(){
   var els=document.querySelectorAll('.reveal');
   var obs=new IntersectionObserver(function(entries){
@@ -689,7 +659,6 @@ document.getElementById('successBack').addEventListener('click',function(e){
   els.forEach(function(el){obs.observe(el)});
 })();
 
-// Theme toggle
 (function(){
   var t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;
   var d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
