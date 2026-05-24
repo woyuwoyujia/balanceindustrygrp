@@ -35,33 +35,33 @@
     a{text-decoration:none;color:inherit}
     button{cursor:pointer;border:none;background:none;font:inherit}
 
-    /* ── NAV — 严格与 HOME 一致 ── */
-.nav{position:sticky;top:0;z-index:100;background:#0D2C54;border-bottom:1px solid rgba(255,255,255,0.08)}
-.nav-inner{max-width:1280px;margin-inline:auto;padding-inline:1.5rem;height:60px;display:flex;align-items:center;justify-content:space-between;gap:2rem}
-.nav-logo{display:flex;align-items:center;gap:.75rem;flex-shrink:0}
-.nav-logo-mark{width:36px;height:36px;flex-shrink:0}
-.nav-logo-text{display:flex;flex-direction:column;line-height:1.15}
-.nav-logo-name{font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-size:.875rem;font-weight:700;letter-spacing:.04em;color:#fff;text-transform:uppercase}
-.nav-logo-sub{font-size:.75rem;color:rgba(255,255,255,0.55);letter-spacing:.02em}
-.nav-links{display:flex;align-items:center;gap:.25rem;list-style:none}
-.nav-links a{font-size:.875rem;font-weight:500;color:rgba(255,255,255,0.75);padding:.5rem .75rem;border-radius:.375rem;letter-spacing:.02em;transition:color 180ms,background 180ms}
-.nav-links a:hover{color:#fff;background:rgba(255,255,255,0.08)}
-.nav-links a.active{color:#fff}
-.nav-actions{display:flex;align-items:center;gap:.5rem}
-.nav-contact-btn{font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#0D2C54;background:#C8860A;padding:.5rem 1rem;border-radius:.375rem;white-space:nowrap;transition:background 180ms}
-.nav-contact-btn:hover{background:#a36c08}
-.theme-toggle{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:.375rem;color:rgba(255,255,255,0.6);transition:color 180ms,background 180ms}
-.theme-toggle:hover{background:rgba(255,255,255,0.08);color:#fff}
-.nav-burger{display:none;flex-direction:column;gap:5px;width:36px;height:36px;align-items:center;justify-content:center;border-radius:.375rem;color:rgba(255,255,255,0.8)}
-.nav-burger:hover{background:rgba(255,255,255,0.08)}
-.nav-burger span{display:block;width:20px;height:2px;background:currentColor;border-radius:2px}
-.mobile-menu{display:none;background:#0D2C54;padding:1rem 1.5rem 1.5rem;border-top:1px solid rgba(255,255,255,0.08)}
-.mobile-menu.open{display:block}
-.mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:.25rem}
-.mobile-menu a{display:block;font-size:1rem;font-weight:500;color:rgba(255,255,255,0.8);padding:.75rem;border-radius:.375rem;transition:color 180ms,background 180ms}
-.mobile-menu a:hover{background:rgba(255,255,255,0.08);color:#fff}
-.mobile-menu-contact{margin-top:1rem;display:block;text-align:center;font-size:.875rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#0D2C54;background:#C8860A;padding:.75rem;border-radius:.375rem}
-@media(max-width:768px){.nav-links,.nav-contact-btn{display:none}.nav-burger{display:flex}}
+    /* ── NAV ── */
+    .nav{position:sticky;top:0;z-index:100;background:#0D2C54;border-bottom:1px solid rgba(255,255,255,0.08)}
+    .nav-inner{max-width:1280px;margin-inline:auto;padding-inline:1.5rem;height:60px;display:flex;align-items:center;justify-content:space-between;gap:2rem}
+    .nav-logo{display:flex;align-items:center;gap:.75rem;flex-shrink:0}
+    .nav-logo-mark{width:36px;height:36px;flex-shrink:0}
+    .nav-logo-text{display:flex;flex-direction:column;line-height:1.15}
+    .nav-logo-name{font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-size:.875rem;font-weight:700;letter-spacing:.04em;color:#fff;text-transform:uppercase}
+    .nav-logo-sub{font-size:.75rem;color:rgba(255,255,255,0.55);letter-spacing:.02em}
+    .nav-links{display:flex;align-items:center;gap:.25rem;list-style:none}
+    .nav-links a{font-size:.875rem;font-weight:500;color:rgba(255,255,255,0.75);padding:.5rem .75rem;border-radius:.375rem;letter-spacing:.02em;transition:color 180ms,background 180ms}
+    .nav-links a:hover{color:#fff;background:rgba(255,255,255,0.08)}
+    .nav-links a.active{color:#fff}
+    .nav-actions{display:flex;align-items:center;gap:.5rem}
+    .nav-contact-btn{font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#0D2C54;background:#C8860A;padding:.5rem 1rem;border-radius:.375rem;white-space:nowrap;transition:background 180ms}
+    .nav-contact-btn:hover{background:#a36c08}
+    .theme-toggle{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:.375rem;color:rgba(255,255,255,0.6);transition:color 180ms,background 180ms}
+    .theme-toggle:hover{background:rgba(255,255,255,0.08);color:#fff}
+    .nav-burger{display:none;flex-direction:column;gap:5px;width:36px;height:36px;align-items:center;justify-content:center;border-radius:.375rem;color:rgba(255,255,255,0.8)}
+    .nav-burger:hover{background:rgba(255,255,255,0.08)}
+    .nav-burger span{display:block;width:20px;height:2px;background:currentColor;border-radius:2px}
+    .mobile-menu{display:none;background:#0D2C54;padding:1rem 1.5rem 1.5rem;border-top:1px solid rgba(255,255,255,0.08)}
+    .mobile-menu.open{display:block}
+    .mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:.25rem}
+    .mobile-menu a{display:block;font-size:1rem;font-weight:500;color:rgba(255,255,255,0.8);padding:.75rem;border-radius:.375rem;transition:color 180ms,background 180ms}
+    .mobile-menu a:hover{background:rgba(255,255,255,0.08);color:#fff}
+    .mobile-menu-contact{margin-top:1rem;display:block;text-align:center;font-size:.875rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#0D2C54;background:#C8860A;padding:.75rem;border-radius:.375rem}
+    @media(max-width:768px){.nav-links,.nav-contact-btn{display:none}.nav-burger{display:flex}}
 
     /* ── PAGE HERO ── */
     .page-hero{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 55%,var(--navy-mid) 100%);padding:90px 0 72px;position:relative;overflow:hidden}
@@ -106,19 +106,12 @@
     .product-section.bg-01{background:var(--bg-01)}
     .product-section.bg-02{background:var(--bg-02)}
     .product-section.bg-03{background:var(--bg-03)}
-
-    /* 左侧金色竖线 */
     .product-section::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,transparent,var(--gold) 30%,var(--gold) 70%,transparent);opacity:0;transition:opacity .6s;z-index:2}
     .product-section.visible-line::before{opacity:1}
     .product-section--carbon::before{background:linear-gradient(to bottom,transparent,var(--gold-light) 30%,var(--gold-light) 70%,transparent)}
-
     .product-inner{max-width:1200px;margin:0 auto;padding:0 2rem 0 3rem}
-
-    /* ghost text */
     .section-ghost{position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);font-family:var(--font-display);font-size:clamp(6rem,10vw,11rem);font-weight:800;color:transparent;-webkit-text-stroke:1px rgba(13,44,84,0.05);line-height:1;pointer-events:none;user-select:none;white-space:nowrap;letter-spacing:-.02em}
     .product-section--carbon .section-ghost{-webkit-text-stroke-color:rgba(255,255,255,0.05)}
-
-    /* product header */
     .product-header{display:grid;grid-template-columns:auto 1fr auto;align-items:start;gap:1.5rem;margin-bottom:2.75rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
     .product-section--carbon .product-header{border-bottom-color:rgba(255,255,255,0.1)}
     .product-num-wrap{display:flex;flex-direction:column;align-items:center;gap:.35rem;padding-top:.15rem}
@@ -130,8 +123,6 @@
     .product-subtitle{font-size:.82rem;color:var(--text-faint);letter-spacing:.06em}
     .grade-pills{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.6rem}
     .grade-pill{font-size:.72rem;font-weight:600;padding:.2rem .65rem;border-radius:4px;background:rgba(13,44,84,0.06);color:var(--navy);border:1px solid var(--border);letter-spacing:.04em;font-family:var(--font-display)}
-
-    /* product body */
     .product-body{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
     .product-desc{font-size:.9375rem;color:var(--text-muted);line-height:1.82}
     .product-desc p+p{margin-top:1rem}
@@ -140,8 +131,6 @@
     .btn-primary:hover{background:var(--gold-hover);transform:translateY(-1px);box-shadow:0 4px 16px rgba(200,134,10,0.35)}
     .btn-outline{display:inline-flex;align-items:center;gap:.45rem;border:1.5px solid var(--border-mid);color:var(--navy);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.7rem 1.4rem;border-radius:var(--radius-sm);transition:background var(--tr),color var(--tr),border-color var(--tr)}
     .btn-outline:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
-
-    /* spec card */
     .spec-card{border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-md)}
     .bg-01 .spec-card{background:#fff;border:1px solid var(--border)}
     .bg-02 .spec-card{background:#fff;border:1px solid rgba(13,44,84,0.11)}
@@ -173,13 +162,8 @@
     .spec-card-footer-link{font-size:.76rem;font-weight:600;color:var(--gold);display:flex;align-items:center;gap:.3rem;transition:color var(--tr)}
     .spec-card-footer-link:hover{color:var(--gold-hover)}
 
-    /* ══ CARBON BLACK — 纯深蓝色，无渐变过渡 ══ */
-    .product-section--carbon{
-      background:linear-gradient(135deg,var(--navy-deep) 0%,#0d2545 50%,var(--navy-deep) 100%);
-      overflow:hidden;
-    }
-
-    /* 粒子动画 */
+    /* ── CARBON BLACK ── */
+    .product-section--carbon{background:linear-gradient(135deg,var(--navy-deep) 0%,#0d2545 50%,var(--navy-deep) 100%);overflow:hidden}
     .carbon-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
     .carbon-particles span{position:absolute;border-radius:50%;background:rgba(200,134,10,0.15);animation:float linear infinite}
     .carbon-particles span:nth-child(1){width:3px;height:3px;left:10%;top:20%;animation-duration:18s;animation-delay:0s}
@@ -191,8 +175,6 @@
     .carbon-particles span:nth-child(7){width:5px;height:5px;left:60%;top:50%;animation-duration:19s;animation-delay:-3s;background:rgba(200,134,10,0.08)}
     .carbon-particles span:nth-child(8){width:2px;height:2px;left:15%;top:85%;animation-duration:21s;animation-delay:-7s}
     @keyframes float{0%{transform:translateY(0) translateX(0)}50%{transform:translateY(-30px) translateX(15px)}100%{transform:translateY(0) translateX(0)}}
-
-    /* carbon text overrides */
     .product-section--carbon .product-num{color:rgba(255,255,255,0.07)}
     .product-section--carbon .product-num-line{background:linear-gradient(to bottom,var(--gold-light),transparent)}
     .product-section--carbon .product-label{color:var(--gold-light)}
@@ -263,12 +245,8 @@
     <a href="index.html" class="nav-logo">
       <svg class="nav-logo-mark" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
-          <clipPath id="clip-left">
-            <rect x="0" y="0" width="18" height="36"/>
-          </clipPath>
-          <clipPath id="clip-right">
-            <rect x="18" y="0" width="18" height="36"/>
-          </clipPath>
+          <clipPath id="clip-left"><rect x="0" y="0" width="18" height="36"/></clipPath>
+          <clipPath id="clip-right"><rect x="18" y="0" width="18" height="36"/></clipPath>
         </defs>
         <text x="5" y="29" font-family="Georgia,Times New Roman,serif" font-size="28" font-weight="700" fill="#ffffff" clip-path="url(#clip-left)">B</text>
         <text x="5" y="29" font-family="Georgia,Times New Roman,serif" font-size="28" font-weight="700" fill="#C8860A" clip-path="url(#clip-right)">B</text>
@@ -325,9 +303,9 @@
       <span class="breadcrumb-sep">/</span>
       <span>Products</span>
     </div>
-    <div class="hero-eyebrow">Product Portfolio</div>
-    <h1 class="page-hero-title">Industrial Chemicals<br><em>Sourced &amp; Verified</em></h1>
-    <p class="page-hero-desc">Four core product lines — PVC resins, plasticizers, and conductive carbon black — supplied direct from ISO-certified Chinese manufacturers with full documentation.</p>
+    <div class="hero-eyebrow">Factory-Integrated Supply</div>
+    <h1 class="page-hero-title">Chemicals Built<br><em>to Your Spec</em></h1>
+    <p class="page-hero-desc">Four core product lines — PVC resins, paste resin, plasticizers, and acetylene carbon black — backed by factory-level partnerships that give us real influence over grade, formulation, and specification.</p>
     <div class="hero-stats">
       <div>
         <div class="hero-stat-num">4<span>+</span></div>
@@ -359,7 +337,7 @@
   </div>
 </nav>
 
-<!-- ══ 01 PVC RESIN ══ -->
+<!-- 01 PVC RESIN -->
 <section class="product-section bg-01" id="pvc-resin">
   <div class="section-ghost" aria-hidden="true">PVC</div>
   <div class="product-inner">
@@ -387,8 +365,8 @@
     <div class="product-body">
       <div class="reveal reveal-delay-1">
         <div class="product-desc">
-          <p>Suspension-polymerized PVC resin produced by leading ISO-certified Chinese manufacturers. Each grade is defined by its K-value — a direct measure of average molecular weight — which governs processability, mechanical strength, and end-use suitability.</p>
-          <p>We supply consistent, batch-verified resin with full Certificate of Analysis (COA), MSDS, and SGS third-party inspection on request. Packaging: 25 kg woven bags or 1,000 kg jumbo bags. MOQ from 1 FCL (20–25 MT).</p>
+          <p>Suspension-polymerized PVC resin supplied through our long-term factory partnerships. Each grade is defined by its K-value — a direct measure of average molecular weight — which governs processability, mechanical strength, and end-use suitability. Because we work at the specification level with our production partners, non-standard K-value ranges and custom additive packages can be discussed on request.</p>
+          <p>Every shipment includes a full Certificate of Analysis (COA) and MSDS. SGS third-party inspection available. Packaging: 25 kg woven bags or 1,000 kg jumbo bags. MOQ from 1 FCL (20–25 MT).</p>
         </div>
       </div>
       <div class="reveal reveal-delay-2">
@@ -432,7 +410,7 @@
   </div>
 </section>
 
-<!-- ══ 02 PVC PASTE RESIN ══ -->
+<!-- 02 PVC PASTE RESIN -->
 <section class="product-section bg-02" id="pvc-paste">
   <div class="section-ghost" aria-hidden="true">PASTE</div>
   <div class="product-inner">
@@ -460,8 +438,8 @@
     <div class="product-body">
       <div class="reveal reveal-delay-1">
         <div class="product-desc">
-          <p>Emulsion-process and micro-suspension PVC paste resin engineered for plastisol and organisol applications. Ultra-fine particle size distribution ensures smooth paste formation, excellent viscosity stability, and consistent film quality during coating and dipping operations.</p>
-          <p>Suitable for both low-viscosity dipping grades and high-viscosity coating grades. Full plasticizer compatibility data available. COA provided per lot; third-party SGS inspection on request.</p>
+          <p>Emulsion-process and micro-suspension PVC paste resin engineered for plastisol and organisol applications. Ultra-fine particle size distribution ensures smooth paste formation, excellent viscosity stability, and consistent film quality across coating and dipping operations.</p>
+          <p>Our factory partnerships allow us to align viscosity grade and particle size profile to your specific formulation requirements — not just ship a standard product off the shelf. Full plasticizer compatibility data available. COA provided per lot; SGS inspection on request.</p>
         </div>
       </div>
       <div class="reveal reveal-delay-2">
@@ -506,7 +484,7 @@
   </div>
 </section>
 
-<!-- ══ 03 PLASTICIZERS ══ -->
+<!-- 03 PLASTICIZERS -->
 <section class="product-section bg-03" id="plasticizers">
   <div class="section-ghost" aria-hidden="true">DOP</div>
   <div class="product-inner">
@@ -533,8 +511,8 @@
     <div class="product-body">
       <div class="reveal reveal-delay-1">
         <div class="product-desc">
-          <p>We supply the three primary plasticizers used in PVC compounding: DOP (dioctyl phthalate, general purpose), DOTP (dioctyl terephthalate, phthalate-free, REACH-compliant), and DINP (diisononyl phthalate, high molecular weight, low volatility).</p>
-          <p>Available in 200 L drums or ISO tank containers. Purity typically ≥99.5%. Full COA, MSDS, and packing list provided on every shipment.</p>
+          <p>We supply the three primary plasticizers used in PVC compounding: DOP (dioctyl phthalate, general purpose), DOTP (dioctyl terephthalate, phthalate-free, REACH-compliant), and DINP (diisononyl phthalate, high molecular weight, low volatility). Supply ratios and blend combinations can be coordinated to complement your existing formulation.</p>
+          <p>Available in 200 L drums or ISO tank containers. Purity ≥99.5%. Full COA, MSDS, and packing list on every shipment.</p>
         </div>
       </div>
       <div class="reveal reveal-delay-2">
@@ -577,7 +555,7 @@
   </div>
 </section>
 
-<!-- ══ 04 ACETYLENE CARBON BLACK — 纯深蓝，无过渡 ══ -->
+<!-- 04 ACETYLENE CARBON BLACK -->
 <section class="product-section product-section--carbon" id="carbon-black">
   <div class="carbon-particles" aria-hidden="true">
     <span></span><span></span><span></span><span></span>
@@ -609,7 +587,7 @@
       <div class="reveal reveal-delay-1">
         <div class="product-desc">
           <p>Manufactured by controlled exothermic decomposition of high-purity acetylene gas, our carbon black delivers exceptional electrical conductivity, ultra-low ash content (≤0.03%), and a characteristic 3D chain-like structure that maximises liquid absorption — critical for lithium battery electrolyte retention.</p>
-          <p>Available in standard powder form and compressed pellet form. Packaging: 10 kg or 20 kg kraft bags inside cartons; palletized for container loading. Full lot traceability, COA, and MSDS on every shipment.</p>
+          <p>Available in standard powder form and compressed pellet form — pellet grade recommended where dust control and handling efficiency are priorities. Packaging: 10 kg or 20 kg kraft bags inside cartons, palletized for container loading. Custom packaging arrangements available. Full lot traceability, COA, and MSDS on every shipment.</p>
         </div>
       </div>
       <div class="reveal reveal-delay-2">
@@ -671,18 +649,14 @@
   <div class="footer-inner">
     <div class="footer-grid">
       <div>
-        <a href="index.html" class="nav-logo" style="filter: brightness(0.8); margin-bottom: 0.75rem; display:inline-flex;">
-          <svg width="30" height="30" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <a href="index.html" class="nav-logo" style="filter:brightness(0.8);margin-bottom:0.75rem;display:inline-flex;">
+          <svg class="nav-logo-mark" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs>
-              <clipPath id="clip-left-f">
-                <rect x="0" y="0" width="18" height="36"/>
-              </clipPath>
-              <clipPath id="clip-right-f">
-                <rect x="18" y="0" width="18" height="36"/>
-              </clipPath>
+              <clipPath id="clip-left-fp"><rect x="0" y="0" width="18" height="36"/></clipPath>
+              <clipPath id="clip-right-fp"><rect x="18" y="0" width="18" height="36"/></clipPath>
             </defs>
-            <text x="5" y="29" font-family="Georgia,Times New Roman,serif" font-size="28" font-weight="700" fill="#ffffff" clip-path="url(#clip-left-f)">B</text>
-            <text x="5" y="29" font-family="Georgia,Times New Roman,serif" font-size="28" font-weight="700" fill="#C8860A" clip-path="url(#clip-right-f)">B</text>
+            <text x="5" y="29" font-family="Georgia,Times New Roman,serif" font-size="28" font-weight="700" fill="#ffffff" clip-path="url(#clip-left-fp)">B</text>
+            <text x="5" y="29" font-family="Georgia,Times New Roman,serif" font-size="28" font-weight="700" fill="#C8860A" clip-path="url(#clip-right-fp)">B</text>
           </svg>
           <div class="nav-logo-text">
             <span class="nav-logo-name">Balance Industry</span>
@@ -717,7 +691,7 @@
         </div>
         <div class="footer-contact-item">
           <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span>NO. 6,Suoling Road,Zhengzhou, China</span>
+          <span>NO. 6, Suoling Road, Zhengzhou, China</span>
         </div>
       </div>
     </div>
