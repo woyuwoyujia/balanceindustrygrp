@@ -33,10 +33,6 @@
     .nav{position:sticky;top:0;z-index:100;background:#0D2C54;border-bottom:1px solid rgba(255,255,255,0.08)}
     .nav-inner{max-width:1280px;margin-inline:auto;padding-inline:1.5rem;height:60px;display:flex;align-items:center;justify-content:space-between;gap:2rem}
     .nav-logo{display:flex;align-items:center;gap:.75rem;flex-shrink:0}
-    .nav-logo-mark{width:30px;height:36px;flex-shrink:0}
-    .nav-logo-text{display:flex;flex-direction:column;line-height:1.15}
-    .nav-logo-name{font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-size:.875rem;font-weight:700;letter-spacing:.04em;color:#fff;text-transform:uppercase}
-    .nav-logo-sub{font-size:.75rem;color:rgba(255,255,255,0.55);letter-spacing:.02em}
     .nav-links{display:flex;align-items:center;gap:.25rem;list-style:none}
     .nav-links a{font-size:.875rem;font-weight:500;color:rgba(255,255,255,0.75);padding:.5rem .75rem;border-radius:.375rem;letter-spacing:.02em;transition:color 180ms,background 180ms}
     .nav-links a:hover{color:#fff;background:rgba(255,255,255,0.08)}
@@ -83,7 +79,6 @@
     .contact-inner{max-width:1200px;margin:0 auto;padding:0 2rem}
     .contact-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:4rem;align-items:start}
 
-    .contact-info{}
     .info-label{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
     .info-label::before{content:'';display:block;width:16px;height:1.5px;background:var(--gold);border-radius:2px}
     .info-heading{font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;color:var(--navy);line-height:1.1;margin-bottom:1rem;letter-spacing:-.01em}
@@ -92,7 +87,6 @@
     .contact-items{display:flex;flex-direction:column;gap:1.25rem;margin-bottom:2.5rem}
     .contact-item{display:flex;align-items:flex-start;gap:1rem}
     .contact-item-icon{width:40px;height:40px;border-radius:var(--radius-md);background:var(--gold-pale);border:1px solid rgba(200,134,10,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold)}
-    .contact-item-body{}
     .contact-item-label{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);margin-bottom:.2rem}
     .contact-item-value{font-size:.9375rem;color:var(--text-main);font-weight:500;line-height:1.5}
     .contact-item-value a{color:var(--navy);transition:color var(--tr)}
@@ -112,7 +106,6 @@
     .contact-form-wrap{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-xl);box-shadow:var(--shadow-md);overflow:hidden}
     .form-header{background:var(--navy);padding:1.5rem 2rem;display:flex;align-items:center;gap:.85rem}
     .form-header-icon{width:36px;height:36px;border-radius:var(--radius-md);background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:var(--gold-light);flex-shrink:0}
-    .form-header-text{}
     .form-header-title{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:.04em;text-transform:uppercase}
     .form-header-sub{font-size:.78rem;color:rgba(255,255,255,0.48);margin-top:.1rem}
     .form-body{padding:2rem}
@@ -139,7 +132,6 @@
     .file-upload:hover{border-color:var(--gold);background:var(--gold-pale)}
     .file-upload input{display:none}
     .file-upload-icon{width:32px;height:32px;border-radius:var(--radius-sm);background:rgba(13,44,84,0.06);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--text-faint)}
-    .file-upload-text{}
     .file-upload-title{font-size:.82rem;font-weight:600;color:var(--navy)}
     .file-upload-sub{font-size:.72rem;color:var(--text-faint);margin-top:.1rem}
 
@@ -206,22 +198,7 @@
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <svg class="nav-logo-mark" viewBox="0 0 30 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <defs>
-    <clipPath id="clip-left">
-      <rect x="0" y="0" width="15" height="36"/>
-    </clipPath>
-    <clipPath id="clip-right">
-      <rect x="15" y="0" width="15" height="36"/>
-    </clipPath>
-  </defs>
-  <text x="0" y="28" font-family="Georgia,Times New Roman,serif" font-size="42" font-weight="700" fill="#ffffff" clip-path="url(#clip-left)">B</text>
-  <text x="0" y="28" font-family="Georgia,Times New Roman,serif" font-size="42" font-weight="700" fill="#C8860A" clip-path="url(#clip-right)">B</text>
-</svg>
-      <div class="nav-logo-text">
-        <span class="nav-logo-name">Balance Industry</span>
-        <span class="nav-logo-sub" style="color:#C8860A;font-family:'Barlow Condensed',Arial Narrow,sans-serif;letter-spacing:0.06em;">Group Co., Limited</span>
-      </div>
+      <img src="logo.svg" alt="Balance Industry Group" style="height:38px;width:auto;">
     </a>
     <ul class="nav-links" role="list">
       <li><a href="index.html">Home</a></li>
@@ -532,23 +509,8 @@
   <div class="footer-inner">
     <div class="footer-grid">
       <div>
-        <a href="index.html" class="nav-logo" style="filter:brightness(0.8);margin-bottom:0.75rem;display:inline-flex;">
-          <svg class="nav-logo-mark" viewBox="0 0 30 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <defs>
-    <clipPath id="clip-left-f">
-      <rect x="0" y="0" width="15" height="36"/>
-    </clipPath>
-    <clipPath id="clip-right-f">
-      <rect x="15" y="0" width="15" height="36"/>
-    </clipPath>
-  </defs>
-  <text x="0" y="28" font-family="Georgia,Times New Roman,serif" font-size="42" font-weight="700" fill="#ffffff" clip-path="url(#clip-left-f)">B</text>
-  <text x="0" y="28" font-family="Georgia,Times New Roman,serif" font-size="42" font-weight="700" fill="#C8860A" clip-path="url(#clip-right-f)">B</text>
-</svg>
-          <div class="nav-logo-text">
-            <span class="nav-logo-name">Balance Industry</span>
-            <span class="nav-logo-sub" style="color:#C8860A;font-family:'Barlow Condensed',Arial Narrow,sans-serif;letter-spacing:0.06em;">Group Co., Limited</span>
-          </div>
+        <a href="index.html" class="nav-logo" style="filter:brightness(0.85);margin-bottom:0.75rem;display:inline-flex;">
+          <img src="logo.svg" alt="Balance Industry Group" style="height:32px;width:auto;">
         </a>
         <p style="font-size:0.85rem;color:rgba(255,255,255,0.45);line-height:1.7;max-width:280px;margin-top:0.5rem;">Precision chemical supply chain services for plastic and rubber manufacturers worldwide. Zhengzhou, China.</p>
       </div>
