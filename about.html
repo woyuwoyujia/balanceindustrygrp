@@ -9,219 +9,187 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy:       #0D2C54;
-      --navy-deep:  #091e3a;
-      --navy-mid:   #163d6e;
-      --gold:       #C8860A;
-      --gold-hover: #a86d06;
-      --gold-light: #e8a020;
-      --bronze:     #7A4E0D;
-      --bronze-dark:#5c3a08;
-      --white:      #ffffff;
-      --off-white:  #f5f6f8;
-      --text-main:  #1a2234;
-      --text-muted: #5a6a82;
-      --border:     rgba(13,44,84,0.12);
-      --shadow-md:  0 6px 24px rgba(13,44,84,0.10);
-      --shadow-lg:  0 16px 48px rgba(13,44,84,0.14);
-      --radius-sm:  6px;
-      --radius-md:  10px;
-      --radius-lg:  16px;
-      --font-display: 'Barlow Condensed','Arial Narrow',sans-serif;
-      --font-body:    'Inter','Helvetica Neue',sans-serif;
-      --tr: 180ms cubic-bezier(0.16,1,0.3,1);
-      /* HOME标准导航 tokens */
-      --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
-      --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
-      --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
-      --space-1: 0.25rem; --space-2: 0.5rem;  --space-3: 0.75rem;
-      --space-4: 1rem;    --space-5: 1.25rem; --space-6: 1.5rem;
-      --radius-nav: 0.375rem;
-      --transition: 180ms cubic-bezier(0.16,1,0.3,1);
-      --color-primary: #0D2C54;
-      --color-accent:  #C8860A;
-      --color-accent-hover: #a36c08;
-      --content-wide: 1280px;
+      --navy:#0D2C54; --navy-deep:#091e3a; --navy-mid:#163d6e;
+      --gold:#C8860A; --gold-hover:#a86d06; --gold-light:#e8a020;
+      --bronze:#7A4E0D; --bronze-dark:#5c3a08;
+      --white:#ffffff; --off-white:#f5f6f8;
+      --text-main:#1a2234; --text-muted:#5a6a82;
+      --border:rgba(13,44,84,0.12);
+      --shadow-md:0 6px 24px rgba(13,44,84,0.10);
+      --shadow-lg:0 16px 48px rgba(13,44,84,0.14);
+      --radius-sm:6px; --radius-md:10px; --radius-lg:16px;
+      --font-display:'Barlow Condensed','Arial Narrow',sans-serif;
+      --font-body:'Inter','Helvetica Neue',sans-serif;
+      --tr:180ms cubic-bezier(0.16,1,0.3,1);
+      --text-xs:clamp(0.75rem,0.7rem + 0.25vw,0.875rem);
+      --text-sm:clamp(0.875rem,0.8rem + 0.35vw,1rem);
+      --text-base:clamp(1rem,0.95rem + 0.25vw,1.125rem);
+      --space-1:0.25rem; --space-2:0.5rem; --space-3:0.75rem;
+      --space-4:1rem; --space-5:1.25rem; --space-6:1.5rem;
+      --radius-nav:0.375rem;
+      --transition:180ms cubic-bezier(0.16,1,0.3,1);
+      --color-primary:#0D2C54; --color-accent:#C8860A;
+      --color-accent-hover:#a36c08; --content-wide:1280px;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-    body { font-family: var(--font-body); font-size: 16px; color: var(--text-main); background: var(--white); line-height: 1.6; }
-    img { display: block; max-width: 100%; height: auto; }
-    a { text-decoration: none; color: inherit; }
-    button { cursor: pointer; border: none; background: none; font: inherit; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--font-body);font-size:16px;color:var(--text-main);background:var(--white);line-height:1.6}
+    img{display:block;max-width:100%;height:auto}
+    a{text-decoration:none;color:inherit}
+    button{cursor:pointer;border:none;background:none;font:inherit}
 
-    /* ══ NAV — HOME标准 locked ══ */
-    .nav { position: sticky; top: 0; z-index: 100; background: var(--color-primary); border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .nav-inner { max-width: var(--content-wide); margin-inline: auto; padding-inline: var(--space-6); height: 60px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--space-4); }
-    .nav-logo { display: flex; align-items: center; gap: var(--space-3); flex-shrink: 0; }
-    .nav-logo-mark { width: 36px; height: 36px; flex-shrink: 0; }
-    .nav-logo-text { display: flex; flex-direction: column; line-height: 1.15; }
-    .nav-logo-name { font-family: var(--font-display); font-size: var(--text-sm); font-weight: 700; letter-spacing: 0.04em; color: #ffffff; text-transform: uppercase; }
-    .nav-logo-sub { font-size: var(--text-xs); color: rgba(255,255,255,0.55); letter-spacing: 0.02em; }
-    .nav-links { display: flex; align-items: center; justify-content: center; gap: var(--space-1); list-style: none; }
-    .nav-links a { font-size: var(--text-sm); font-weight: 500; color: rgba(255,255,255,0.75); padding: var(--space-2) var(--space-3); border-radius: var(--radius-nav); letter-spacing: 0.02em; transition: color var(--transition), background var(--transition); }
-    .nav-links a:hover { color: #ffffff; background: rgba(255,255,255,0.08); }
-    .nav-links a.active { color: #ffffff; }
-    .nav-actions { display: flex; align-items: center; gap: var(--space-2); }
-    .nav-contact-btn { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-primary); background: var(--color-accent); padding: var(--space-2) var(--space-4); border-radius: var(--radius-nav); white-space: nowrap; transition: background var(--transition); }
-    .nav-contact-btn:hover { background: var(--color-accent-hover); }
-    .theme-toggle { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-nav); color: rgba(255,255,255,0.6); transition: color var(--transition), background var(--transition); }
-    .theme-toggle:hover { background: rgba(255,255,255,0.08); color: #ffffff; }
-    .nav-burger { display: none; flex-direction: column; gap: 5px; width: 36px; height: 36px; align-items: center; justify-content: center; border-radius: var(--radius-nav); color: rgba(255,255,255,0.8); transition: background var(--transition); }
-    .nav-burger:hover { background: rgba(255,255,255,0.08); }
-    .nav-burger span { display: block; width: 20px; height: 2px; background: currentColor; border-radius: 2px; transition: transform var(--transition), opacity var(--transition); }
-    .mobile-menu { display: none; background: var(--color-primary); padding: var(--space-4) var(--space-6) var(--space-6); border-top: 1px solid rgba(255,255,255,0.08); }
-    .mobile-menu.open { display: block; }
-    .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: var(--space-1); }
-    .mobile-menu a { display: block; font-size: var(--text-base); font-weight: 500; color: rgba(255,255,255,0.8); padding: var(--space-3); border-radius: var(--radius-nav); transition: color var(--transition), background var(--transition); }
-    .mobile-menu a:hover { background: rgba(255,255,255,0.08); color: #ffffff; }
-    .mobile-menu-contact { margin-top: var(--space-4); display: block; text-align: center; font-size: var(--text-sm); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-primary); background: var(--color-accent); padding: var(--space-3) var(--space-4); border-radius: var(--radius-nav); }
-    @media (max-width: 768px) {
-      .nav-links, .nav-contact-btn { display: none; }
-      .nav-burger { display: flex; }
-      .nav-inner { grid-template-columns: auto auto; }
-    }
+    .nav{position:sticky;top:0;z-index:100;background:var(--color-primary);border-bottom:1px solid rgba(255,255,255,0.08)}
+    .nav-inner{max-width:var(--content-wide);margin-inline:auto;padding-inline:var(--space-6);height:60px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:var(--space-4)}
+    .nav-logo{display:flex;align-items:center;gap:var(--space-3);flex-shrink:0}
+    .nav-logo-mark{width:30px;height:40px;flex-shrink:0}
+    .nav-logo-text{display:flex;flex-direction:column;line-height:1.15}
+    .nav-logo-name{font-family:var(--font-display);font-size:var(--text-sm);font-weight:700;letter-spacing:0.04em;color:#ffffff;text-transform:uppercase}
+    .nav-logo-sub{font-size:var(--text-xs);color:rgba(255,255,255,0.55);letter-spacing:0.02em}
+    .nav-links{display:flex;align-items:center;justify-content:center;gap:var(--space-1);list-style:none}
+    .nav-links a{font-size:var(--text-sm);font-weight:500;color:rgba(255,255,255,0.75);padding:var(--space-2) var(--space-3);border-radius:var(--radius-nav);letter-spacing:0.02em;transition:color var(--transition),background var(--transition)}
+    .nav-links a:hover{color:#ffffff;background:rgba(255,255,255,0.08)}
+    .nav-links a.active{color:#ffffff}
+    .nav-actions{display:flex;align-items:center;gap:var(--space-2)}
+    .nav-contact-btn{font-size:var(--text-xs);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-primary);background:var(--color-accent);padding:var(--space-2) var(--space-4);border-radius:var(--radius-nav);white-space:nowrap;transition:background var(--transition)}
+    .nav-contact-btn:hover{background:var(--color-accent-hover)}
+    .theme-toggle{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-nav);color:rgba(255,255,255,0.6);transition:color var(--transition),background var(--transition)}
+    .theme-toggle:hover{background:rgba(255,255,255,0.08);color:#ffffff}
+    .nav-burger{display:none;flex-direction:column;gap:5px;width:36px;height:36px;align-items:center;justify-content:center;border-radius:var(--radius-nav);color:rgba(255,255,255,0.8);transition:background var(--transition)}
+    .nav-burger:hover{background:rgba(255,255,255,0.08)}
+    .nav-burger span{display:block;width:20px;height:2px;background:currentColor;border-radius:2px;transition:transform var(--transition),opacity var(--transition)}
+    .mobile-menu{display:none;background:var(--color-primary);padding:var(--space-4) var(--space-6) var(--space-6);border-top:1px solid rgba(255,255,255,0.08)}
+    .mobile-menu.open{display:block}
+    .mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:var(--space-1)}
+    .mobile-menu a{display:block;font-size:var(--text-base);font-weight:500;color:rgba(255,255,255,0.8);padding:var(--space-3);border-radius:var(--radius-nav);transition:color var(--transition),background var(--transition)}
+    .mobile-menu a:hover{background:rgba(255,255,255,0.08);color:#ffffff}
+    .mobile-menu-contact{margin-top:var(--space-4);display:block;text-align:center;font-size:var(--text-sm);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-primary);background:var(--color-accent);padding:var(--space-3) var(--space-4);border-radius:var(--radius-nav)}
+    @media(max-width:768px){.nav-links,.nav-contact-btn{display:none}.nav-burger{display:flex}.nav-inner{grid-template-columns:auto auto}}
 
-    /* ── PAGE HERO ── */
-    .page-hero { background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 60%, var(--navy-mid) 100%); padding: 50px 0 40px; position: relative; overflow: hidden; }
-    .page-hero::after { content: ''; position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(200,134,10,0.08) 0%, transparent 70%); pointer-events: none; }
-    .page-hero-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-    .breadcrumb { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-bottom: 1rem; }
-    .breadcrumb a { color: rgba(255,255,255,0.4); transition: color var(--tr); }
-    .breadcrumb a:hover { color: var(--gold); }
-    .breadcrumb span { color: var(--gold); }
-    .page-hero-title { font-family: var(--font-display); font-size: clamp(2.2rem,4vw,3.5rem); font-weight: 800; color: var(--white); line-height: 1.05; margin-bottom: 0.75rem; }
-    .page-hero-desc { font-size: 1rem; color: rgba(255,255,255,0.6); max-width: 520px; line-height: 1.7; }
+    .page-hero{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 60%,var(--navy-mid) 100%);padding:50px 0 40px;position:relative;overflow:hidden}
+    .page-hero::after{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(200,134,10,0.08) 0%,transparent 70%);pointer-events:none}
+    .page-hero-inner{max-width:1200px;margin:0 auto;padding:0 2rem}
+    .breadcrumb{font-size:0.78rem;color:rgba(255,255,255,0.4);margin-bottom:1rem}
+    .breadcrumb a{color:rgba(255,255,255,0.4);transition:color var(--tr)}
+    .breadcrumb a:hover{color:var(--gold)}
+    .breadcrumb span{color:var(--gold)}
+    .page-hero-title{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:800;color:var(--white);line-height:1.05;margin-bottom:0.75rem}
+    .page-hero-desc{font-size:1rem;color:rgba(255,255,255,0.6);max-width:520px;line-height:1.7}
 
-    /* ── SECTIONS ── */
-    .section { padding: clamp(4rem,7vw,6rem) 0; }
-    .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-    .section-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.65rem; }
-    .section-title { font-family: var(--font-display); font-size: clamp(1.7rem,3vw,2.4rem); font-weight: 700; line-height: 1.1; color: var(--navy); margin-bottom: 0.75rem; }
-    .section-desc { font-size: 1rem; color: var(--text-muted); max-width: 600px; line-height: 1.75; }
+    .section{padding:clamp(4rem,7vw,6rem) 0}
+    .section-inner{max-width:1200px;margin:0 auto;padding:0 2rem}
+    .section-label{font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:0.65rem}
+    .section-title{font-family:var(--font-display);font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700;line-height:1.1;color:var(--navy);margin-bottom:0.75rem}
+    .section-desc{font-size:1rem;color:var(--text-muted);max-width:600px;line-height:1.75}
 
-    /* ── WHO WE ARE ── */
-    .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-    .who-body { font-size: 1rem; color: var(--text-muted); line-height: 1.85; }
-    .who-body p + p { margin-top: 1.25rem; }
-    .who-body strong { color: var(--text-main); font-weight: 600; }
-    .who-image { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 4/3; background: var(--off-white); }
-    .who-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .who-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+    .who-body{font-size:1rem;color:var(--text-muted);line-height:1.85}
+    .who-body p+p{margin-top:1.25rem}
+    .who-body strong{color:var(--text-main);font-weight:600}
+    .who-image{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:4/3;background:var(--off-white)}
+    .who-image img{width:100%;height:100%;object-fit:cover;display:block}
 
-    /* ── WHAT WE SUPPLY ── */
-    .supply-section { background: var(--off-white); }
-    .supply-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
-    .supply-card { border-radius: var(--radius-lg); padding: 2.25rem 2rem; transition: transform var(--tr), box-shadow var(--tr); }
-    .supply-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-    .supply-card.bronze { background: linear-gradient(135deg, var(--bronze-dark) 0%, var(--bronze) 100%); }
-    .supply-card.dark   { background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%); }
-    .supply-icon { width: 52px; height: 52px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
-    .supply-icon.bronze-icon { background: rgba(255,255,255,0.12); color: var(--gold-light); }
-    .supply-icon.dark-icon   { background: rgba(200,134,10,0.15); color: var(--gold); }
-    .supply-tag { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.65rem; border-radius: 100px; margin-bottom: 0.85rem; }
-    .supply-tag.bronze-tag { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.9); }
-    .supply-tag.dark-tag   { background: rgba(200,134,10,0.18); border: 1px solid rgba(200,134,10,0.3); color: var(--gold-light); }
-    .supply-name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 0.5rem; color: var(--white); }
-    .supply-products { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em; margin-bottom: 0.85rem; text-transform: uppercase; }
-    .supply-products.bronze-prod { color: var(--gold-light); }
-    .supply-products.dark-prod   { color: var(--gold); }
-    .supply-desc { font-size: 0.9rem; line-height: 1.7; color: rgba(255,255,255,0.65); }
+    .supply-section{background:var(--off-white)}
+    .supply-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
+    .supply-card{border-radius:var(--radius-lg);padding:2.25rem 2rem;transition:transform var(--tr),box-shadow var(--tr)}
+    .supply-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+    .supply-card.bronze{background:linear-gradient(135deg,var(--bronze-dark) 0%,var(--bronze) 100%)}
+    .supply-card.dark{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 100%)}
+    .supply-icon{width:52px;height:52px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem}
+    .supply-icon.bronze-icon{background:rgba(255,255,255,0.12);color:var(--gold-light)}
+    .supply-icon.dark-icon{background:rgba(200,134,10,0.15);color:var(--gold)}
+    .supply-tag{display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.25rem 0.65rem;border-radius:100px;margin-bottom:0.85rem}
+    .supply-tag.bronze-tag{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.9)}
+    .supply-tag.dark-tag{background:rgba(200,134,10,0.18);border:1px solid rgba(200,134,10,0.3);color:var(--gold-light)}
+    .supply-name{font-family:var(--font-display);font-size:1.5rem;font-weight:700;line-height:1.2;margin-bottom:0.5rem;color:var(--white)}
+    .supply-products{font-size:0.82rem;font-weight:600;letter-spacing:0.06em;margin-bottom:0.85rem;text-transform:uppercase}
+    .supply-products.bronze-prod{color:var(--gold-light)}
+    .supply-products.dark-prod{color:var(--gold)}
+    .supply-desc{font-size:0.9rem;line-height:1.7;color:rgba(255,255,255,0.65)}
 
-    /* ── WHY WORK WITH US ── */
-    .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.5rem; }
-    .why-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem 1.75rem; transition: transform var(--tr), box-shadow var(--tr), border-color var(--tr); }
-    .why-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: rgba(13,44,84,0.22); }
-    .why-icon { width: 46px; height: 46px; background: rgba(13,44,84,0.06); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: var(--navy); margin-bottom: 1.25rem; }
-    .why-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
-    .why-detail { font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; }
+    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+    .why-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem 1.75rem;transition:transform var(--tr),box-shadow var(--tr),border-color var(--tr)}
+    .why-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:rgba(13,44,84,0.22)}
+    .why-icon{width:46px;height:46px;background:rgba(13,44,84,0.06);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:var(--navy);margin-bottom:1.25rem}
+    .why-title{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem}
+    .why-detail{font-size:0.875rem;color:var(--text-muted);line-height:1.7}
 
-    /* ── COMMITMENT ── */
-    .commitment-section { background: var(--navy); }
-    .commitment-inner { max-width: 900px; margin: 0 auto; padding: clamp(4rem,7vw,6rem) 2rem; text-align: center; }
-    .commitment-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: block; }
-    .commitment-quote { font-family: var(--font-display); font-size: clamp(1.4rem,2.5vw,2rem); font-weight: 600; color: var(--white); line-height: 1.45; position: relative; padding: 0 2rem; }
-    .commitment-quote::before { content: '\201C'; font-family: Georgia,serif; font-size: 4rem; line-height: 0; color: var(--gold); opacity: 0.4; position: absolute; left: -0.25rem; top: 0.4em; }
-    .commitment-quote::after  { content: '\201D'; font-family: Georgia,serif; font-size: 4rem; line-height: 0; color: var(--gold); opacity: 0.4; position: absolute; right: -0.25rem; bottom: -0.3em; }
-    .commitment-attr { margin-top: 2rem; font-size: 0.82rem; color: rgba(255,255,255,0.4); letter-spacing: 0.08em; text-transform: uppercase; }
+    .commitment-section{background:var(--navy)}
+    .commitment-inner{max-width:900px;margin:0 auto;padding:clamp(4rem,7vw,6rem) 2rem;text-align:center}
+    .commitment-label{font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:block}
+    .commitment-quote{font-family:var(--font-display);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:600;color:var(--white);line-height:1.45;position:relative;padding:0 2rem}
+    .commitment-quote::before{content:'\201C';font-family:Georgia,serif;font-size:4rem;line-height:0;color:var(--gold);opacity:0.4;position:absolute;left:-0.25rem;top:0.4em}
+    .commitment-quote::after{content:'\201D';font-family:Georgia,serif;font-size:4rem;line-height:0;color:var(--gold);opacity:0.4;position:absolute;right:-0.25rem;bottom:-0.3em}
+    .commitment-attr{margin-top:2rem;font-size:0.82rem;color:rgba(255,255,255,0.4);letter-spacing:0.08em;text-transform:uppercase}
 
-    /* ── CTA BANNER ── */
-    .cta-section { background: linear-gradient(135deg, var(--gold) 0%, #a86d06 100%); padding: clamp(3rem,5vw,5rem) 0; }
-    .cta-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
-    .cta-text h2 { font-family: var(--font-display); font-size: clamp(1.6rem,2.5vw,2.4rem); font-weight: 800; color: var(--white); line-height: 1.1; margin-bottom: 0.5rem; }
-    .cta-text p { font-size: 1rem; color: rgba(255,255,255,0.82); }
-    .btn-cta-white { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--white); color: var(--gold); font-size: 0.875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 1rem 2rem; border-radius: var(--radius-sm); white-space: nowrap; transition: background var(--tr); box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
-    .btn-cta-white:hover { background: #fafafa; }
+    .cta-section{background:linear-gradient(135deg,var(--gold) 0%,#a86d06 100%);padding:clamp(3rem,5vw,5rem) 0}
+    .cta-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+    .cta-text h2{font-family:var(--font-display);font-size:clamp(1.6rem,2.5vw,2.4rem);font-weight:800;color:var(--white);line-height:1.1;margin-bottom:0.5rem}
+    .cta-text p{font-size:1rem;color:rgba(255,255,255,0.82)}
+    .btn-cta-white{display:inline-flex;align-items:center;gap:0.5rem;background:var(--white);color:var(--gold);font-size:0.875rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:1rem 2rem;border-radius:var(--radius-sm);white-space:nowrap;transition:background var(--tr);box-shadow:0 4px 20px rgba(0,0,0,0.15)}
+    .btn-cta-white:hover{background:#fafafa}
 
-    /* ── FOOTER ── */
-    .footer { background: var(--navy-deep); padding: 4rem 0 2rem; }
-    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; margin-bottom: 3rem; }
-    .footer-brand-name { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--white); letter-spacing: 0.04em; margin-bottom: 0.25rem; }
-    .footer-brand-name span { color: var(--gold); }
-    .footer-brand-sub { font-size: 0.68rem; color: rgba(255,255,255,0.35); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; }
-    .footer-desc { font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 280px; }
-    .footer-col-title { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
-    .footer-links { list-style: none; }
-    .footer-links li { margin-bottom: 0.65rem; }
-    .footer-links a { font-size: 0.875rem; color: rgba(255,255,255,0.5); transition: color var(--tr); }
-    .footer-links a:hover { color: var(--white); }
-    .footer-contact-item { display: flex; gap: 0.65rem; align-items: flex-start; margin-bottom: 0.85rem; }
-    .footer-contact-item svg { flex-shrink: 0; margin-top: 2px; color: var(--gold); opacity: 0.8; }
-    .footer-contact-item span { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
-    .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.07); margin-bottom: 1.5rem; }
-    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
-    .footer-bottom-links { display: flex; gap: 1.5rem; }
-    .footer-bottom-links a { font-size: 0.8rem; color: rgba(255,255,255,0.3); transition: color var(--tr); }
-    .footer-bottom-links a:hover { color: rgba(255,255,255,0.6); }
+    .footer{background:var(--navy-deep);padding:4rem 0 2rem}
+    .footer-inner{max-width:1200px;margin:0 auto;padding:0 2rem}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:3rem;margin-bottom:3rem}
+    .footer-col-title{font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem}
+    .footer-links{list-style:none}
+    .footer-links li{margin-bottom:0.65rem}
+    .footer-links a{font-size:0.875rem;color:rgba(255,255,255,0.5);transition:color var(--tr)}
+    .footer-links a:hover{color:var(--white)}
+    .footer-contact-item{display:flex;gap:0.65rem;align-items:flex-start;margin-bottom:0.85rem}
+    .footer-contact-item svg{flex-shrink:0;margin-top:2px;color:var(--gold);opacity:0.8}
+    .footer-contact-item span{font-size:0.85rem;color:rgba(255,255,255,0.5);line-height:1.5}
+    .footer-divider{border:none;border-top:1px solid rgba(255,255,255,0.07);margin-bottom:1.5rem}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer-copy{font-size:0.8rem;color:rgba(255,255,255,0.3)}
+    .footer-bottom-links{display:flex;gap:1.5rem}
+    .footer-bottom-links a{font-size:0.8rem;color:rgba(255,255,255,0.3);transition:color var(--tr)}
+    .footer-bottom-links a:hover{color:rgba(255,255,255,0.6)}
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
-    @media (max-width: 768px) {
-      .who-grid, .supply-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .why-grid { grid-template-columns: 1fr; gap: 1rem; }
-      .cta-inner { flex-direction: column; text-align: center; }
-      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .footer-bottom { flex-direction: column; text-align: center; }
-      .section-inner, .page-hero-inner, .cta-inner, .footer-inner { padding-left: 1.25rem; padding-right: 1.25rem; }
+    @media(max-width:1024px){.footer-grid{grid-template-columns:1fr 1fr;gap:2rem}}
+    @media(max-width:768px){
+      .who-grid,.supply-grid{grid-template-columns:1fr;gap:2rem}
+      .why-grid{grid-template-columns:1fr;gap:1rem}
+      .cta-inner{flex-direction:column;text-align:center}
+      .footer-grid{grid-template-columns:1fr;gap:2rem}
+      .footer-bottom{flex-direction:column;text-align:center}
+      .section-inner,.page-hero-inner,.cta-inner,.footer-inner{padding-left:1.25rem;padding-right:1.25rem}
     }
   </style>
 </head>
 <body>
 
-<!-- ══ NAV ══ -->
+<!-- NAV -->
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo" aria-label="Balance Industry Group home">
-      <svg class="nav-logo-mark" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <svg class="nav-logo-mark" viewBox="0 0 30 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
           <clipPath id="clip-left">
-            <rect x="0" y="0" width="18" height="36"/>
+            <rect x="0" y="0" width="15" height="40"/>
           </clipPath>
           <clipPath id="clip-right">
-            <rect x="18" y="0" width="18" height="36"/>
+            <rect x="15" y="0" width="15" height="40"/>
           </clipPath>
         </defs>
-        <text x="5" y="29" font-family="Georgia,Times New Roman,serif" font-size="28" font-weight="700" fill="#ffffff" clip-path="url(#clip-left)">B</text>
-        <text x="5" y="29" font-family="Georgia,Times New Roman,serif" font-size="28" font-weight="700" fill="#C8860A" clip-path="url(#clip-right)">B</text>
+        <text x="0" y="30" font-family="Georgia,Times New Roman,serif" font-size="40" font-weight="700" fill="#ffffff" clip-path="url(#clip-left)">B</text>
+        <text x="0" y="30" font-family="Georgia,Times New Roman,serif" font-size="40" font-weight="700" fill="#C8860A" clip-path="url(#clip-right)">B</text>
       </svg>
       <div class="nav-logo-text">
         <span class="nav-logo-name">Balance Industry</span>
         <span class="nav-logo-sub" style="color:#C8860A;font-family:'Barlow Condensed',Arial Narrow,sans-serif;letter-spacing:0.06em;">Group Co., Limited</span>
       </div>
     </a>
-
     <ul class="nav-links" role="list">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html" class="active">About</a></li>
       <li><a href="products.html">Products</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-
     <div class="nav-actions">
       <a href="contact.html" class="nav-contact-btn">Get a Quote</a>
       <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
       <button class="nav-burger" aria-label="Open menu" aria-expanded="false" id="burger">
         <span></span><span></span><span></span>
@@ -240,8 +208,7 @@
   <a href="contact.html" class="mobile-menu-contact">Get a Quote</a>
 </div>
 
-
-<!-- ══ PAGE HERO ══ -->
+<!-- PAGE HERO -->
 <section class="page-hero">
   <div class="page-hero-inner">
     <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; <span>About Us</span></div>
@@ -250,8 +217,7 @@
   </div>
 </section>
 
-
-<!-- ══ WHO WE ARE ══ -->
+<!-- WHO WE ARE -->
 <section class="section">
   <div class="section-inner">
     <div class="who-grid">
@@ -259,11 +225,11 @@
         <div class="section-label">Who We Are</div>
         <h2 class="section-title">Precision Chemistry.<br>Global Reach.</h2>
         <div class="who-body">
-  <p>Balance Industry Group is a <strong>factory-integrated chemical supplier</strong> established in 2016 and headquartered in Zhengzhou, China. We operate with independent export credentials and maintain direct, long-term partnerships with our production facilities — giving us influence at the formulation and specification level that a conventional trading company simply cannot offer.</p>
-  <p>Our focus spans two critical segments of global manufacturing: <strong>PVC resins and plasticizers</strong> for the plastics and polymer industries, and <strong>Acetylene Carbon Black</strong> for advanced conductive applications including lithium-ion batteries and high-voltage cable systems.</p>
-  <p>Because we are embedded in the production process — not standing outside it — we can align grades, adjust specifications, and respond to custom requirements with the speed and authority of a manufacturer's representative, backed by the flexibility of an independent supplier.</p>
-</div>
-  </div>
+          <p>Balance Industry Group is a <strong>factory-integrated chemical supplier</strong> established in 2016 and headquartered in Zhengzhou, China. We operate with independent export credentials and maintain direct, long-term partnerships with our production facilities — giving us influence at the formulation and specification level that a conventional trading company simply cannot offer.</p>
+          <p>Our focus spans two critical segments of global manufacturing: <strong>PVC resins and plasticizers</strong> for the plastics and polymer industries, and <strong>Acetylene Carbon Black</strong> for advanced conductive applications including lithium-ion batteries and high-voltage cable systems.</p>
+          <p>Because we are embedded in the production process — not standing outside it — we can align grades, adjust specifications, and respond to custom requirements with the speed and authority of a manufacturer's representative, backed by the flexibility of an independent supplier.</p>
+        </div>
+      </div>
       <div class="who-image">
         <img src="./images/company-profile.jpg" alt="Balance Industry Group chemical production facility" width="800" height="600" loading="lazy" />
       </div>
@@ -271,41 +237,36 @@
   </div>
 </section>
 
-
-<!-- ══ WHAT WE SUPPLY ══ -->
+<!-- WHAT WE SUPPLY -->
 <section class="section supply-section">
   <div class="section-inner">
     <div class="section-label">What We Supply</div>
     <h2 class="section-title">Two Core Product Pillars</h2>
     <p class="section-desc">Our portfolio is structured around the complementary needs of plastics processors and advanced materials manufacturers.</p>
     <div class="supply-grid">
-
       <div class="supply-card bronze">
         <div class="supply-icon bronze-icon">
-          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 17.5h7M17.5 14v7"/></svg>
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 17.5h7M17.5 14v7"/></svg>
         </div>
         <span class="supply-tag bronze-tag">Base Resins &amp; Additives</span>
         <div class="supply-name">PVC Resin, PVC Paste Resin &amp; Plasticizers</div>
         <div class="supply-products bronze-prod">Suspension PVC &nbsp;&middot;&nbsp; Emulsion / Micro-Suspension Paste &nbsp;&middot;&nbsp; DOP / DOTP / DINP</div>
         <p class="supply-desc">Serving manufacturers in pipes &amp; fittings, cable &amp; wire, synthetic leather, flooring, vinyl gloves, and flexible packaging. Consistent K-value, viscosity stability, and full COA on every shipment.</p>
       </div>
-
       <div class="supply-card dark">
         <div class="supply-icon dark-icon">
-          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
         </div>
         <span class="supply-tag dark-tag">Conductive Materials</span>
         <div class="supply-name">Acetylene Carbon Black</div>
         <div class="supply-products dark-prod">Ultra-High Purity &nbsp;&middot;&nbsp; Conductive Grade &nbsp;&middot;&nbsp; Battery Grade</div>
         <p class="supply-desc">Manufactured through controlled exothermic decomposition of high-purity acetylene gas. Engineered for lithium-ion batteries, dry cells, lead-acid batteries, high-voltage cable shielding, and EMI-shielding conductive polymers.</p>
       </div>
-
     </div>
   </div>
 </section>
 
-
-<!-- ══ WHY WORK WITH US ══ -->
+<!-- WHY WORK WITH US -->
 <section class="section">
   <div class="section-inner">
     <div class="section-label">Why Work With Us</div>
@@ -313,26 +274,25 @@
     <p class="section-desc">Three commitments that define every order we handle, from initial inquiry to final delivery.</p>
     <div class="why-grid">
       <div class="why-card">
-  <div class="why-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-  <div class="why-title">Formulation Authority</div>
-  <p class="why-detail">We work directly with production facilities at the formulation level — not as a buyer standing at the gate, but as a partner with input on grade parameters, additive ratios, and specification tolerances.</p>
-</div>
-<div class="why-card">
-  <div class="why-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div>
-  <div class="why-title">Grade-Level Technical Support</div>
-  <p class="why-detail">From K-value selection to plasticizer compatibility, we help you match the right material to your process. Every inquiry is handled by someone who understands the chemistry — not routed through a sales pipeline.</p>
-</div>
-<div class="why-card">
-  <div class="why-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div>
-  <div class="why-title">End-to-End Export Execution</div>
-  <p class="why-detail">Independent export rights, full documentation — COA, MSDS, packing list, BL — and hands-on logistics coordination across 30+ destination countries. L/C and T/T both supported.</p>
-</div>
+        <div class="why-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <div class="why-title">Formulation Authority</div>
+        <p class="why-detail">We work directly with production facilities at the formulation level — not as a buyer standing at the gate, but as a partner with input on grade parameters, additive ratios, and specification tolerances.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div>
+        <div class="why-title">Grade-Level Technical Support</div>
+        <p class="why-detail">From K-value selection to plasticizer compatibility, we help you match the right material to your process. Every inquiry is handled by someone who understands the chemistry — not routed through a sales pipeline.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div>
+        <div class="why-title">End-to-End Export Execution</div>
+        <p class="why-detail">Independent export rights, full documentation — COA, MSDS, packing list, BL — and hands-on logistics coordination across 30+ destination countries. L/C and T/T both supported.</p>
+      </div>
     </div>
   </div>
 </section>
 
-
-<!-- ══ COMMITMENT ══ -->
+<!-- COMMITMENT -->
 <section class="section commitment-section">
   <div class="commitment-inner">
     <span class="commitment-label">Our Commitment</span>
@@ -341,36 +301,34 @@
   </div>
 </section>
 
-
-<!-- ══ CTA BANNER ══ -->
+<!-- CTA BANNER -->
 <section class="cta-section">
   <div class="cta-inner">
     <div class="cta-text">
       <h2>Ready to Source Smarter?</h2>
       <p>Tell us your application and required grade — we'll provide the TDS and arrange a free sample.</p>
     </div>
-    <a href="contact.html" class="btn-cta-white">Contact Our Team <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <a href="contact.html" class="btn-cta-white">Contact Our Team <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
   </div>
 </section>
 
-
-<!-- ══ FOOTER ══ -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-grid">
       <div>
-        <a href="index.html" class="nav-logo" style="filter: brightness(0.8); margin-bottom: 0.75rem; display:inline-flex;">
-          <svg class="nav-logo-mark" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <a href="index.html" class="nav-logo" style="filter:brightness(0.8);margin-bottom:0.75rem;display:inline-flex;">
+          <svg class="nav-logo-mark" viewBox="0 0 30 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs>
               <clipPath id="clip-left-fa">
-                <rect x="0" y="0" width="18" height="36"/>
+                <rect x="0" y="0" width="15" height="40"/>
               </clipPath>
               <clipPath id="clip-right-fa">
-                <rect x="18" y="0" width="18" height="36"/>
+                <rect x="15" y="0" width="15" height="40"/>
               </clipPath>
             </defs>
-            <text x="5" y="29" font-family="Georgia,Times New Roman,serif" font-size="28" font-weight="700" fill="#ffffff" clip-path="url(#clip-left-fa)">B</text>
-            <text x="5" y="29" font-family="Georgia,Times New Roman,serif" font-size="28" font-weight="700" fill="#C8860A" clip-path="url(#clip-right-fa)">B</text>
+            <text x="0" y="30" font-family="Georgia,Times New Roman,serif" font-size="40" font-weight="700" fill="#ffffff" clip-path="url(#clip-left-fa)">B</text>
+            <text x="0" y="30" font-family="Georgia,Times New Roman,serif" font-size="40" font-weight="700" fill="#C8860A" clip-path="url(#clip-right-fa)">B</text>
           </svg>
           <div class="nav-logo-text">
             <span class="nav-logo-name">Balance Industry</span>
@@ -400,11 +358,11 @@
       <div>
         <div class="footer-col-title">Get In Touch</div>
         <div class="footer-contact-item">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5"/></svg>
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5"/></svg>
           <span>export@balanceindustrygrp.com</span>
         </div>
         <div class="footer-contact-item">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <span>NO. 6, Suoling Road, Zhengzhou, China</span>
         </div>
       </div>
@@ -418,37 +376,37 @@
 </footer>
 
 <script>
-  (function(){
-    const burger = document.getElementById('burger');
-    const menu = document.getElementById('mobile-menu');
-    burger.addEventListener('click', function(){
-      const open = menu.classList.toggle('open');
-      burger.setAttribute('aria-expanded', open);
-      menu.setAttribute('aria-hidden', !open);
-    });
-    document.addEventListener('click', function(e){
-      if (!menu.contains(e.target) && !burger.contains(e.target)) {
-        menu.classList.remove('open');
-        burger.setAttribute('aria-expanded','false');
-        menu.setAttribute('aria-hidden','true');
-      }
-    });
-  })();
-  (function(){
-    const t = document.querySelector('[data-theme-toggle]');
-    const r = document.documentElement;
-    let d = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
-    r.setAttribute('data-theme', d);
-    function setIcon(theme){
-      if (!t) return;
-      t.setAttribute('aria-label','Switch to '+(theme==='dark'?'light':'dark')+' mode');
-      t.innerHTML = theme==='dark'
-        ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
-        : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+(function(){
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('mobile-menu');
+  burger.addEventListener('click', function(){
+    const open = menu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+    menu.setAttribute('aria-hidden', !open);
+  });
+  document.addEventListener('click', function(e){
+    if (!menu.contains(e.target) && !burger.contains(e.target)) {
+      menu.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+      menu.setAttribute('aria-hidden','true');
     }
-    setIcon(d);
-    t && t.addEventListener('click', function(){ d=d==='dark'?'light':'dark'; r.setAttribute('data-theme',d); setIcon(d); });
-  })();
+  });
+})();
+(function(){
+  const t = document.querySelector('[data-theme-toggle]');
+  const r = document.documentElement;
+  let d = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+  r.setAttribute('data-theme', d);
+  function setIcon(theme){
+    if (!t) return;
+    t.setAttribute('aria-label','Switch to '+(theme==='dark'?'light':'dark')+' mode');
+    t.innerHTML = theme==='dark'
+      ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+      : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  }
+  setIcon(d);
+  t && t.addEventListener('click', function(){ d=d==='dark'?'light':'dark'; r.setAttribute('data-theme',d); setIcon(d); });
+})();
 </script>
 </body>
 </html>
