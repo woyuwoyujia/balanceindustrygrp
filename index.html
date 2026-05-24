@@ -26,7 +26,6 @@
       --radius-sm: 0.25rem; --radius-md: 0.375rem; --radius-lg: 0.5rem;
       --radius-xl: 0.75rem; --radius-full: 9999px;
       --transition: 180ms cubic-bezier(0.16,1,0.3,1);
-      /* Light mode */
       --color-bg: #f5f4f0; --color-surface: #ffffff; --color-surface-2: #f9f8f6;
       --color-surface-offset: #eeecea; --color-divider: #dddbd7;
       --color-border: oklch(from #28251d l c h / 0.12);
@@ -36,7 +35,6 @@
       --color-primary-active: #071830; --color-primary-mid: #1a4a7a;
       --color-accent: #C8860A; --color-accent-hover: #a36c08;
       --color-accent-light: #fdf3e0;
-      /* Bronze/copper tones for PVC cards */
       --color-bronze-dark: #5c3a08; --color-bronze: #7A4E0D;
       --color-gold-light: #e8a020;
       --shadow-sm: 0 1px 2px oklch(0.15 0.02 250 / 0.07);
@@ -77,7 +75,6 @@
       }
     }
 
-    /* ── BASE ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; scroll-behavior: smooth; scroll-padding-top: var(--space-16); }
     body { min-height: 100dvh; font-family: var(--font-body); font-size: var(--text-base); color: var(--color-text); background: var(--color-bg); line-height: 1.6; }
@@ -92,20 +89,17 @@
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
     .container { max-width: var(--content-default); margin-inline: auto; padding-inline: var(--space-6); }
 
-    /* ── NAVIGATION — three-column grid: logo | center links | actions ── */
     .nav { position: sticky; top: 0; z-index: 100; background: var(--color-primary); border-bottom: 1px solid oklch(from #ffffff l c h / 0.08); }
     .nav-inner { max-width: var(--content-wide); margin-inline: auto; padding-inline: var(--space-6); height: 60px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--space-4); }
     .nav-logo { display: flex; align-items: center; gap: var(--space-3); flex-shrink: 0; }
-    .nav-logo-mark { width: 36px; height: 36px; flex-shrink: 0; }
+    .nav-logo-mark { width: 30px; height: 40px; flex-shrink: 0; }
     .nav-logo-text { display: flex; flex-direction: column; line-height: 1.15; }
     .nav-logo-name { font-family: var(--font-display); font-size: var(--text-sm); font-weight: 700; letter-spacing: 0.04em; color: #ffffff; text-transform: uppercase; }
     .nav-logo-sub { font-size: var(--text-xs); color: oklch(from #ffffff l c h / 0.55); letter-spacing: 0.02em; }
-    /* Center links */
     .nav-links { display: flex; align-items: center; justify-content: center; gap: var(--space-1); list-style: none; }
     .nav-links a { font-size: var(--text-sm); font-weight: 500; color: oklch(from #ffffff l c h / 0.75); padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); letter-spacing: 0.02em; }
     .nav-links a:hover { color: #ffffff; background: oklch(from #ffffff l c h / 0.08); }
     .nav-links a.active { color: #ffffff; }
-    /* Right actions */
     .nav-actions { display: flex; align-items: center; gap: var(--space-2); }
     .nav-contact-btn { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-primary); background: var(--color-accent); padding: var(--space-2) var(--space-4); border-radius: var(--radius-md); white-space: nowrap; }
     .nav-contact-btn:hover { background: var(--color-accent-hover); color: var(--color-primary); }
@@ -121,7 +115,6 @@
     .mobile-menu a:hover { background: oklch(from #ffffff l c h / 0.08); color: #ffffff; }
     .mobile-menu-contact { margin-top: var(--space-4); display: block; text-align: center; font-size: var(--text-sm); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-primary); background: var(--color-accent); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); }
 
-    /* ── HERO ── */
     .hero { position: relative; background: var(--color-primary); overflow: hidden; min-height: clamp(480px, 60vh, 680px); display: flex; align-items: center; }
     .hero-bg-grid { position: absolute; inset: 0; background-image: linear-gradient(oklch(from #ffffff l c h / 0.03) 1px, transparent 1px), linear-gradient(90deg, oklch(from #ffffff l c h / 0.03) 1px, transparent 1px); background-size: 48px 48px; }
     .hero-bg-accent { position: absolute; right: -10%; top: -20%; width: 60%; height: 140%; background: radial-gradient(ellipse at 60% 40%, oklch(from var(--color-primary-mid) l c h / 0.6) 0%, transparent 65%); pointer-events: none; }
@@ -143,50 +136,24 @@
     .stat-value span { color: var(--color-accent); }
     .stat-label { font-size: var(--text-xs); color: oklch(from #ffffff l c h / 0.50); letter-spacing: 0.04em; line-height: 1.3; }
 
-    /* ── PRODUCT LINES ── */
     .products-section { padding-block: clamp(var(--space-16), 6vw, var(--space-24)); background: var(--color-bg); }
     .section-header { margin-bottom: var(--space-12); }
     .section-eyebrow { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent); margin-bottom: var(--space-3); }
     .section-title { font-size: var(--text-xl); font-weight: 700; color: var(--color-text); letter-spacing: -0.01em; margin-bottom: var(--space-3); }
     .section-subtitle { font-size: var(--text-base); color: var(--color-text-muted); max-width: 55ch; }
-
-    /* Bento grid: 3 top cards + 1 wide card below */
     .products-bento { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: auto auto; gap: var(--space-4); }
-
-    /* ── PVC CARDS (1–3): deep bronze/copper gradient ── */
-    .product-card {
-      border-radius: var(--radius-xl); padding: var(--space-8);
-      display: flex; flex-direction: column; gap: var(--space-4);
-      transition: box-shadow var(--transition), transform var(--transition);
-      position: relative; overflow: hidden;
-    }
-    /* Cards 1–3: bronze gradient with light border highlight */
-    .product-card:not(.product-card--wide) {
-      background: linear-gradient(135deg, var(--color-bronze-dark) 0%, var(--color-bronze) 100%);
-      border: 1px solid rgba(255,255,255,0.10);
-    }
+    .product-card { border-radius: var(--radius-xl); padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-4); transition: box-shadow var(--transition), transform var(--transition); position: relative; overflow: hidden; }
+    .product-card:not(.product-card--wide) { background: linear-gradient(135deg, var(--color-bronze-dark) 0%, var(--color-bronze) 100%); border: 1px solid rgba(255,255,255,0.10); }
     .product-card:not(.product-card--wide):hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
-    /* Subtle top shine line on hover */
-    .product-card:not(.product-card--wide)::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: var(--color-gold-light); border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-      opacity: 0; transition: opacity var(--transition);
-    }
+    .product-card:not(.product-card--wide)::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--color-gold-light); border-radius: var(--radius-xl) var(--radius-xl) 0 0; opacity: 0; transition: opacity var(--transition); }
     .product-card:not(.product-card--wide):hover::before { opacity: 1; }
-    /* Text colors inside bronze cards */
     .product-card:not(.product-card--wide) .product-num { color: rgba(255,255,255,0.30); }
     .product-card:not(.product-card--wide) .product-icon { background: rgba(255,255,255,0.10); color: var(--color-gold-light); }
     .product-card:not(.product-card--wide) .product-name { color: #ffffff; }
     .product-card:not(.product-card--wide) .product-desc { color: rgba(255,255,255,0.65); }
     .product-card:not(.product-card--wide) .tag { background: rgba(255,255,255,0.10); color: rgba(255,255,255,0.75); border: 1px solid rgba(255,255,255,0.15); }
     .product-card:not(.product-card--wide) .product-link { color: var(--color-gold-light); }
-
-    /* Wide card (carbon black): deep navy */
-    .product-card--wide {
-      grid-column: 1 / -1; flex-direction: row; align-items: flex-start; gap: var(--space-10);
-      background: linear-gradient(135deg, var(--color-primary-active) 0%, var(--color-primary) 100%);
-      border: 1px solid oklch(from #ffffff l c h / 0.08);
-    }
+    .product-card--wide { grid-column: 1 / -1; flex-direction: row; align-items: flex-start; gap: var(--space-10); background: linear-gradient(135deg, var(--color-primary-active) 0%, var(--color-primary) 100%); border: 1px solid oklch(from #ffffff l c h / 0.08); }
     .product-card--wide::before { display: none; }
     .product-card--wide .product-card-body { flex: 1; }
     .product-card--wide .product-card-tags { margin-top: auto; }
@@ -196,7 +163,6 @@
     .product-card--wide .product-desc { color: oklch(from #ffffff l c h / 0.60); }
     .product-card--wide .product-link { color: var(--color-accent); margin-top: var(--space-5); }
     .product-card--wide:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
-
     .product-num { font-family: var(--font-display); font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
     .product-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-lg); flex-shrink: 0; }
     .product-name { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 700; letter-spacing: 0.01em; line-height: 1.2; }
@@ -214,7 +180,6 @@
     .kpi-dot { width: 8px; height: 8px; border-radius: var(--radius-full); background: var(--color-accent); flex-shrink: 0; }
     .kpi-text { font-size: var(--text-xs); color: oklch(from #ffffff l c h / 0.65); line-height: 1.3; }
 
-    /* ── WHY CHOOSE US ── */
     .why-section { padding-block: clamp(var(--space-12), 5vw, var(--space-20)); background: var(--color-primary); }
     .why-inner { max-width: var(--content-default); margin-inline: auto; padding-inline: var(--space-6); }
     .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
@@ -224,7 +189,6 @@
     .why-title { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; color: #ffffff; letter-spacing: 0.01em; padding-top: var(--space-1); }
     .why-desc { font-size: var(--text-sm); color: oklch(from #ffffff l c h / 0.55); line-height: 1.65; padding-left: calc(var(--space-4) + 2ch); }
 
-    /* ── CTA STRIP ── */
     .cta-section { padding-block: clamp(var(--space-12), 4vw, var(--space-16)); background: var(--color-accent); }
     .cta-inner { max-width: var(--content-default); margin-inline: auto; padding-inline: var(--space-6); display: flex; align-items: center; justify-content: space-between; gap: var(--space-8); }
     .cta-text h2 { font-size: var(--text-xl); font-weight: 700; color: var(--color-primary); letter-spacing: -0.01em; margin-bottom: var(--space-2); }
@@ -232,27 +196,24 @@
     .cta-btn { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #ffffff; background: var(--color-primary); padding: var(--space-4) var(--space-8); border-radius: var(--radius-md); white-space: nowrap; flex-shrink: 0; }
     .cta-btn:hover { opacity: 0.85; }
 
-    /* FOOTER */
-.footer { background: #0a1e3c; padding-block: var(--space-10) var(--space-8); border-top: 1px solid oklch(from #ffffff l c h / 0.06); }
-.footer-inner { max-width: var(--content-wide); margin-inline: auto; padding-inline: var(--space-6); }
-.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: var(--space-8); margin-bottom: var(--space-10); }
-.footer-brand p { font-size: var(--text-sm); color: oklch(from #ffffff l c h / 0.45); max-width: 30ch; margin-top: var(--space-3); line-height: 1.65; }
-.footer-col h4 { font-family: var(--font-display); font-size: var(--text-sm); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #C8860A; margin-bottom: var(--space-4); }
-.footer-links { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); }
-.footer-links a { font-size: var(--text-sm); color: oklch(from #ffffff l c h / 0.55); transition: color var(--transition); }
-.footer-links a:hover { color: #ffffff; }
-.footer-contact-item { display: flex; gap: 0.65rem; align-items: flex-start; margin-bottom: 0.85rem; }
-.footer-contact-item svg { flex-shrink: 0; margin-top: 2px; color: #C8860A; opacity: 0.8; }
-.footer-contact-item span { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
-.footer-divider { border: none; border-top: 1px solid oklch(from #ffffff l c h / 0.06); margin-bottom: var(--space-6); }
-.footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); }
-.footer-copy { font-size: var(--text-xs); color: oklch(from #ffffff l c h / 0.30); }
-.footer-bottom-links { display: flex; gap: var(--space-6); }
-.footer-bottom-links a { font-size: var(--text-xs); color: oklch(from #ffffff l c h / 0.30); transition: color var(--transition); }
-.footer-bottom-links a:hover { color: oklch(from #ffffff l c h / 0.65); }
-@media (max-width: 1024px) { .footer-top { grid-template-columns: 1fr 1fr; gap: var(--space-6); } }
-@media (max-width: 768px) { .footer-top { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; text-align: center; } }
-    /* ── RESPONSIVE ── */
+    .footer { background: #0a1e3c; padding-block: var(--space-10) var(--space-8); border-top: 1px solid oklch(from #ffffff l c h / 0.06); }
+    .footer-inner { max-width: var(--content-wide); margin-inline: auto; padding-inline: var(--space-6); }
+    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: var(--space-8); margin-bottom: var(--space-10); }
+    .footer-brand p { font-size: var(--text-sm); color: oklch(from #ffffff l c h / 0.45); max-width: 30ch; margin-top: var(--space-3); line-height: 1.65; }
+    .footer-col h4 { font-family: var(--font-display); font-size: var(--text-sm); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #C8860A; margin-bottom: var(--space-4); }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); }
+    .footer-links a { font-size: var(--text-sm); color: oklch(from #ffffff l c h / 0.55); transition: color var(--transition); }
+    .footer-links a:hover { color: #ffffff; }
+    .footer-contact-item { display: flex; gap: 0.65rem; align-items: flex-start; margin-bottom: 0.85rem; }
+    .footer-contact-item svg { flex-shrink: 0; margin-top: 2px; color: #C8860A; opacity: 0.8; }
+    .footer-contact-item span { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+    .footer-divider { border: none; border-top: 1px solid oklch(from #ffffff l c h / 0.06); margin-bottom: var(--space-6); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); }
+    .footer-copy { font-size: var(--text-xs); color: oklch(from #ffffff l c h / 0.30); }
+    .footer-bottom-links { display: flex; gap: var(--space-6); }
+    .footer-bottom-links a { font-size: var(--text-xs); color: oklch(from #ffffff l c h / 0.30); transition: color var(--transition); }
+    .footer-bottom-links a:hover { color: oklch(from #ffffff l c h / 0.65); }
+
     @media (max-width: 1024px) {
       .hero-inner { grid-template-columns: 1fr; gap: var(--space-10); }
       .hero-stats { grid-template-columns: repeat(4, 1fr); max-width: 560px; }
@@ -285,39 +246,33 @@
 <body>
 <a href="#main" class="sr-only">Skip to content</a>
 
-<!-- ══ NAVIGATION ══ -->
+<!-- NAV -->
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo" aria-label="Balance Industry Group home">
-      <svg class="nav-logo-mark" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <svg class="nav-logo-mark" viewBox="0 0 30 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
-          <!-- Left half clip: shows white on left side of B -->
           <clipPath id="clip-left">
-            <rect x="0" y="0" width="18" height="36"/>
+            <rect x="0" y="0" width="15" height="40"/>
           </clipPath>
-          <!-- Right half clip: shows gold on right side of B -->
           <clipPath id="clip-right">
-            <rect x="18" y="0" width="18" height="36"/>
+            <rect x="15" y="0" width="15" height="40"/>
           </clipPath>
         </defs>
-        <!-- White left half of B -->
-        <text x="5" y="29" font-family="Georgia,Times New Roman,serif" font-size="28" font-weight="700" fill="#ffffff" clip-path="url(#clip-left)">B</text>
-        <!-- Gold right half of B -->
-        <text x="5" y="29" font-family="Georgia,Times New Roman,serif" font-size="28" font-weight="700" fill="#C8860A" clip-path="url(#clip-right)">B</text>
+        <text x="0" y="30" font-family="Georgia,Times New Roman,serif" font-size="40" font-weight="700" fill="#ffffff" clip-path="url(#clip-left)">B</text>
+        <text x="0" y="30" font-family="Georgia,Times New Roman,serif" font-size="40" font-weight="700" fill="#C8860A" clip-path="url(#clip-right)">B</text>
       </svg>
       <div class="nav-logo-text">
         <span class="nav-logo-name">Balance Industry</span>
         <span class="nav-logo-sub" style="color:#C8860A;font-family:'Barlow Condensed',Arial Narrow,sans-serif;letter-spacing:0.06em;">Group Co., Limited</span>
       </div>
     </a>
-
     <ul class="nav-links" role="list">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="products.html">Products</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-
     <div class="nav-actions">
       <a href="contact.html" class="nav-contact-btn">Get a Quote</a>
       <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
@@ -340,8 +295,7 @@
   <a href="contact.html" class="mobile-menu-contact">Get a Quote</a>
 </div>
 
-
-<!-- ══ HERO ══ -->
+<!-- HERO -->
 <main id="main">
 <section class="hero" aria-label="Hero">
   <div class="hero-bg-grid" aria-hidden="true"></div>
@@ -383,8 +337,7 @@
   </div>
 </section>
 
-
-<!-- ══ PRODUCT LINES ══ -->
+<!-- PRODUCT LINES -->
 <section class="products-section" aria-label="Product lines">
   <div class="container">
     <div class="section-header">
@@ -393,12 +346,10 @@
       <p class="section-subtitle">From commodity PVC resins to high-purity conductive carbon black — engineered through factory-direct partnerships where we hold formulation authority, production oversight, and the ability to deliver custom grades on specification.</p>
     </div>
     <div class="products-bento" role="list">
-
-      <!-- Card 1: PVC Resin -->
       <article class="product-card" role="listitem">
         <div class="product-num">01</div>
         <div class="product-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3h18v4H3z"/><path d="M3 11h18v4H3z"/><path d="M3 19h18v2H3z"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v4H3z"/><path d="M3 11h18v4H3z"/><path d="M3 19h18v2H3z"/></svg>
         </div>
         <div class="product-name">PVC Resin</div>
         <p class="product-desc">Suspension-grade PVC for pipe, cable, and profile extrusion. Available in multiple K-value grades with consistent molecular weight distribution.</p>
@@ -407,17 +358,12 @@
           <span class="tag">Cable Compounds</span>
           <span class="tag">Profiles</span>
         </div>
-        <a href="products.html" class="product-link">
-          Specifications
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <a href="products.html" class="product-link">Specifications <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </article>
-
-      <!-- Card 2: PVC Paste Resin -->
       <article class="product-card" role="listitem">
         <div class="product-num">02</div>
         <div class="product-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg>
         </div>
         <div class="product-name">PVC Paste Resin</div>
         <p class="product-desc">Emulsion-process paste resin for coating, dipping, and foam applications. Excellent viscosity stability for synthetic leather, gloves, and wallcoverings.</p>
@@ -426,17 +372,12 @@
           <span class="tag">Vinyl Gloves</span>
           <span class="tag">Flooring</span>
         </div>
-        <a href="products.html" class="product-link">
-          Specifications
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <a href="products.html" class="product-link">Specifications <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </article>
-
-      <!-- Card 3: Plasticizers -->
       <article class="product-card" role="listitem">
         <div class="product-num">03</div>
         <div class="product-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 3H5a2 2 0 00-2 2v14a2 2 0 002 2h3M16 3h3a2 2 0 012 2v14a2 2 0 01-2 2h-3"/><path d="M12 8v8M9 11h6"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 00-2 2v14a2 2 0 002 2h3M16 3h3a2 2 0 012 2v14a2 2 0 01-2 2h-3"/><path d="M12 8v8M9 11h6"/></svg>
         </div>
         <div class="product-name">Plasticizers</div>
         <p class="product-desc">General-purpose and eco-friendly plasticizers including DOP, DOTP, and DINP. Optimises PVC flexibility, durability, and thermal stability for demanding applications.</p>
@@ -445,18 +386,13 @@
           <span class="tag">PVC Films</span>
           <span class="tag">Wire &amp; Cable</span>
         </div>
-        <a href="products.html" class="product-link">
-          Specifications
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <a href="products.html" class="product-link">Specifications <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </article>
-
-      <!-- Card 4: Acetylene Carbon Black — WIDE, deep navy -->
       <article class="product-card product-card--wide" role="listitem">
         <div class="product-card-body">
           <div class="product-num">04 &nbsp;—&nbsp; New Product Line</div>
           <div class="product-icon" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
           </div>
           <div class="product-name">Acetylene Carbon Black</div>
           <p class="product-desc" style="max-width:52ch">High-purity conductive carbon black manufactured via controlled exothermic decomposition of acetylene gas. Ultra-low ash content, 3D chain-like structure, and exceptional liquid absorption — engineered for lithium batteries, lead-acid cells, and conductive polymer compounds.</p>
@@ -467,10 +403,7 @@
             <span class="tag tag--white">Cable Shielding</span>
             <span class="tag tag--white">Conductive Plastics</span>
           </div>
-          <a href="products.html" class="product-link">
-            Request TDS &amp; Sample
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          <a href="products.html" class="product-link">Request TDS &amp; Sample <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
         <div class="product-card-kpis" aria-label="Key performance indicators">
           <div class="kpi-pill"><span class="kpi-dot"></span><span class="kpi-text">Superior electrical &amp;<br>thermal conductivity</span></div>
@@ -479,13 +412,11 @@
           <div class="kpi-pill"><span class="kpi-dot"></span><span class="kpi-text">Batch-to-batch<br>consistency guaranteed</span></div>
         </div>
       </article>
-
     </div>
   </div>
 </section>
 
-
-<!-- ══ WHY CHOOSE US ══ -->
+<!-- WHY CHOOSE US -->
 <section class="why-section" aria-label="Why choose Balance Industry Group">
   <div class="why-inner">
     <div class="section-header" style="color:#fff">
@@ -513,8 +444,7 @@
   </div>
 </section>
 
-
-<!-- ══ CTA STRIP ══ -->
+<!-- CTA STRIP -->
 <section class="cta-section" aria-label="Contact call to action">
   <div class="cta-inner">
     <div class="cta-text">
@@ -523,30 +453,29 @@
     </div>
     <a href="contact.html" class="cta-btn">
       Contact Us Now
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
   </div>
 </section>
 </main>
-
 
 <!-- FOOTER -->
 <footer class="footer" role="contentinfo">
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="index.html" class="nav-logo" style="filter: brightness(0.8); margin-bottom: 0.75rem; display:inline-flex;">
-          <svg width="30" height="30" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <a href="index.html" class="nav-logo" style="filter:brightness(0.8);margin-bottom:0.75rem;display:inline-flex;">
+          <svg class="nav-logo-mark" viewBox="0 0 30 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs>
               <clipPath id="clip-left-f">
-                <rect x="0" y="0" width="18" height="36"/>
+                <rect x="0" y="0" width="15" height="40"/>
               </clipPath>
               <clipPath id="clip-right-f">
-                <rect x="18" y="0" width="18" height="36"/>
+                <rect x="15" y="0" width="15" height="40"/>
               </clipPath>
             </defs>
-            <text x="5" y="29" font-family="Georgia,Times New Roman,serif" font-size="28" font-weight="700" fill="#ffffff" clip-path="url(#clip-left-f)">B</text>
-            <text x="5" y="29" font-family="Georgia,Times New Roman,serif" font-size="28" font-weight="700" fill="#C8860A" clip-path="url(#clip-right-f)">B</text>
+            <text x="0" y="30" font-family="Georgia,Times New Roman,serif" font-size="40" font-weight="700" fill="#ffffff" clip-path="url(#clip-left-f)">B</text>
+            <text x="0" y="30" font-family="Georgia,Times New Roman,serif" font-size="40" font-weight="700" fill="#C8860A" clip-path="url(#clip-right-f)">B</text>
           </svg>
           <div class="nav-logo-text">
             <span class="nav-logo-name">Balance Industry</span>
@@ -555,7 +484,6 @@
         </a>
         <p>Reliable chemical raw material supplier to global manufacturers. Quality. Consistency. Partnership.</p>
       </div>
-
       <div class="footer-col">
         <h4>Products</h4>
         <ul class="footer-links">
@@ -565,7 +493,6 @@
           <li><a href="products.html">Acetylene Carbon Black</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
         <h4>Company</h4>
         <ul class="footer-links">
@@ -574,23 +501,19 @@
           <li><a href="contact.html">Request a Quote</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
         <h4>Get In Touch</h4>
         <div class="footer-contact-item">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5"/></svg>
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5"/></svg>
           <span><a href="mailto:export@balanceindustrygrp.com" style="color:inherit">export@balanceindustrygrp.com</a></span>
         </div>
-
         <div class="footer-contact-item">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <span>NO. 6, Suoling Road, Zhengzhou, China</span>
         </div>
       </div>
     </div>
-
     <hr class="footer-divider">
-
     <div class="footer-bottom">
       <p class="footer-copy">&copy; 2026 Balance Industry Group Co., Limited. All rights reserved.</p>
       <div class="footer-bottom-links">
@@ -600,41 +523,40 @@
     </div>
   </div>
 </footer>
-<script>
-  // Mobile burger
-  (function(){
-    const burger = document.getElementById('burger');
-    const menu = document.getElementById('mobile-menu');
-    burger.addEventListener('click', function(){
-      const open = menu.classList.toggle('open');
-      burger.setAttribute('aria-expanded', open);
-      menu.setAttribute('aria-hidden', !open);
-    });
-    document.addEventListener('click', function(e){
-      if (!menu.contains(e.target) && !burger.contains(e.target)) {
-        menu.classList.remove('open');
-        burger.setAttribute('aria-expanded','false');
-        menu.setAttribute('aria-hidden','true');
-      }
-    });
-  })();
 
-  // Theme toggle
-  (function(){
-    const t = document.querySelector('[data-theme-toggle]');
-    const r = document.documentElement;
-    let d = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
-    r.setAttribute('data-theme', d);
-    function setIcon(theme){
-      if (!t) return;
-      t.setAttribute('aria-label','Switch to '+(theme==='dark'?'light':'dark')+' mode');
-      t.innerHTML = theme==='dark'
-        ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
-        : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+<script>
+(function(){
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('mobile-menu');
+  burger.addEventListener('click', function(){
+    const open = menu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+    menu.setAttribute('aria-hidden', !open);
+  });
+  document.addEventListener('click', function(e){
+    if (!menu.contains(e.target) && !burger.contains(e.target)) {
+      menu.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+      menu.setAttribute('aria-hidden','true');
     }
-    setIcon(d);
-    t && t.addEventListener('click', function(){ d=d==='dark'?'light':'dark'; r.setAttribute('data-theme',d); setIcon(d); });
-  })();
+  });
+})();
+
+(function(){
+  const t = document.querySelector('[data-theme-toggle]');
+  const r = document.documentElement;
+  let d = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+  r.setAttribute('data-theme', d);
+  function setIcon(theme){
+    if (!t) return;
+    t.setAttribute('aria-label','Switch to '+(theme==='dark'?'light':'dark')+' mode');
+    t.innerHTML = theme==='dark'
+      ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+      : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  }
+  setIcon(d);
+  t && t.addEventListener('click', function(){ d=d==='dark'?'light':'dark'; r.setAttribute('data-theme',d); setIcon(d); });
+})();
 </script>
 </body>
 </html>
