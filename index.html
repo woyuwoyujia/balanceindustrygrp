@@ -289,16 +289,25 @@
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo" aria-label="Balance Industry Group home">
-      <svg class="nav-logo-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-        <rect width="36" height="36" rx="6" fill="rgba(255,255,255,0.08)"/>
-        <rect x="8" y="8" width="5" height="20" rx="1.5" fill="#ffffff"/>
-        <rect x="13" y="8" width="10" height="8.5" rx="4.25" fill="none" stroke="#ffffff" stroke-width="2"/>
-        <rect x="13" y="19.5" width="11" height="8.5" rx="4.25" fill="none" stroke="#C8860A" stroke-width="2"/>
-        <rect x="8" y="16.75" width="13" height="2.5" fill="#C8860A" opacity="0.5"/>
+      <svg class="nav-logo-mark" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <!-- Left half clip: shows white on left side of B -->
+          <clipPath id="clip-left">
+            <rect x="0" y="0" width="18" height="36"/>
+          </clipPath>
+          <!-- Right half clip: shows gold on right side of B -->
+          <clipPath id="clip-right">
+            <rect x="18" y="0" width="18" height="36"/>
+          </clipPath>
+        </defs>
+        <!-- White left half of B -->
+        <text x="5" y="29" font-family="Georgia,Times New Roman,serif" font-size="28" font-weight="700" fill="#ffffff" clip-path="url(#clip-left)">B</text>
+        <!-- Gold right half of B -->
+        <text x="5" y="29" font-family="Georgia,Times New Roman,serif" font-size="28" font-weight="700" fill="#C8860A" clip-path="url(#clip-right)">B</text>
       </svg>
       <div class="nav-logo-text">
         <span class="nav-logo-name">Balance Industry</span>
-        <span class="nav-logo-sub">Group Co., Limited</span>
+        <span class="nav-logo-sub" style="color:#C8860A;font-family:'Barlow Condensed',Arial Narrow,sans-serif;letter-spacing:0.06em;">Group Co., Limited</span>
       </div>
     </a>
 
@@ -527,16 +536,21 @@
     <div class="footer-top">
       <div class="footer-brand">
         <a href="index.html" class="nav-logo" style="filter: brightness(0.8); margin-bottom: 0.75rem; display:inline-flex;">
-          <svg width="30" height="30" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-            <rect width="36" height="36" rx="6" fill="rgba(255,255,255,0.06)"/>
-            <rect x="8" y="8" width="5" height="20" rx="1.5" fill="#ffffff"/>
-            <rect x="13" y="8" width="10" height="8.5" rx="4.25" fill="none" stroke="#ffffff" stroke-width="2"/>
-            <rect x="13" y="19.5" width="11" height="8.5" rx="4.25" fill="none" stroke="#C8860A" stroke-width="2"/>
-            <rect x="8" y="16.75" width="13" height="2.5" fill="#C8860A" opacity="0.4"/>
+          <svg width="30" height="30" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <clipPath id="clip-left-f">
+                <rect x="0" y="0" width="18" height="36"/>
+              </clipPath>
+              <clipPath id="clip-right-f">
+                <rect x="18" y="0" width="18" height="36"/>
+              </clipPath>
+            </defs>
+            <text x="5" y="29" font-family="Georgia,Times New Roman,serif" font-size="28" font-weight="700" fill="#ffffff" clip-path="url(#clip-left-f)">B</text>
+            <text x="5" y="29" font-family="Georgia,Times New Roman,serif" font-size="28" font-weight="700" fill="#C8860A" clip-path="url(#clip-right-f)">B</text>
           </svg>
           <div class="nav-logo-text">
             <span class="nav-logo-name">Balance Industry</span>
-            <span class="nav-logo-sub">Group Co., Limited</span>
+            <span class="nav-logo-sub" style="color:#C8860A;font-family:'Barlow Condensed',Arial Narrow,sans-serif;letter-spacing:0.06em;">Group Co., Limited</span>
           </div>
         </a>
         <p>Reliable chemical raw material supplier to global manufacturers. Quality. Consistency. Partnership.</p>
