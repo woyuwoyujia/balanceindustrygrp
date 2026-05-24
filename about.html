@@ -193,13 +193,17 @@
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo" aria-label="Balance Industry Group home">
-      <svg class="nav-logo-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-        <rect x="8" y="7.5" width="7" height="1.8" rx="0.4" fill="#ffffff"/>
-        <rect x="8" y="26.7" width="7" height="1.8" rx="0.4" fill="#ffffff"/>
-        <rect x="8" y="17.1" width="6" height="1.5" rx="0.4" fill="#ffffff"/>
-        <rect x="9.5" y="9.3" width="3.2" height="17.4" rx="0.3" fill="#ffffff"/>
-        <path d="M12.7 9.3 Q22 9.3 26 13.9 Q26 18.6 22 18.6 L12.7 18.6 Z" fill="#C8860A"/>
-        <path d="M12.7 18.6 L23 18.6 Q27.5 18.6 27.5 23.7 Q27.5 28.5 23 28.5 L12.7 28.5 Z" fill="#C8860A"/>
+      <svg class="nav-logo-mark" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <clipPath id="clip-left">
+            <rect x="0" y="0" width="18" height="36"/>
+          </clipPath>
+          <clipPath id="clip-right">
+            <rect x="18" y="0" width="18" height="36"/>
+          </clipPath>
+        </defs>
+        <text x="5" y="29" font-family="Georgia,Times New Roman,serif" font-size="28" font-weight="700" fill="#ffffff" clip-path="url(#clip-left)">B</text>
+        <text x="5" y="29" font-family="Georgia,Times New Roman,serif" font-size="28" font-weight="700" fill="#C8860A" clip-path="url(#clip-right)">B</text>
       </svg>
       <div class="nav-logo-text">
         <span class="nav-logo-name">Balance Industry</span>
