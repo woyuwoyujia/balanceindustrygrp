@@ -129,14 +129,22 @@
     .spec-card-tab.active{color:var(--navy);border-bottom-color:var(--gold);background:var(--white)}
     .spec-panel{display:none}
     .spec-panel.active{display:block}
+    
+    /* 核心修改：表格居中对齐逻辑 */
     .spec-table{width:100%;border-collapse:collapse}
-    .spec-table th{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);background:var(--off-white2);padding:.55rem 1.25rem;text-align:left;border-bottom:1px solid var(--border)}
-    .spec-table td{font-size:.84rem;padding:.65rem 1.25rem;border-bottom:1px solid var(--border);vertical-align:top;text-align:left}
+    .spec-table th{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);background:var(--off-white2);padding:.55rem 1.25rem;text-align:center;border-bottom:1px solid var(--border)}
+    .spec-table td{font-size:.84rem;padding:.65rem 1.25rem;border-bottom:1px solid var(--border);vertical-align:middle;text-align:center}
+    /* 强制第一列（参数名称）左对齐，增强扫视可读性 */
+    .spec-table th:first-child,
+    .spec-table td:first-child{text-align:left;}
+
+    /* 糊树脂专属固定列宽 */
     #c2-spec .spec-table{table-layout:fixed}
     #c2-spec .spec-table th,
-    #c2-spec .spec-table td{text-align:center;white-space:nowrap}
+    #c2-spec .spec-table td{white-space:nowrap}
     #c2-spec .spec-table th:first-child,
-    #c2-spec .spec-table td:first-child{white-space:normal;width:38%}
+    #c2-spec .spec-table td:first-child{white-space:normal;width:35%}
+    
     .spec-table tr:last-child td{border-bottom:none}
     .spec-table tr:hover td{background:rgba(13,44,84,0.018)}
     .spec-name{font-weight:600;color:var(--text-main)}
@@ -313,11 +321,11 @@
         <h2 class="product-title">PVC Resin</h2>
         <div class="product-subtitle">Polyvinyl Chloride — Suspension Polymerization</div>
         <div class="grade-pills">
-  <span class="grade-pill">K58</span>
-  <span class="grade-pill">K67</span>
-  <span class="grade-pill">K70</span>
-  <span class="grade-pill">K72</span>
-</div>
+          <span class="grade-pill">K58</span>
+          <span class="grade-pill">K67</span>
+          <span class="grade-pill">K70</span>
+          <span class="grade-pill">K72</span>
+        </div>
       </div>
       <div class="product-actions reveal reveal-delay-2" style="margin-top:0;align-self:center">
         <a href="contact.html" class="btn-primary">Request TDS <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
@@ -327,9 +335,9 @@
     <div class="product-body">
       <div class="reveal reveal-delay-1">
         <div class="product-desc">
-  <p>Suspension-polymerized PVC Resin supplied through our long-term factory partnerships. Each grade is defined by its K-value — a direct measure of average molecular weight — which governs processability, mechanical strength, and end-use suitability.</p>
-  <p>Available in 25 kg woven bags or 1,000 kg jumbo bags. Standard load per FCL: 18 MT (20' container) or 26 MT (40' container). Full Certificate of Analysis (COA) and MSDS are provided with every shipment.</p>
-</div>
+          <p>Suspension-polymerized PVC Resin supplied through our long-term factory partnerships. Each grade is defined by its K-value — a direct measure of average molecular weight — which governs processability, mechanical strength, and end-use suitability.</p>
+          <p>Available in 25 kg woven bags or 1,000 kg jumbo bags. Standard load per FCL: 18 MT (20' container) or 26 MT (40' container). Full Certificate of Analysis (COA) and MSDS are provided with every shipment.</p>
+        </div>
       </div>
       <div class="reveal reveal-delay-2">
         <div class="spec-card">
@@ -337,7 +345,7 @@
             <button class="spec-card-tab active" data-card="c1" data-panel="spec">Specifications</button>
             <button class="spec-card-tab" data-card="c1" data-panel="apps">Applications</button>
           </div>
-                    <div class="spec-panel active" id="c1-spec">
+          <div class="spec-panel active" id="c1-spec">
             <table class="spec-table">
               <thead>
                 <tr>
@@ -411,12 +419,12 @@
         <div class="product-label">Emulsion / Micro-Suspension Grade</div>
         <h2 class="product-title">PVC Paste Resin</h2>
         <div class="product-subtitle">Plastisol &amp; Organosol Applications</div>
-<div class="grade-pills">
-  <span class="grade-pill">Low Viscosity</span>
-  <span class="grade-pill">Medium Viscosity</span>
-  <span class="grade-pill">High Viscosity</span>
-  <span class="grade-pill">Custom Formulation</span>
-</div>
+        <div class="grade-pills">
+          <span class="grade-pill">Low Viscosity</span>
+          <span class="grade-pill">Medium Viscosity</span>
+          <span class="grade-pill">High Viscosity</span>
+          <span class="grade-pill">Custom Formulation</span>
+        </div>
       </div>
       <div class="product-actions reveal reveal-delay-2" style="margin-top:0;align-self:center">
         <a href="contact.html" class="btn-primary">Request TDS <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
@@ -427,7 +435,7 @@
       <div class="reveal reveal-delay-1">
         <div class="product-desc">
           <p>Emulsion-process and micro-suspension PVC paste resin engineered for plastisol and organosol applications. Ultra-fine particle size distribution ensures smooth paste formation, excellent viscosity stability, and consistent film quality across coating and dipping operations.</p>
-<p>Our factory partnerships allow us to align the viscosity grade and particle size profile to your specific formulation requirements — not just ship a standard product off the shelf. Basic compatibility data with common plasticizers such as DOTP, DINP and DOP can be provided upon request. </p>
+          <p>Our factory partnerships allow us to align the viscosity grade and particle size profile to your specific formulation requirements — not just ship a standard product off the shelf. Basic compatibility data with common plasticizers such as DOTP, DINP and DOP can be provided upon request. </p>
         </div>
       </div>
       <div class="reveal reveal-delay-2">
@@ -437,43 +445,43 @@
             <button class="spec-card-tab" data-card="c2" data-panel="apps">Applications</button>
           </div>
           <div class="spec-panel active" id="c2-spec">
-  <table class="spec-table">
-    <thead>
-      <tr>
-        <th>Parameter</th>
-        <th>Low Viscosity</th>
-        <th>Medium Viscosity</th>
-        <th>High Viscosity</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="spec-name">Polymerization Degree</td>
-        <td class="spec-value">800–1,100</td>
-        <td class="spec-value">1,200–1,500</td>
-        <td class="spec-value">1,600–1,800</td>
-      </tr>
-      <tr>
-        <td class="spec-name">B-type Viscosity (30°C)</td>
-        <td class="spec-value">1,000–3,000 mPa·s</td>
-        <td class="spec-value">1,000–4,500 mPa·s</td>
-        <td class="spec-value">1,000–7,500 mPa·s</td>
-      </tr>
-      <tr>
-        <td class="spec-name">Bulk Density</td>
-        <td class="spec-value" colspan="3">0.20–0.40 g/cm³</td>
-      </tr>
-      <tr>
-        <td class="spec-name">Volatile Content</td>
-        <td class="spec-value" colspan="3">≤ 0.50%</td>
-      </tr>
-      <tr>
-        <td class="spec-name">VCM Residue</td>
-        <td class="spec-value" colspan="3">≤ 5.0 mg/kg</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+            <table class="spec-table">
+              <thead>
+                <tr>
+                  <th>Parameter</th>
+                  <th>Low Viscosity</th>
+                  <th>Medium Viscosity</th>
+                  <th>High Viscosity</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="spec-name">Polymerization Degree</td>
+                  <td class="spec-value">800–1,100</td>
+                  <td class="spec-value">1,200–1,500</td>
+                  <td class="spec-value">1,600–1,800</td>
+                </tr>
+                <tr>
+                  <td class="spec-name">B-type Viscosity (30°C)</td>
+                  <td class="spec-value">1,000–3,000 mPa·s</td>
+                  <td class="spec-value">1,000–4,500 mPa·s</td>
+                  <td class="spec-value">1,000–7,500 mPa·s</td>
+                </tr>
+                <tr>
+                  <td class="spec-name">Bulk Density</td>
+                  <td class="spec-value" colspan="3">0.20–0.40 g/cm³</td>
+                </tr>
+                <tr>
+                  <td class="spec-name">Volatile Content</td>
+                  <td class="spec-value" colspan="3">≤ 0.50%</td>
+                </tr>
+                <tr>
+                  <td class="spec-name">VCM Residue</td>
+                  <td class="spec-value" colspan="3">≤ 5.0 mg/kg</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <div class="spec-panel" id="c2-apps">
             <div class="apps-panel-inner">
               <div class="apps-grid">
@@ -585,10 +593,10 @@
         <h2 class="product-title">Acetylene Carbon Black</h2>
         <div class="product-subtitle">Controlled Exothermic Decomposition Process</div>
         <div class="grade-pills">
-  <span class="grade-pill">Powder Form</span>
-<span class="grade-pill">Granular Form</span>
-<span class="grade-pill">Standard & Premium</span>
-</div>
+          <span class="grade-pill">Powder Form</span>
+          <span class="grade-pill">Granular Form</span>
+          <span class="grade-pill">Standard & Premium</span>
+        </div>
       </div>
       <div class="product-actions reveal reveal-delay-2" style="margin-top:0;align-self:center">
         <a href="contact.html" class="btn-primary">Request TDS &amp; Sample <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
@@ -609,53 +617,53 @@
             <button class="spec-card-tab" data-card="c4" data-panel="apps">Applications</button>
           </div>
           <div class="spec-panel active" id="c4-spec">
-  <table class="spec-table">
-    <thead>
-      <tr>
-        <th>Parameter</th>
-        <th>Standard</th>
-        <th>Premium <span class="spec-badge">High Perf</span></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="spec-name">BET Surface Area</td>
-        <td class="spec-value">80 m²/g</td>
-        <td class="spec-value">140 m²/g</td>
-      </tr>
-      <tr>
-        <td class="spec-name">DBP Absorption</td>
-        <td class="spec-value">256 mL/100g</td>
-        <td class="spec-value">338 mL/100g</td>
-      </tr>
-      <tr>
-        <td class="spec-name">Avg. Particle Size</td>
-        <td class="spec-value">42 nm</td>
-        <td class="spec-value">29 nm</td>
-      </tr>
-      <tr>
-        <td class="spec-name">Crystallinity</td>
-        <td class="spec-value">41%</td>
-        <td class="spec-value">45% <span class="spec-badge">↑</span></td>
-      </tr>
-      <tr>
-        <td class="spec-name">pH Value</td>
-        <td class="spec-value">9.0</td>
-        <td class="spec-value">9.6</td>
-      </tr>
-      <tr>
-        <td class="spec-name">DCP (D50)</td>
-        <td class="spec-value">0.160 μm</td>
-        <td class="spec-value">0.096 μm</td>
-      </tr>
-      <tr>
-        <td class="spec-name">Application</td>
-        <td class="spec-value">General Energy Storage</td>
-        <td class="spec-value">High-Performance Batteries</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+            <table class="spec-table">
+              <thead>
+                <tr>
+                  <th>Parameter</th>
+                  <th>Standard</th>
+                  <th>Premium <span class="spec-badge">High Perf</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="spec-name">BET Surface Area</td>
+                  <td class="spec-value">80 m²/g</td>
+                  <td class="spec-value">140 m²/g</td>
+                </tr>
+                <tr>
+                  <td class="spec-name">DBP Absorption</td>
+                  <td class="spec-value">256 mL/100g</td>
+                  <td class="spec-value">338 mL/100g</td>
+                </tr>
+                <tr>
+                  <td class="spec-name">Avg. Particle Size</td>
+                  <td class="spec-value">42 nm</td>
+                  <td class="spec-value">29 nm</td>
+                </tr>
+                <tr>
+                  <td class="spec-name">Crystallinity</td>
+                  <td class="spec-value">41%</td>
+                  <td class="spec-value">45% <span class="spec-badge">↑</span></td>
+                </tr>
+                <tr>
+                  <td class="spec-name">pH Value</td>
+                  <td class="spec-value">9.0</td>
+                  <td class="spec-value">9.6</td>
+                </tr>
+                <tr>
+                  <td class="spec-name">DCP (D50)</td>
+                  <td class="spec-value">0.160 μm</td>
+                  <td class="spec-value">0.096 μm</td>
+                </tr>
+                <tr>
+                  <td class="spec-name">Application</td>
+                  <td class="spec-value">General Energy Storage</td>
+                  <td class="spec-value">High-Performance Batteries</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <div class="spec-panel" id="c4-apps">
             <div class="apps-panel-inner">
               <div class="apps-grid">
